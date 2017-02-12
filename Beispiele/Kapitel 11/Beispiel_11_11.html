@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Styles bearbeiten mit JavaScript</title>
+    <script>
+        function einfaerben(id, farbe) {
+            if (id && farbe) {
+                var element = document.getElementById(id);
+                if (element) {
+                    /*Die Eigenschaft style eines Elements enthält seine CSS-Eigenschaften. Zum Beispiel background-color.*/
+                    element.style.backgroundColor = farbe;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body id="body">
+<a onclick="einfaerben('body', 'blue');">Blau</a><br>
+<a onclick="einfaerben('body', 'yellow');">Gelb</a><br>
+<a onclick="einfaerben('body', '#DDDDDD');">Grau</a><br>
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

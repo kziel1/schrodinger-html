@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Schrödinger. Monsterjäger.</title>
+    <script>
+        /*Mit dieser Funktion entscheidet Held Schrödinger, ob er ein Monster angreifen, davor wegrennen, oder es ignorieren soll.*/
+        function entscheide() {
+            /*Die benötigten Daten werden aus den Eingabefeldern gelesen. */
+            var meinLevel = parseInt(document.getElementById("mein-level").value);
+            var monsterLevel = parseInt(document.getElementById("monsterlevel").value);
+            var monsterName = document.getElementById("monstername").value;
+            /*Dann wird mit if-else entschieden:*/
+            if (meinLevel + 3 < monsterLevel && monsterName.toLowerCase().indexOf("katze") == -1) {
+                /*Wenn das Monster um mehr als drei Level überlegen ist, ergreif die Flucht.
+                Außer, es ist eine Katze, dann wird nicht weggerannt.*/
+                rennWeg();
+            } else if (meinLevel - 5 <= monsterLevel) {
+                /*Hier ist schon klar, dass das Monster nicht zu hoch ist. Es wird nur noch geprüft, ob es um fünf Level oder mehr kleiner ist als Schrödinger.
+                 Falls nicht, wird angegriffen.*/
+                greifAn();
+            } else {
+                /*Wenn die ersten beiden Fälle nicht zutreffen, dann ist das Monster sehr klein. Ignorier es und such weiter.*/
+                sucheNeuesMonster();
+            }
+        }
+
+        function rennWeg() {
+            alert("Renn weg!");
+        }
+
+        function greifAn() {
+            alert("Greif An!");
+        }
+
+        function sucheNeuesMonster() {
+            alert("Such dir lieber was anderes...");
+        }
+
+
+    </script>
+</head>
+<body>
+<h3>Monsterhunter</h3>
+Mein Level <input type="text" id="mein-level"/><br/>
+Monsterlevel <input type="text" id="monsterlevel"/><br/>
+Monstername <input type="text" id="monstername"/><br/>
+<button type="button" onclick="entscheide();">Klick mich!</button>
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

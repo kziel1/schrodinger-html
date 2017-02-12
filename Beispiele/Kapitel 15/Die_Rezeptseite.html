@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Die Rezeptseite: Backe backe Kuchen</title>
+    <script>
+
+        window.addEventListener("load", init);
+
+        function init() {
+            document.getElementById("datei").addEventListener("change", waehleRezept);
+            document.getElementById("bild").addEventListener("change", waehleBild);
+            document.getElementById("fertig").addEventListener("click", abschliessen);
+            document.getElementById("dateiknopf").addEventListener("click", function () {
+                document.getElementById("datei").click();
+            });
+            document.getElementById("bildknopf").addEventListener("click", function () {
+                document.getElementById("bild").click();
+            });
+        }
+
+        /*Wird ein Rezept ausgewählt, dann wird es geladen, */
+        function waehleRezept(event) {
+            if (event.target.files[0]) {
+                var leser = new FileReader();
+                leser.addEventListener("load", rezeptGeladen);
+                leser.addEventListener("error", zeigeLadefehler);
+                leser.readAsText(event.target.files[0], "UTF-8");
+            }
+        }
+
+        /*Desgleichen für Bilder */
+        function waehleBild(event) {
+            if (event.target.files[0]) {
+                var leser = new FileReader();
+                leser.addEventListener("load", bildGeladen);
+                leser.addEventListener("error", zeigeLadefehler);
+                leser.readAsDataURL(event.target.files[0]);
+            }
+        }
+
+        function zeigeLadefehler(event) {
+            alert("Konnte Datei nicht laden!");
+        }
+
+        /*Ein geladenes Rezept wird dargestellt wie schon zuvor.*/
+        function rezeptGeladen(event) {
+            var rezept = document.getElementById("rezept");
+            var zeilen = event.target.result.split("\n");
+            var title = document.createElement("h1");
+            title.appendChild(document.createTextNode(zeilen[0]));
+            rezept.appendChild(title);
+            title = document.getElementsByTagName("title")[0];
+            while (title.firstChild) title.removeChild(title.firstChild);
+            title.appendChild(document.createTextNode(zeilen[0]));
+            var ausgabe = document.createElement("ul");
+            rezept.appendChild(ausgabe);
+            for (var i = 1; i < zeilen.length; i++) {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(zeilen[i]));
+                ausgabe.appendChild(li);
+            }
+        }
+
+        /*Das Bild zum Rezept gibt es nun auch noch.*/
+        function bildGeladen(event) {
+            var img = document.createElement("img");
+            img.setAttribute("alt", "Kuchen");
+            img.setAttribute("src", event.target.result);
+            document.getElementById("bilder").appendChild(img);
+        }
+
+        /*Und wenn alles fertig ist wird der Eingabebereich sowie alles JavaScript aus der Seite entfernt. Sofort fertig für ins Web zu stelleb.*/
+        function abschliessen() {
+            if (confirm("Wirklich abschliessen?")) {
+                var el = document.getElementById("eingabe");
+                el.parentElement.removeChild(el);
+                el = document.getElementsByTagName("script");
+                while (el.length) {
+                    el[0].parentElement.removeChild(el[0]);
+                }
+            }
+        }
+    </script>
+    <style>
+        #rezept {
+            position: absolute;
+            left: 0;
+            right: 40%;
+            margin: 5px;
+        }
+
+        #bilder {
+            position: absolute;
+            left: 40%;
+            right: 100%;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="eingabe">
+    <h1>Rezepte zu Webseiten</h1>
+
+    <h2>Textdatei auswählen</h2>
+    <input name="datei" id="datei" type="file" accept="text/plain" style="display: none;"/>
+    <button id="dateiknopf">Wähle ein Rezept</button>
+    <h2>Bild auswählen</h2>
+    <input name="bild" id="bild" type="file" accept="image/*" style="display: none;"/>
+    <button id="bildknopf">Wähle ein Bild</button>
+    <h2>Und fertig</h2>
+    <button type="button" id="fertig">Alles Fertig</button>
+</div>
+<div id="rezept"></div>
+<div id="bilder"></div>
+</body>
+</html>

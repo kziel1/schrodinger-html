@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Griff in die Keksdose: Cookies und JavaScript</title>
+    <script>
+        window.addEventListener("load", init);
+
+        function init() {
+            document.getElementById("speichern").addEventListener("click", setzeCookieAusFormular);
+            zeigeCookies();
+        }
+
+        function zeigeCookies() {
+            leereAusgabe();
+            /*Egal, wieviele Cookies gesetzt sind, in document.cookie stehen sie in einem langen String, mit Semikolon getrennt.
+            split nimmt das schnell auseinander.*/
+            var cookies = document.cookie.split(";");
+            var ausgabe = document.getElementById("ausgabe");
+            for (var i = 0; i < cookies.length; i++) {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(cookies[i]));
+                ausgabe.appendChild(li);
+            }
+        }
+
+        /*Diese Funktion ist inzwischen langweilig: mit DOM-Methoden wird das Zielement geleert*/
+        function leereAusgabe() {
+            var ausgabe = document.getElementById("ausgabe");
+            while (ausgabe.firstChild) {
+                ausgabe.removeChild(ausgabe.firstChild);
+            }
+        }
+
+        /*Hier wird ein Cookie aus den Formulareingaben erzeugt.*/
+        function setzeCookieAusFormular() {
+            /*Eingabefelder finden*/
+            var nameFeld = document.getElementById("name");
+            var wertFeld = document.getElementById("wert");
+            /*Werte auslesen*/
+            var name = nameFeld.value;
+            var wert = wertFeld.value;
+            /*Den Cookie setzen*/
+            setzeCookie(name, wert);
+            /*Die Eingabefelder leeren*/
+            nameFeld.value = "";
+            wertFeld.value = "";
+            /*Und die Cookie-Liste wieder anzeigen.*/
+            zeigeCookies();
+        }
+
+        /*Das eigentliche Cookie setzen passiert hier.*/
+        function setzeCookie(name, wert) {
+            /*Wenn Name und Wert gültig sind, schreibe den Cookie*/
+            if (pruefeCookieName(name) && pruefeCookieWert(wert)) {
+                /*Alle unsere Cookies sind gültig bis 2017 - aber das wird dir bei der Ausgabe nicht angezeigt.*/
+                document.cookie = name + "=" + wert + "; expires=Tue, 24 Dec 2017 23:59:00 UTC";
+            }
+        }
+
+        /*Der Cookie-Name darf keine Kommas, Semikolon, Leerzeichen oder Gleichheitszeichen enthalten*/
+        function pruefeCookieName(name) {
+            if (name.indexOf(",") > -1 || name.indexOf(";") > -1 || name.indexOf(" ") > -1 || name.indexOf("=") > -1) {
+                alert("Ungültiger Name");
+                return false;
+            }
+            return true;
+        }
+
+        /*Der Cookie-Wert darf keine Kommas, Semikolon oder Leerzeichen enthalten*/
+        function pruefeCookieWert(wert) {
+            if (wert.indexOf(",") > -1 || wert.indexOf(";") > -1 || wert.indexOf(" ") > -1) {
+                alert("Ungültiger Wert");
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+</head>
+<body>
+<h1>Hier kommen die Cookies</h1>
+
+<h2>Neuer Cookie</h2>
+Name: <input id="name" name="name"/> Wert: <input id="wert" name="wert"/>
+<button type="button" id="speichern">Cookie speichern</button>
+<h2>Alle Cookies</h2>
+<ul id="ausgabe"></ul>
+</body>
+</html>

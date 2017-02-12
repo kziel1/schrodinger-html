@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Was du schon immer über Dateien wissen wolltest</title>
+    <script>
+        window.addEventListener("load", init);
+        function init() {
+            document.getElementById("dateien").addEventListener("change", waehleDateien);
+        }
+
+        /*Wird eine Datei oder mehrere Dateien ausgewählt, wird diese Methode ausgelöst.*/
+        function waehleDateien(event) {
+            leereAusgabe();
+            /*Das target des change-Events ist das Dateiauswahlfeld. Dessen Eigenschaft files enthält ein Array aller
+            ausgewählten Dateien.*/
+            var dateien = event.target.files;
+            for (var i = 0; i < dateien.length; i++) {
+                /*Für jede Datei werden die verfügabren Inforamtionen in die Ausgabetabelle geschrieben.*/
+                schreibeDateiInfo(dateien[i]);
+            }
+        }
+
+        /*Diese Methode leert die Ausgabe.*/
+        function leereAusgabe() {
+            var ausgabe = document.getElementById("ausgabe");
+            while (ausgabe.firstChild) {
+                ausgabe.removeChild(ausgabe.firstChild);
+            }
+        }
+
+        /*Informationen über eine Datei werden in eine neue Tabellenzeile geschrieben.*/
+        function schreibeDateiInfo(datei) {
+            /*Diese Methode erzeugt eine Tabellenzelle mit dem angegebenen Text. Da sie nur innerhalb von schreibeDateiInfo
+            verwendet wird kann sie auch hier definiert werden.*/
+            function erzeugeZelle(text) {
+                var spalte = document.createElement("td");
+                spalte.appendChild(document.createTextNode(text));
+                return spalte
+            }
+            var tr = document.createElement("tr");
+            tr.appendChild(erzeugeZelle(datei.name));//Dateiname
+            tr.appendChild(erzeugeZelle(datei.type));//MIME Type
+            tr.appendChild(erzeugeZelle(datei.lastModifiedDate.toLocaleDateString())); //Letztes Änderungsdatum
+            tr.appendChild(erzeugeZelle(datei.size)); //Dateigröße in Byte
+            document.getElementById("ausgabe").appendChild(tr);
+        }
+    </script>
+</head>
+<body>
+<h1>Was du schon immer über Dateien wissen wolltest</h1>
+
+<h2>Dateien auswählen</h2>
+<input name="dateien" id="dateien" type="file" multiple/>
+
+<h2>Datei-Infos</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Mime Type</th>
+        <th>Zuletz geändert</th>
+        <th>Größe (Bytes)</th>
+    </tr>
+    </thead>
+    <tbody id="ausgabe">
+
+    </tbody>
+</table>
+
+</body>
+</html>

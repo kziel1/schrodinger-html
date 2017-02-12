@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Paris ist zu groß? Nicht mit CSS</title>
+    <style>
+        #container {
+            border: 3px solid black;
+            width: 20%;
+            padding: 0;
+        }
+
+            /*Diese einfache CSS-Regel sorgt dafür, dass du nie wieder mit zu großen Bildern kämpfen musst. Wenn ein Bild
+            größer ist als sein umgebendes Element, wird es verkleinert, bis es passt.*/
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <img src="eiffeltower.jpg" alt="Der Eiffelturm">
+</div>
+</body>
+</html>

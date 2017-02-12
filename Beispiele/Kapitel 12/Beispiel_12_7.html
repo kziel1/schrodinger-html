@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>USS Schrödinger - Die Steuerkonsole</title>
+    <script>
+        window.addEventListener("load", setup);
+
+        function setup() {
+            document.getElementById("start").addEventListener("click", abflug);
+        }
+
+        /*Die USS Schrödinger starten funktionier noch wie vorher, also nur mit STRG*/
+        function abflug(event) {
+            if (event.ctrlKey) {
+                alert("und noch viel weiter!");
+                /*Wenn das Schiff startet, werden Listener für Tastaturevent registriert*/
+                window.addEventListener("keydown", tasterunter);
+                window.addEventListener("keyup", tastehoch);
+            } else {
+                alert("Falscher Startcode! Das Sicherheitsteam ist auf dem Weg!");
+            }
+        }
+
+        /*Wird eine Pfeiltaste gedrückt wird das dazu passende Element schwarz eingefärbt.*/
+        function tasterunter(event) {
+            var el = findeElement(event.keyCode);
+            /*Wird eine andere Taste gedrückt gibt es dazu kein Element, deshalbt ist diese Prüfung wichtig*/
+            if (el) {
+                el.style.backgroundColor = 'black';
+                el.style.color = 'white';
+            }
+        }
+
+        /*Lässt du die Taste los, dann setzt dieser Handler die Farben wieder zurück*/
+        function tastehoch(event) {
+            var el = findeElement(event.keyCode);
+            if (el) {
+                el.style.backgroundColor = 'white';
+                el.style.color = 'black';
+            }
+        }
+
+        /*Anhand des Tastencodes wird hier das richtige Element gefunden.*/
+        function findeElement(key) {
+            if (key == 37) {
+                return document.getElementById("left");
+            } else if (key == 39) {
+                return document.getElementById("right");
+            } else if (key == 38) {
+                return document.getElementById("up");
+            } else if (key == 40) {
+                return document.getElementById("down");
+            }
+        }
+
+
+    </script>
+</head>
+
+<body style="text-align: center;">
+<h1>USS Schrödinger</h1>
+<span id="up">^</span><br/>
+<span id="left">&lt;</span>
+<button type="button" id="start">Bis zur Unendlichkeit!</button>
+<span id="right">&gt;</span><br/>
+<span id="down">v</span>
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

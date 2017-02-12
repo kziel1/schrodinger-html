@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kaskaden zum Ersten: Styles ergänzen sich</title>
+    <style>
+        p {
+            color: #707;
+        }
+
+        #span1 {
+            background-color: #DDD;
+        }
+
+        #span2 {
+            font-style: italic;
+        }
+
+        #span3 {
+            text-decoration: underline;
+        }
+    </style>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<!--Soweit mögich werden die Eigenschaften aus allen verschachtelten Elementen zusammengefasst.  -->
+<p>Erst ist der Text nur lila,
+    <span id="span1">dann wird der Hintergrund grau.
+    <span id="span2">Jetzt wird auch noch kursiv gedruck.
+    <span id="span3">Und zum Schluss unterstrichen.</span></span></span></p>
+</body>
+</html>

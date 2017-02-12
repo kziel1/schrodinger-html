@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>USS Schrödinger - Notfallkonsole</title>
+	<script>
+        window.addEventListener("load", setup);
+
+        function setup(){
+            var seiten = ["antrieb", "holodeck", "schilde", "transporter"];
+            /*Auch Eventhandler lassen sich in einer Schleife registrieren, dass spart Schreibarbeit. */
+            for (var i = 0; i < seiten.length; i++){
+                document.getElementById("waehle-" +  seiten[i]).addEventListener("mouseover", hoverHervorheben);
+                document.getElementById("waehle-" + seiten [i]).addEventListener("mouseout", hoverBeenden);
+            }
+        }
+
+		function hoverHervorheben(event){
+            /*Das Elternelement des Zielelements ist schnell gefunden. Dann musst du bloß noch eine Styleklasse hinzufügen.*/
+			event.target.parentElement.classList.add("hover");
+		}
+		
+		function hoverBeenden(event){
+			event.target.parentElement.classList.remove("hover");
+		}
+	</script>
+	<style>
+		body {
+			background-color: black;
+		}
+		
+		h1 {
+			color: white;
+			font-family: sans-serif;
+		}
+	
+		.system { 
+			width: 150px;
+			height: 150px;
+			border: 5px solid white;
+			border-radius: 20px;
+			float: left;
+			margin: 50px 20px;
+			color: white;
+		}
+		
+		.system h2{
+			font-family: sans-serif;
+			font-size: 1em;
+		}
+		
+		.system a, .system a:hover, .system a:focus, .system a:visited {
+			text-decoration: none;
+			cursor: pointer;
+			margin: 80px auto auto;
+			display: block;
+		}
+		
+		.hover {
+			border-color: red;
+			color: red;
+		}
+		
+	</style>
+  <head>
+  
+  <body style="text-align: center;">
+	<h1>Notfallkonsole</h1>
+	<div id="antrieb" class="system">
+		<h2>Antrieb</h2>
+		<a id="waehle-antrieb">Abschalten!</a>
+	</div>
+	<div id="holodeck" class="system">
+		<h2>Holodeck</h2>
+		<a id="waehle-holodeck">Abschalten!</a>
+	</div>
+	<div id="schilde" class="system">
+		<h2>Schilde</h2>
+		<a id="waehle-schilde">Abschalten!</a>
+	</div>
+	<div id="transporter" class="system">
+		<h2>Transporter</h2>
+		<a id="waehle-transporter">Abschalten!</a>
+	</div>
+
+
+	<noscript>
+		JavaScript ist nicht aktiv!
+	</noscript>
+  </body>
+</html>

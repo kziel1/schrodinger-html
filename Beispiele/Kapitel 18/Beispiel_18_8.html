@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Ist es noch weit bis Galileo? Geo Location Teil 1</title>
+    <style>
+        #entfernung {
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+<span id="nachricht"></span><br/>
+<span id="entfernung"></span>
+<script>
+    /*In diesem Objekt ist der Punkt gespeichert, zu dem die Entfernung berechnet werden soll*/
+    var galileo = {name: "Galileo Press", latitude: 50.717565, longitude: 7.154092};
+
+    window.addEventListener("load", starteBerechnung);
+
+    function starteBerechnung() {
+        document.getElementById("nachricht").innerHTML = "Berechnung läuft";
+        /*Als erste solltest du prüfen, ob der Browser GeoLocation unterstützt.*/
+        if (navigator.geolocation) {
+            /*getCurrentPosition bekommt drei Parameter: ein Callback im Erfolgsfall, ein Callback im Fehlerfall und
+            ein Konfigurationsobjekt, dass genaue Positionsbestimmung aktiviert, also GPS wenn verfügbar.*/
+            navigator.geolocation.getCurrentPosition(zeigeEntfernung, zeigeFehler, {enableHighAccuracy: true});
+        } else {
+            document.getElementById("nachricht").innerHTML = "Geolocation nicht unterstützt.";
+        }
+    }
+    /*Wenn ein Fehler auftritt, wird eine Meldung angezeigt.*/
+    function zeigeFehler() {
+        document.getElementById("nachricht").innerHTML = "Konnte Koordinaten nicht ermitteln"
+    }
+
+    /*Im Erfolgfalls wird dieser Funktion die ermittelte Position übergeben.*/
+    function zeigeEntfernung(position) {
+        /*Aus den Koordinaten wird der Abstand zu Galileo berechnet*/
+        var entfernung = berechneEntfernung(position.coords, galileo);
+        /*Und auf 2 Stellen genau ausgegeben*/
+        document.getElementById("entfernung").innerHTML = entfernung.toFixed(2) + " km";
+        document.getElementById("nachricht").innerHTML = "Entfernung zu: " + galileo.name;
+    }
+
+    /*Wenn du diese Funktion nicht verstehts: kein Problem, ich auch nicht. Aber sie berechnet den Abstand zwischen zwei
+    Punkten auf der Erdoberfläche*/
+    function berechneEntfernung(punkt1, punkt2) {
+        function konvertiereNachRad(zahl) {
+            return zahl * Math.PI / 180;
+        }
+
+        var erdradius = 6371; // km
+        var deltaBreite = konvertiereNachRad(punkt2.latitude - punkt1.latitude);
+        var deltaLaenge = konvertiereNachRad(punkt2.longitude - punkt1.longitude);
+        var laenge1 = konvertiereNachRad(punkt1.longitude);
+        var laenge2 = konvertiereNachRad(punkt2.longitude);
+
+        var a = Math.sin(deltaBreite / 2) * Math.sin(deltaBreite / 2) +
+                Math.sin(deltaLaenge / 2) * Math.sin(deltaLaenge / 2) * Math.cos(laenge1) * Math.cos(laenge2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        var entfernung = erdradius * c;
+        return entfernung;
+    }
+
+</script>
+</body>
+</html>

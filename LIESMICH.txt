@@ -1,0 +1,7 @@
+Wie du den Webserver XAMPP auf deinem Computer installierst, wird ausfürhlich in Kapitel 2 beschrieben. 
+Wenn du das getan hast, kannst du den Rest dieses Archivs in das Verzeichnix htdocs deiner XAMPP-Installation entpacken.
+- Beispiele enthält ausführlich kommentierte Code-Beispiele zu jedem Kapitel. 
+- forms enthält die serverseitigen Dateien zu Kapitel 6 (Formulare)
+- ajax enthält serverseitigen Dateien zu Kapitel 17 (AJAX).
+
+Viel Spaß!

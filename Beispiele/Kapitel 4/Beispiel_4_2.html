@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kaskaden zum Zweiten: Styles überschreiben</title>
+    <style>
+        p {
+            color: #707;
+        }
+
+        #span1 {
+            background-color: #DDD;
+        }
+
+        #span2 {
+            color: #070;
+        }
+
+        #span3 {
+            background-color: #888;
+        }
+    </style>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<!--Verschachtelte Elemente können die Eigenschaften ihrer Umgebung überschreiben. Du siehst das hier mit Farbe und Hintergrundfarbe -->
+<p>Erst ist der Text nur lila,
+    <span id="span1">dann wird der Hintergrund grau.
+    <span id="span2">Jetzt wird auch noch kursiv gedruck.
+    <span id="span3">Und zum Schluss unterstrichen.</span></span></span></p>
+
+</body>
+</html>

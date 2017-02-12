@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /*Hier wird der Stylesheet im Dokument angegeben. So sieht duu alles auf einen Blick*/
+        #absatz_eins, #absatz_drei {
+            color: red;
+            background: gray;
+        }
+
+        .gray_background {
+            background-color: gray;
+        }
+
+        .red_background {
+            background-color: red;
+        }
+
+        #absatz_drei {
+            background-color: lightblue;
+        }
+
+        p {
+            color: green;
+        }
+
+        #absatz_fuenf {
+            color: blue;
+        }
+    </style>
+    <title>Und jetzt was mit Konkurrenz: Welcher Selektor gewinnt?</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<!-- grauer Hintergrund und rote Schrift, beides durch den Selektor #eintrag-eins-->
+<p id="absatz_eins">Absatz eins</p>
+<!-- grüne Schrift definiert durch den p-Selektor und grauer Hintergrund durch .erinnerung -->
+<p id="absatz_zwei" class="gray_background">Absatz zwei</p>
+<!-- Die Regel .erinnerung hat keine Wirkung, da background-color auch im spezifischeren id-Selektor definiert ist.
+Die Regel #eintrag-drei steht weiter unten im Stylesheet, hat also Vorrang vor der Regel #eintrag-eins, #eintrag-drei,
+deshalb ist die Hintergrundfarbe Hellblau. Es wird hier keine color definiert, also gilt Rot aus aus der anderen Regel-->
+<p id="absatz_drei" class="gray_background">Absatz drei</p>
+<!-- Vordergrundfarbe ist das für alle <p>-Tags gesetzte Grün. Die Hintergrundfarbe ist Rot, weil .wichtig in <style> nach
+.erinnerung definiert wird. -->
+<p id="absatz_vier" class="red_background gray_background">Absatz vier</p>
+<!--Der Text ist gelb, weil der Inhalt des style-Attributs allen Regelns aus <style>-Tags oder externen Stylesheets vorgeht.-->
+<p id="absatz_fuenf" style="color: yellow;">Absatz fuenf</p>
+<!--Sieht genauso aus wie Eintrag vier, weil nicht die Reihenfolge der Klassen im class-Attribut, sondern die Reihenfolge
+der Definition im Stylesheet die Priorität festlegt.-->
+<p id="absatz_sechs" class="gray_background red_background">Absatz sechs</p>
+</body>
+</html>

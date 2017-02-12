@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>How big is the fish? Genau so groß wie vorher, aber du lädst ihn nur einmal.</title>
+</head>
+<body>
+<!--
+Alle Bilder zeigen zunächst about:blank, also einfach nichts. Die URL steht im Attribut data-src.
+Mit dieser Lösung werden nicht alle Bilder zwei mal geladen wie vorher, aber ohne JavaScript sieht man dafür gar nichts.
+-->
+<img src="about:blank" data-src="sushi.jpg">
+</body>
+<script>
+    function passeBilderAn() {
+        var suffix;
+        /*Jetzt gibt es auch für das kleinste Bild etwas zu tun, den am Anfang sind keine Bilder zu sehen.*/
+        if (window.innerWidth < 382) {
+            suffix = "";
+        }
+        else if (window.innerWidth < 763) {
+            suffix = "-med";
+        } else {
+            suffix = "-big";
+        }
+        var bilder = document.getElementsByTagName("img");
+        for (var i = 0; i < bilder.length; i++) {
+            var bild = bilder[i];
+            /*Die Bild-URL wird jetzt aus data-src geholt, aber sonst ändert sich hier nichts.*/
+            var url = bild.getAttribute("data-src");
+            var erweiterungspunkt = url.lastIndexOf(".");
+            url = url.substring(0, erweiterungspunkt) + suffix + url.substring(erweiterungspunkt);
+            bild.src = url;
+        }
+    }
+    window.addEventListener("load", passeBilderAn);
+</script>
+</html>

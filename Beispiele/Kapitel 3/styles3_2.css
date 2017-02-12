@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/*Die @charset-Anweisung setzt das Character Encoding für einen Stylesheet. Und wenn es sie gibt MUSS sie vor allem anderen stehen.*/
+/*Ein Tag-Selektor besteht nur aus dem Tag-Namen. Regeln mit Tag-Selektor gelten für alle Tags mit diesem Namen.*/
+p {
+    /*Der Text in Absätzen wird grün*/
+	color: green;
+}
+
+span {
+    /*Der Text in spans wird rot*/
+	color: red;
+}
+

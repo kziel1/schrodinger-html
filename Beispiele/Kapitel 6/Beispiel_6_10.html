@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 hats: mehr Eingabefelder als du je haben wolltest</title>
+    <style>
+        /*Die Pseudoklasse :invalid wird auf alle Eingabefelder angewendet, die gerade keinen gültigen Wert enthalten*/
+        input:invalid {
+            background-color: #FFDDDD;
+            border: inherit;
+        }
+
+        label, input {
+            margin-top: 3px;
+        }
+
+        /*Pflichtfelder - solche mit dem Attribut required - bekommen auch die Pseudoklasse :required*/
+        input:required {
+            background-color: #BBBBFF;
+            border: 1px solid black;
+        }
+    </style>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<form method="get">
+    <label for="tel">Telefon</label>
+    <input type="tel" name="tel" id="tel">
+    <br>
+    <label for="url">URL</label>
+    <input type="url" name="url" id="url">
+    <br>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+    <br>
+    <label for="datetime">Datum / Uhrzeit</label>
+    <input type="datetime" name="datetime" id="datetime">
+    <br>
+    <label for="date">Datum</label>
+    <input type="date" name="date" id="date">
+    <br>
+    <label for="month">Monat</label>
+    <input type="month" name="month" id="month">
+    <br>
+    <label for="week">Woche</label>
+    <input type="week" name="week" id="week">
+    <br>
+    <label for="time">Zeit</label>
+    <input type="time" name="time" id="time">
+    <br>
+    <label for="datetime-local">Zeit (lokal)</label>
+    <input type="datetime-local" name="datetime-local" id="datetime-local">
+    <br>
+    <label for="number">Zahl</label>
+    <input type="number" name="number" id="number">
+    <br>
+    <label for="numbermm">Zahl mit min/max</label>
+    <input type="number" name="numbermm" id="numbermm" min="10" max="95" step="5">
+    <br>
+    <label for="range">Bereich</label>
+    <input type="range" name="range" id="range" min="0" max="100" step="2">
+    <br>
+    <label for="color">Farbe</label>
+    <input type="color" name="color" id="color">
+    <br>
+    <label for="pattern">Mit Pattern</label>
+    <input type="text" name="pattern" id="pattern" pattern="...">
+    <br>
+    <label for="pattern2">Mit eigener Fehlermeldung</label>
+    <input type="text" name="pattern" id="pattern2" pattern="..." title="Genau drei Zeichen!">
+    <br>
+    <label for="req">Pflichtfeld</label>
+    <input type="text" name="req" id="req" required>
+
+    <br>
+    <button>Abschicken</button>
+
+</form>
+</body>
+</html>

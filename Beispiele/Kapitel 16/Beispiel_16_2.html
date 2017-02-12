@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Willkommen beim Hochstapeln - Audio mit JavaScript</title>
+    <style>
+        .knopf {
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            padding: 3px;
+            margin: 5px;
+            display: block;
+            float: left;
+        }
+    </style>
+    <script>
+        /*Hilfsfunktion zum Spulen (Seeking)*/
+        function spule(player, sekunden) {
+            player.currentTime += sekunden;
+        }
+        /*Hilfsfunktion zur Lautstärkeregelung*/
+        function regleLautstärke(player, delta) {
+            player.volume += delta;
+        }
+        function init() {
+            /*Da alle Steuerfunktionen nur Einzeiler sind, hab ich sie hier anonym definiert*/
+            /*Spule 30 Sekunden zurück*/
+            document.getElementById("zurueck-knopf").addEventListener("click", function () {
+                spule(document.getElementById("mein-radio"), -30);
+            });
+            /*Abspielen*/
+            document.getElementById("play-knopf").addEventListener("click", function () {
+                document.getElementById("mein-radio").play();
+            });
+            /*Pausieren*/
+            document.getElementById("pause-knopf").addEventListener("click", function () {
+                document.getElementById("mein-radio").pause();
+            });
+            /*Spule 30 Sekunden vor*/
+            document.getElementById("vor-knopf").addEventListener("click", function () {
+                spule(document.getElementById("mein-radio"), 30);
+            });
+            /*10% leiser*/
+            document.getElementById("leiser-knopf").addEventListener("click", function () {
+                regleLautstärke(document.getElementById("mein-radio"), -0.1);
+            });
+            /*10% lauter*/
+            document.getElementById("lauter-knopf").addEventListener("click", function () {
+                regleLautstärke(document.getElementById("mein-radio"), 0.1);
+            });
+            /*Mit halber Geschwindigkeit abspielen*/
+            document.getElementById("halbschnell-knopf").addEventListener("click", function () {
+                document.getElementById("mein-radio").playbackRate = 0.5;
+            });
+            /*Mit normaler Geschwindigkeit abspielen*/
+            document.getElementById("normalschnell-knopf").addEventListener("click", function () {
+                document.getElementById("mein-radio").playbackRate = 1;
+            });
+            /*Mit doppelter Geschwindigkeit abspielen*/
+            document.getElementById("doppeltschnell-knopf").addEventListener("click", function () {
+                document.getElementById("mein-radio").playbackRate = 2;
+            });
+        }
+        window.addEventListener("load", init);
+    </script>
+</head>
+<body>
+<h1>Let the music play!</h1>
+<audio id="mein-radio">
+    <source src="stapelolympiade2.mp3" type="audio/mpeg"/>
+    <source src="stapelolympiade2.webm" type="audio/webm"/>
+    Dein Browser kennt das &lt;audio&gt;-Tag nicht.
+</audio>
+<span class="knopf" id="zurueck-knopf">30 Sekunden zurück &lt;</span>
+<span class="knopf" id="play-knopf">Play &gt;&gt;</span>
+<span class="knopf" id="pause-knopf">Pause ||</span>
+<span class="knopf" id="vor-knopf">30 Sekunden vor &gt;</span>
+<span class="knopf" id="leiser-knopf">Leiser -</span>
+<span class="knopf" id="lauter-knopf">Lauter +</span>
+<span class="knopf" id="halbschnell-knopf">Halbe Geschwindigkeit</span>
+<span class="knopf" id="normalschnell-knopf">Einfache Geschwindigkeit</span>
+<span class="knopf" id="doppeltschnell-knopf">Doppelte Geschwindigkeit</span>
+</body>
+</html>

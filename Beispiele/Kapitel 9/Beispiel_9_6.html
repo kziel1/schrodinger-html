@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Dieser Schatten macht mir Angst</title>
+    <style>
+        /*
+        Eine eckige Box mit rundem Schatten zu basteln ist nicht unmöglich, aber auch nicht ganz einfach
+        Zunächst braucht man die Box, ganz ohne Schatten.
+        */
+        div#real {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background-color: white;
+            overflow: hidden;
+            padding: 15px;
+        }
+
+        /*
+        Der Schatten wird von einer zweiten Box geworfen, die runde Ecken hat und hinter der ersten Box liegt.
+        Sie ist zwar nicht unsichtbar, aber ohne Inhalt, Rahmen oder Hintergrund ist sie auch nicht zu sehen.
+        */
+        div#magicshadow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            height: 200px;
+            box-shadow: 15px 15px 5px gray;
+            border-radius: 20px;
+            z-index: -1;
+            padding: 15px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="real">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum, mauris vel venenatis
+    porttitor, arcu libero tempor tortor, non posuere lacus elit nec ligula. Vestibulum dapibus sapien ut diam placerat
+    id pulvinar diam lobortis. Aliquam tempus risus vitae ligula accumsan eleifend. Ut dapibus, magna eu ullamcorper
+    porta, tortor nisi semper sapien, eu dapibus augue ligula id mauris. Donec quam nisi, lacinia sit amet malesuada
+    quis, hendrerit id justo. Ut justo diam, scelerisque nec fermentum quis, faucibus ut magna. Vestibulum in magna
+    elit, quis imperdiet nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+    himenaeos.
+</div>
+<div id="magicshadow"></div>
+</body>
+</html>

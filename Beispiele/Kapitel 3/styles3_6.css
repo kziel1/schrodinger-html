@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.hobby {
+	color: blue;
+}
+
+.arbeit {
+	color: grey;
+}
+
+.liebe {
+	color: orange;
+}
+
+.hobby_mit_freundin {
+    /*
+    Für diese Farbe gibt es keinen Namen, also wird sie als Zahlencode angegeben.
+    Die ersten beiden Hexadezimalziffern geben den Rotanteil an, die nächsten beiden Grün, die letzten Blau
+    */
+	color: #9F629F;
+}

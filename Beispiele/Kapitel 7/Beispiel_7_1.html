@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boxmodel 1: Höhe und Breite</title>
+    <style>
+
+        div {
+            background-color: #FFAAAA;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        #eins {
+        }
+
+        #zwei {
+            height: 50px;
+        }
+
+        #drei {
+            width: 200px;
+            height: 100px;
+        }
+
+        #vier {
+            width: 20%;
+            height: 10%;
+        }
+
+        #fuenf {
+            width: 20em;
+            height: 10em;
+        }
+
+    </style>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<!--Für dieses div ist keine Größe gesetzt, es wird so groß, dass der Text hineinpasst. -->
+<div id="eins">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lectus leo, egestas vitae tincidunt ac,
+    malesuada in massa. Integer neque augue, convallis faucibus vestibulum fringilla, condimentum eget erat. Ut a metus
+    sodales lorem tincidunt imperdiet. Quisque ac tincidunt ipsum. Phasellus ut eros laoreet est ultrices interdum.
+    Proin condimentum eleifend consequat. Aliquam enim velit, adipiscing non sollicitudin dictum, accumsan et lorem.
+    Cras in sapien non mi ornare cursus. Duis semper odio ac magna eleifend posuere. Pellentesque mollis ipsum a dui
+    tincidunt placerat. Etiam volutpat, risus vitae venenatis auctor, purus enim placerat risus, sed accumsan sem ante a
+    dui. Nullam adipiscing, enim in molestie fermentum, nisl nibh convallis quam, non bibendum risus mauris quis felis.
+</div>
+<!--Hier ist eine Höhe gesetzt, das Element wird nicht höher als 50px. Der übrige Text verschwindet durch overflow: hidden. -->
+<div id="zwei">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lectus leo, egestas vitae tincidunt ac,
+    malesuada in massa. Integer neque augue, convallis faucibus vestibulum fringilla, condimentum eget erat. Ut a metus
+    sodales lorem tincidunt imperdiet. Quisque ac tincidunt ipsum. Phasellus ut eros laoreet est ultrices interdum.
+    Proin condimentum eleifend consequat. Aliquam enim velit, adipiscing non sollicitudin dictum, accumsan et lorem.
+    Cras in sapien non mi ornare cursus. Duis semper odio ac magna eleifend posuere. Pellentesque mollis ipsum a dui
+    tincidunt placerat. Etiam volutpat, risus vitae venenatis auctor, purus enim placerat risus, sed accumsan sem ante a
+    dui. Nullam adipiscing, enim in molestie fermentum, nisl nibh convallis quam, non bibendum risus mauris quis felis.
+</div>
+<!--Dieses div hat Breite und Höhe in Pixeln -->
+<div id="drei">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lectus leo, egestas vitae tincidunt ac,
+    malesuada in massa. Integer neque augue, convallis faucibus vestibulum fringilla, condimentum eget erat. Ut a metus
+    sodales lorem tincidunt imperdiet. Quisque ac tincidunt ipsum. Phasellus ut eros laoreet est ultrices interdum.
+    Proin condimentum eleifend consequat. Aliquam enim velit, adipiscing non sollicitudin dictum, accumsan et lorem.
+    Cras in sapien non mi ornare cursus. Duis semper odio ac magna eleifend posuere. Pellentesque mollis ipsum a dui
+    tincidunt placerat. Etiam volutpat, risus vitae venenatis auctor, purus enim placerat risus, sed accumsan sem ante a
+    dui. Nullam adipiscing, enim in molestie fermentum, nisl nibh convallis quam, non bibendum risus mauris quis felis.
+</div>
+<!--Dieses div hat Breite und Höhe in Prozent: seine Größe hängt von der Fenstergröße ab.-->
+<!--Achtung: die Höhenangabe tut so nichts, weil das Fenster keine Fester Höhe hat!-->
+<div id="vier">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lectus leo, egestas vitae tincidunt ac,
+    malesuada in massa. Integer neque augue, convallis faucibus vestibulum fringilla, condimentum eget erat. Ut a metus
+    sodales lorem tincidunt imperdiet. Quisque ac tincidunt ipsum. Phasellus ut eros laoreet est ultrices interdum.
+    Proin condimentum eleifend consequat. Aliquam enim velit, adipiscing non sollicitudin dictum, accumsan et lorem.
+    Cras in sapien non mi ornare cursus. Duis semper odio ac magna eleifend posuere. Pellentesque mollis ipsum a dui
+    tincidunt placerat. Etiam volutpat, risus vitae venenatis auctor, purus enim placerat risus, sed accumsan sem ante a
+    dui. Nullam adipiscing, enim in molestie fermentum, nisl nibh convallis quam, non bibendum risus mauris quis felis.
+</div>
+<!--Dieses div hat Breite und Höhe in Prozent: seine Größe hängt von der Schriftgröße des Inhalts ab.-->
+<div id="fuenf">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lectus leo, egestas vitae tincidunt ac,
+    malesuada in massa. Integer neque augue, convallis faucibus vestibulum fringilla, condimentum eget erat. Ut a metus
+    sodales lorem tincidunt imperdiet. Quisque ac tincidunt ipsum. Phasellus ut eros laoreet est ultrices interdum.
+    Proin condimentum eleifend consequat. Aliquam enim velit, adipiscing non sollicitudin dictum, accumsan et lorem.
+    Cras in sapien non mi ornare cursus. Duis semper odio ac magna eleifend posuere. Pellentesque mollis ipsum a dui
+    tincidunt placerat. Etiam volutpat, risus vitae venenatis auctor, purus enim placerat risus, sed accumsan sem ante a
+    dui. Nullam adipiscing, enim in molestie fermentum, nisl nibh convallis quam, non bibendum risus mauris quis felis.
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Ist es immer noch weit bis Galileo? Geo Location Teil 2</title>
+    <style>
+        #entfernung {
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+<span id="nachricht"></span><br/>
+<span id="entfernung"></span><br/>
+
+<!--Wenn du diesen Knopf drückst, wird deine Position verfolgt und periodisch die Entfernung erneut bestimmt. -->
+<button type="button" id="verfolge-mich">Verfolge mich</button>
+<!--Dieser Knopf beendet die Verfolgung -->
+<button type="button" id="hoer-auf">Hoer auf</button>
+
+<script>
+
+    window.addEventListener("load", init);
+    /*In diesem Objekt ist der Punkt gespeichert, zu dem die Entfernung berechnet werden soll*/
+    var galileo = {name: "Galileo Press", latitude: 50.717565, longitude: 7.154092};
+    var verfolgerId;
+
+    function init() {
+        /*Als erste solltest du prüfen, ob der Browser GeoLocation unterstützt.*/
+        if (navigator.geolocation) {
+            document.getElementById("verfolge-mich").addEventListener("click", verfolgeMich);
+            document.getElementById("hoer-auf").addEventListener("click", hoerAufZuFolgen);
+            document.getElementById("nachricht").innerHTML = "Berechnung läuft";
+            /*getCurrentPosition bekommt drei Parameter: ein Callback im Erfolgsfall, ein Callback im Fehlerfall und
+             ein Konfigurationsobjekt, dass genaue Positionsbestimmung aktiviert, also GPS wenn verfügbar.*/
+            navigator.geolocation.getCurrentPosition(zeigeEntfernung, zeigeFehler, {enableHighAccuracy: true});
+        } else {
+            document.getElementById("nachricht").innerHTML = "Geolocation nicht unterstützt.";
+        }
+    }
+
+    /*Wenn ein Fehler auftritt, wird eine Meldung angezeigt.*/
+    function zeigeFehler() {
+        document.getElementById("nachricht").innerHTML = "Konnte Koordinaten nicht ermitteln"
+    }
+
+    /*Im Erfolgfalls wird dieser Funktion die ermittelte Position übergeben.*/
+    function zeigeEntfernung(position) {
+        /*Aus den Koordinaten wird der Abstand zu Galileo berechnet*/
+        var entfernung = berechneEntfernung(position.coords, galileo);
+        /*Und auf 2 Stellen genau ausgegeben*/
+        document.getElementById("entfernung").innerHTML = entfernung.toFixed(2) + " km";
+        document.getElementById("nachricht").innerHTML = "Entfernung zu: " + galileo.name;
+    }
+
+    /*Diese Funktion aktiviert den Verfolger-Modus*/
+    function verfolgeMich() {
+        /*Nur, wenn noch kein Verfolger aktiv ist - zu erkennen an der ID - wird die Verfolgung gestartet*/
+        if (navigator.geolocation && !verfolgerId) {
+            /*watchPosition erwartet dieselben Parameter wie getCurrentPosition. Die ID des Verfolgers wird gespeichert,
+            sie ist nötig um ihn wieder abzuschalten*/
+            verfolgerId = navigator.geolocation.watchPosition(zeigeEntfernung, zeigeFehler, {enableHighAccuracy: true});
+        }
+    }
+
+    /*Diese Funktion beendet den Verfolger-Modus*/
+    function hoerAufZuFolgen() {
+        /*Nur wenn es einen Verfolger gibt, muss er auch abgschaltet werden.*/
+        if (verfolgerId) {
+            /*Dafür gibt es die Funktion clearWatch.*/
+            navigator.geolocation.clearWatch(verfolgerId);
+            /*Anschließend musst du die ID vergessen, sonst würdest du in verfolge mich keinen neuen Verfolger mehr starten.*/
+            verfolgerId = null;
+        }
+    }
+
+    /*Wenn du diese Funktion nicht verstehts: kein Problem, ich auch nicht. Aber sie berechnet den Abstand zwischen zwei
+     Punkten auf der Erdoberfläche*/
+    function berechneEntfernung(punkt1, punkt2) {
+        function konvertiereNachRad(zahl) {
+            return zahl * Math.PI / 180;
+        }
+
+        var erdradius = 6371; // km
+        var deltaBreite = konvertiereNachRad(punkt2.latitude - punkt1.latitude);
+        var deltaLaenge = konvertiereNachRad(punkt2.longitude - punkt1.longitude);
+        var laenge1 = konvertiereNachRad(punkt1.longitude);
+        var laenge2 = konvertiereNachRad(punkt2.longitude);
+
+        var a = Math.sin(deltaBreite / 2) * Math.sin(deltaBreite / 2) +
+                Math.sin(deltaLaenge / 2) * Math.sin(deltaLaenge / 2) * Math.cos(laenge1) * Math.cos(laenge2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        var entfernung = erdradius * c;
+        return entfernung;
+    }
+
+
+</script>
+</body>
+</html>

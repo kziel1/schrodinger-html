@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Mehr von Funktionen: Durchschnitt berechnen</title>
+    <script>
+        /*Vier Parameter ist eine willkürlich gewählte Anzahl, aber von vier Zahlen kannst du nun schon den Durchschnitt berechnen.*/
+        function durchschnitt(zahl1, zahl2, zahl3, zahl4) {
+            var summe = 0;
+            var zaehler = 0;
+            /*Wenn zahl1 übergeben wurde, wird sie zur Summe addiert. Außerdem wird gezählt, wie viele Zahlen übergeben wurden.*/
+            if (zahl1 || zahl1 == 0) {
+                summe += zahl1;
+                zaehler++;
+            }
+            /*Wenn zahl2 übergeben wurde, wird sie zur Summe addiert. Außerdem wird gezählt, wie viele Zahlen übergeben wurden.*/
+            if (zahl2 || zahl2 == 0) {
+                summe += zahl2;
+                zaehler++;
+            }
+            /*Wenn zahl3 übergeben wurde, wird sie zur Summe addiert. Außerdem wird gezählt, wie viele Zahlen übergeben wurden.*/
+            if (zahl3 || zahl3 == 0) {
+                summe += zahl3;
+                zaehler++;
+            }
+            /*Wenn zahl4 übergeben wurde, wird sie zur Summe addiert. Außerdem wird gezählt, wie viele Zahlen übergeben wurden.*/
+            if (zahl4 || zahl4 == 0) {
+                summe += zahl4;
+                zaehler++;
+            }
+            /*Wenn Zahlen übergeben wurden, dann wird nun der Durchschnitt berechnent. Falls nicht, dann ist der Durchschnitt 0*/
+            if (zaehler) {
+                return summe / zaehler;
+            } else {
+                return 0;
+            }
+        }
+    </script>
+</head>
+
+<body>
+Durchschnitt von 7:
+<script>document.write(durchschnitt(7));</script>
+<br/>
+Durchschnitt von 7, 11:
+<script>document.write(durchschnitt(7, 11));</script>
+<br/>
+Durchschnitt von 7, 11, 3:
+<script>document.write(durchschnitt(7, 11, 3));</script>
+<br/>
+Durchschnitt von 7, 11, 3, 9:
+<script>document.write(durchschnitt(7, 11, 3, 9));</script>
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Mehr von Funktionen: Durchschnitt berechnen die Dritte.</title>
+    <script>
+        function durchschnitt() {
+            /*Alle an die Funktion übergebenen Parameter landen in arguments. Es sieht aus wie ein Array, aber es ist nicht so richtig eins.*/
+            if (arguments && arguments.length > 0) {
+                var summe = 0;
+                for (var i = 0; i < arguments.length; i++) {
+                    summe += arguments[i];
+                }
+                return summe / arguments.length;
+            } else {
+                return 0;
+            }
+        }
+    </script>
+</head>
+
+<body>
+Durchschnitt von 7:
+<script>
+    //Beim Funktionsaufruf übergibst du jetzt beliebig viele Zahlen, du musst kein Array mehr erzeugen.
+    document.write(durchschnitt(7));
+</script>
+<br/>
+Durchschnitt von 7, 11:
+<script>document.write(durchschnitt(7, 11));</script>
+<br/>
+Durchschnitt von 7, 11, 3:
+<script>document.write(durchschnitt(7, 11, 3));</script>
+<br/>
+Durchschnitt von 7, 11, 3, 9:
+<script>document.write(durchschnitt(7, 11, 3, 9));</script>
+<br/>
+
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

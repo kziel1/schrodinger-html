@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Sortieren nach Stringlänge - und Funktionen als Funktionsparameter</title>
+    <script>
+        /*Diese Funktion vergleicht zwei Strings nach ihrer Länge und gibt eine positive oder negative Zahl zurück, je nach dem welche größer ist.*/
+        function vergleicheLaenge(string1, string2) {
+            return string1.length - string2.length;
+        }
+        var pyramide = ["Es", "immer länger und länger", "nach unten", "wird"];
+    </script>
+</head>
+
+<body>
+<h1>Unsortiert</h1>
+So sieht es blöd aus: <br/>
+<script>
+    for (var i = 0; i < pyramide.length; i++) {
+        document.write(pyramide[i] + "<br/>");
+    }
+</script>
+<h1>Sortiert</h1>
+So ist es viel besser: <br/>
+<script>
+    /*Hier passiert echte Magie: die Funktion vergleicheLaenge wird als Parameter an die Array-Methode sort übergeben.
+    Achte unbedingt darauf, bei vergleicheLaenge keine Klammern anzugeben.*/
+    pyramide.sort(vergleicheLaenge);
+    for (i = 0; i < pyramide.length; i++) {
+        document.write(pyramide[i] + "<br/>");
+    }
+</script>
+
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

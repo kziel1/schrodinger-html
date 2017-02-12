@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Objekte als Funktionsparameter: darauf musst du achten</title>
+    <script>
+        /*Die Funktion machAbendessen erwartet ein Array als Parameter.
+        Sie entfernt die letzten zwei Parameter aus dem Array.*/
+        function machAbendessen(kuehlschrank) {
+            if (kuehlschrank && kuehlschrank.length > 0) {
+                kuehlschrank.pop();
+                kuehlschrank.pop();
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+Vorher:
+<script>
+    var schroedingersKuehlschrank = ["1 Liter Milch", "Speck", "4 Eier"];
+    /*Hier wird der Inhalt des Kühlschranks vor dem Funktionsaufruf ausgegeben*/
+    document.write("Im Kühlschrank sind: " + schroedingersKuehlschrank.join(", "));
+</script>
+<br/>
+Nachher:
+<script>
+    machAbendessen(schroedingersKuehlschrank);
+    /*Nach dem Funktionsaufruf fehlen hier auch zwei Dinge im Kühlschrank.
+    Das kommt daher, dass hier und in der Methode das gleiche Array bearbeitet werden. Es wird nur eine Referenz übergeben, kein neues Objekt.
+    */
+    document.write("Im Kühlschrank sind: " + schroedingersKuehlschrank.join(", "));
+</script>
+
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

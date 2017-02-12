@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Der Hoverzähler</title>
+    <script>
+        window.addEventListener("load", setup);
+
+        function setup() {
+            /*An jedem der fünf divs wird derselbe mouseover-Handler registriert*/
+            document.getElementById("zaehler1").addEventListener("mouseover", zaehle);
+            document.getElementById("zaehler2").addEventListener("mouseover", zaehle);
+            document.getElementById("zaehler3").addEventListener("mouseover", zaehle);
+            document.getElementById("zaehler4").addEventListener("mouseover", zaehle);
+            document.getElementById("zaehler5").addEventListener("mouseover", zaehle);
+        }
+
+        function zaehle(event) {
+            /*Diese Zeile findet das Eventobjekt auch in älteren Internet Explorern, die alles unbedingt anders machen müssen.*/
+            if (!event) event = window.event;
+            var target;
+            /*Dasselbe gilt für das Target-Element, auch das ist in alten IEs anders.*/
+            if (event.target) {
+                target = event.target;
+            } else {
+                target = event.srcElement;
+            }
+            /*Dadurch, dass du event.target verwendest, wird der Eventhandler wiederverwendbar: er funktioniert für jedes Element.*/
+            var alterWert = parseInt(target.innerHTML);
+            target.innerHTML = alterWert + 1;
+        }
+
+    </script>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Der Hoverzähler</h1>
+
+<div id="zaehler1">0</div>
+<div id="zaehler2">0</div>
+<div id="zaehler3">0</div>
+<div id="zaehler4">0</div>
+<div id="zaehler5">0</div>
+
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

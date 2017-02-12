@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bilder im Textfluß: float</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<p>
+    <!--Dieses Bild wird nicht umflossen. Es steht blöde in der ersten Zeile. -->
+    <img src="Beispielbild.png" alt="Beispielkatze">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel erat at felis venenatis tempor pulvinar
+    vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec vitae scelerisque arcu. Ut varius,
+    risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum sit amet sapien. Vestibulum quis
+    metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis ac. Donec convallis ornare
+    vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu auctor in, viverra in ipsum.
+    Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien. Sed dictum, purus sit amet
+    convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce lacinia mauris sed urna dignissim
+    congue.
+</p>
+
+<p>
+    <!--Mit float:left steht das Bild links am Rand und wird vom Text umflossen -->
+    <img src="Beispielbild.png" alt="Beispielkatze" style="float: left;">
+    Lorem felis dolor sit amet, consectetur adipiscing elit. Curabitur vel erat at felis venenatis tempor pulvinar
+    vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec vitae scelerisque arcu. Ut varius,
+    risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum sit amet sapien. Vestibulum quis
+    metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis ac. Donec convallis ornare
+    vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu auctor in, viverra in ipsum.
+    Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien. Sed dictum, purus sit amet
+    convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce lacinia mauris sed urna dignissim
+    congue.
+</p>
+
+<!--Durch clear:left steht dieser Absatz unterhalb von allen Elementen mit float:left.  -->
+<p style="clear:left;">
+    <!--Auch float:right funktioniert natürlich, dann steht die Katze rechts. -->
+    <img src="Beispielbild.png" alt="Beispielkatze" style="float: right;">
+    Lorem canis dolor sit amet, consectetur adipiscing elit. Curabitur vel erat at felis venenatis tempor pulvinar
+    vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec vitae scelerisque arcu. Ut varius,
+    risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum sit amet sapien. Vestibulum quis
+    metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis ac. Donec convallis ornare
+    vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu auctor in, viverra in ipsum.
+    Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien. Sed dictum, purus sit amet
+    convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce lacinia mauris sed urna dignissim
+    congue.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel erat at felis venenatis tempor
+    pulvinar vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec vitae scelerisque arcu. Ut
+    varius, risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum sit amet sapien. Vestibulum
+    quis metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis ac. Donec convallis ornare
+    vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu auctor in, viverra in ipsum.
+    Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien. Sed dictum, purus sit amet
+    convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce lacinia mauris sed urna dignissim
+    congue.
+</p>
+</body>
+</html>

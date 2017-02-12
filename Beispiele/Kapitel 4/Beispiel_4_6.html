@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prioritäten von Selektoren mit Nachfahren</title>
+    <style>
+        h1 .myspan {
+            color: orange;
+        }
+
+        .myspan {
+            color: blue;
+        }
+    </style>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<!--Selektoren, bei denen ein Vorfahr angegeben wird, sind spezifischer, als die selbe Art von Selektor ohne Vorfahren. Deshalb wird das span orange. -->
+<h1>Dies ist <span class="myspan">h1</span></h1>
+</body>
+</html>

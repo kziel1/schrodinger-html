@@ -1,0 +1,18 @@
+@charset "UTF-8";
+.hobby {
+	color: blue;
+}
+
+.arbeit {
+	color: grey;
+}
+
+.liebe {
+	color: orange;
+}
+
+.nacht {
+	background-color: black;
+}
+
+

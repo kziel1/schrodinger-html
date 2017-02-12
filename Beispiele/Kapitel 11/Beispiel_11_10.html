@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Fehler werfen und behandeln: Quersumme 2</title>
+    <script>
+        function quersumme(zahl) {
+            zahl = zahl.toString();
+            /*Wenn die Zahl nicht genau zwei Stellen hat wird mit dem throw-Keyword wird ein Fehler geworfen:
+             die Funktion bricht sofort ab und der Aufrufer bekommt den Fehler*/
+            if (zahl.length != 2) throw "Nur zweistellige Zahlen erlaubt";
+            var ergebnis = parseInt(zahl.charAt(0)) + parseInt(zahl.charAt(1));
+            return ergebnis;
+        }
+
+        function berechne() {
+            var zahl = document.getElementById("zahl").value;
+            /*Innerhalb vom try-Block wird Code ausgeführt, der einen Fehler werfen könnte.*/
+            try {
+                document.getElementById("ergebnis").innerHTML = quersumme(zahl);
+            } catch (error) {
+                /*Wenn ein Fehler auftritt, und nur dann, wird der Code im catch-Block ausgeführt*/
+                document.getElementById("ergebnis").innerHTML = "Fehler: " + error;
+            }
+        }
+        window.addEventListener("load", function () {
+            document.getElementById("berechne").addEventListener("click", berechne);
+        });
+    </script>
+</head>
+
+<body>
+<h1>Quersumme berechnen</h1>
+Quersumme von <input id="zahl" type="text">: <span id="ergebnis"></span><br>
+<button type="button" id="berechne">Berechne</button>
+
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

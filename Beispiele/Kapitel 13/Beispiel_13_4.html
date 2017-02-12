@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Tabellen sortieren, fast ohne Magie</title>
+    <script>
+        window.addEventListener("load", setup);
+
+        function setup() {
+            /*Als Eventhandler werden anonyme Funktionen registriert.
+             Sie rufen alle die Funktion sortiere auf, übergeben aber eine andere Spalte und eine andere Sortierfunktion */
+            document.getElementById("letters").addEventListener("click", function () {
+                sortiere(0, alsString)
+            });
+            document.getElementById("numbers").addEventListener("click", function () {
+                sortiere(1, alsZahl)
+            });
+            document.getElementById("strings").addEventListener("click", function () {
+                sortiere(2, alsString)
+            });
+        }
+
+        function sortiere(spalte, sortBy) {
+            var body = document.getElementById("tabellen-body");
+            var zeilen = [];
+            /*Zuerst werden alle Tabellenzeilen in ein Array gelesen*/
+            while (body.firstChild) {
+                var child = body.removeChild(body.firstChild);
+                /*In diesem Beispiel müssen Textnodes zwischen den Tabellenzeilen ignriert werden*/
+                if (child.nodeType == Node.ELEMENT_NODE) {
+                    zeilen.push(child);
+                }
+            }
+            /*Danach werden sie sortiert*/
+            zeilen.sort(function (el1, el2) {
+                /*Bevor die Werte verglichen werden können, müssen sie ausgelesen werden.
+                 Im Array stehen Tabellenzeilen, die nach einer Spalte sortiert werden sollen.
+                 Also wird der Inhalt dieser Spalte ausgelesen und damit die Sortierfunktion gerufen.*/
+                var val1 = el1.getElementsByTagName("td")[spalte].textContent;
+                var val2 = el2.getElementsByTagName("td")[spalte].textContent;
+                return sortBy(val1, val2);
+            });
+            /*Umd zum Schluss zurückgeschrieben*/
+            while (zeilen.length) {
+                body.appendChild(zeilen.pop());
+            }
+        }
+
+        function alsZahl(zahl1, zahl2) {
+            /*Diese Funktion sortiert nach Zahlen*/
+            return parseInt(zahl2) - parseInt(zahl1);
+        }
+
+        function alsString(string1, string2) {
+            /*Diese Funktion sortiert alphabetisch*/
+            if (string1 < string2) return 1;
+            else if (string2 < string1) return -1;
+            else return 0;
+        }
+    </script>
+</head>
+
+<body>
+<table>
+    <thead>
+    <tr>
+        <td id="letters">Buchstaben</td>
+        <td id="numbers">Zahlen</td>
+        <td id="strings">Strings</td>
+    </tr>
+    </thead>
+    <tbody id="tabellen-body">
+    <tr>
+        <td>D</td>
+        <td>17</td>
+        <td>hat der alte Hexenmeister</td>
+    </tr>
+    <tr>
+        <td>X</td>
+        <td>3</td>
+        <td>sich doch einmal fortbegeben</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>23</td>
+        <td>und nun sollen seine Geister</td>
+    </tr>
+    <tr>
+        <td>R</td>
+        <td>39</td>
+        <td>auch nach meinem Willen leben</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

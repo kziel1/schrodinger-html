@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>USS Schrödinger - Energiekonsole</title>
+    <script>
+        window.addEventListener("load", setup);
+
+        function setup() {
+            /*Auch hier wird derselbe Eventhandler an allen Knöpfen registriert.*/
+            document.getElementById("antrieb").addEventListener("click", energieUmschalten);
+            document.getElementById("schilde").addEventListener("click", energieUmschalten);
+            document.getElementById("waffen").addEventListener("click", energieUmschalten);
+            document.getElementById("teleporter").addEventListener("click", energieUmschalten);
+            document.getElementById("holodeck").addEventListener("click", energieUmschalten);
+        }
+
+        function energieUmschalten(event) {
+            /*Da Knöpfe und Anzeigen geschickt bennant sind, kann man von der ID des einen auf die ID des anderen schließen.
+            So wird hier die Statusanzeige geholt*/
+            var statusanzeige = document.getElementById(event.target.id + "-status");
+            /*Dann wird der Wert umgeschaltet.*/
+            if (statusanzeige.innerHTML.indexOf("OFFLINE") > -1) {
+                statusanzeige.innerHTML = "ONLINE";
+            } else {
+                statusanzeige.innerHTML = "OFFLINE";
+            }
+        }
+    </script>
+    <style>
+        button {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+<h1>USS Schrödinger</h1>
+
+<h2>Energiekonsole</h2>
+<button type="button" id="antrieb">Antriebssystem</button>
+<span id="antrieb-status">OFFLINE</span><br/>
+<button type="button" id="schilde">Schilde</button>
+<span id="schilde-status">OFFLINE</span><br/>
+<button type="button" id="waffen">Waffen</button>
+<span id="waffen-status">OFFLINE</span><br/>
+<button type="button" id="teleporter">Teleporter</button>
+<span id="teleporter-status">OFFLINE</span><br/>
+<button type="button" id="holodeck">Holodeck</button>
+<span id="holodeck-status">OFFLINE</span><br/>
+
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

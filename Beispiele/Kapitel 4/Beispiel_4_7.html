@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nachfahrenselektoren - gemeine Mehrdeutigkeit</title>
+    <style>
+        div .myh span {
+            color: orange;
+        }
+
+        div h1 .myspan {
+            color: purple;
+        }
+    </style>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div>
+    <!--Welche Farbe hat denn nun dieses span? Ich verrat's dir: es wird lila, aber nur, weil die Regel weiter unten steht.-->
+    <h1 class="myh">Dies ist <span class="myspan">h1</span></h1>
+</div>
+</body>
+</html>

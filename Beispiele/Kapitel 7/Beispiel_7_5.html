@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wohin mit dem zuviel Text? Overflow</title>
+    <style>
+
+        div {
+            background-color: #FFAAAA;
+            float: left;
+            width: 20%;
+            height: 200px;
+            margin: 20px;
+        }
+
+    </style>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<!--Mit overflow:visible wird der Text dargestellt, auch wenn das Element zu klein ist: es läuft nach unten über -->
+<div style="overflow: visible;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lectus leo, egestas vitae tincidunt ac,
+    malesuada in massa. Integer neque augue, convallis faucibus vestibulum fringilla, condimentum eget erat. Ut a metus
+    sodales lorem tincidunt imperdiet. Quisque ac tincidunt ipsum. Phasellus ut eros laoreet est ultrices interdum.
+    Proin condimentum eleifend consequat. Aliquam enim velit, adipiscing non sollicitudin dictum, accumsan et lorem.
+    Cras in sapien non mi ornare cursus. Duis semper odio ac magna eleifend posuere. Pellentesque mollis ipsum a dui
+    tincidunt placerat. Etiam volutpat, risus vitae venenatis auctor, purus enim placerat risus, sed accumsan sem ante a
+    dui. Nullam adipiscing, enim in molestie fermentum, nisl nibh convallis quam, non bibendum risus mauris quis felis.
+</div>
+<!--overflow:hidden versteckt den Text, der nicht passt. Es gibt auch keine Möglichkeit, ihn zu erreichen.-->
+<div style="overflow: hidden;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lectus leo, egestas vitae tincidunt ac,
+    malesuada in massa. Integer neque augue, convallis faucibus vestibulum fringilla, condimentum eget erat. Ut a metus
+    sodales lorem tincidunt imperdiet. Quisque ac tincidunt ipsum. Phasellus ut eros laoreet est ultrices interdum.
+    Proin condimentum eleifend consequat. Aliquam enim velit, adipiscing non sollicitudin dictum, accumsan et lorem.
+    Cras in sapien non mi ornare cursus. Duis semper odio ac magna eleifend posuere. Pellentesque mollis ipsum a dui
+    tincidunt placerat. Etiam volutpat, risus vitae venenatis auctor, purus enim placerat risus, sed accumsan sem ante a
+    dui. Nullam adipiscing, enim in molestie fermentum, nisl nibh convallis quam, non bibendum risus mauris quis felis.
+</div>
+<!--Mit overflow:scroll werden rechts und unten Scrollbalken angezeigt. Leider aber auch, wenn sie gar nicht nötig sind.-->
+<div style="overflow: scroll;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lectus leo, egestas vitae tincidunt ac,
+    malesuada in massa. Integer neque augue, convallis faucibus vestibulum fringilla, condimentum eget erat. Ut a metus
+    sodales lorem tincidunt imperdiet. Quisque ac tincidunt ipsum. Phasellus ut eros laoreet est ultrices interdum.
+    Proin condimentum eleifend consequat. Aliquam enim velit, adipiscing non sollicitudin dictum, accumsan et lorem.
+    Cras in sapien non mi ornare cursus. Duis semper odio ac magna eleifend posuere. Pellentesque mollis ipsum a dui
+    tincidunt placerat. Etiam volutpat, risus vitae venenatis auctor, purus enim placerat risus, sed accumsan sem ante a
+    dui. Nullam adipiscing, enim in molestie fermentum, nisl nibh convallis quam, non bibendum risus mauris quis felis.
+</div>
+<!--overflow:auto macht alles besser: Scrollbalken erscheinen nur, wo sie gebraucht werden. -->
+<div style="overflow: auto;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lectus leo, egestas vitae tincidunt ac,
+    malesuada in massa. Integer neque augue, convallis faucibus vestibulum fringilla, condimentum eget erat. Ut a metus
+    sodales lorem tincidunt imperdiet. Quisque ac tincidunt ipsum. Phasellus ut eros laoreet est ultrices interdum.
+    Proin condimentum eleifend consequat. Aliquam enim velit, adipiscing non sollicitudin dictum, accumsan et lorem.
+    Cras in sapien non mi ornare cursus. Duis semper odio ac magna eleifend posuere. Pellentesque mollis ipsum a dui
+    tincidunt placerat. Etiam volutpat, risus vitae venenatis auctor, purus enim placerat risus, sed accumsan sem ante a
+    dui. Nullam adipiscing, enim in molestie fermentum, nisl nibh convallis quam, non bibendum risus mauris quis felis.
+</div>
+</body>
+</html>

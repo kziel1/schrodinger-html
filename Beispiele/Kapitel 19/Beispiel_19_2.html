@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Über Stapelfix (Tabs mit jQuery UI)</title>
+    <link rel="stylesheet" href="jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css"/>
+    <script src="jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
+    <script src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div id="tabs">
+    <!--Diese Liste enthält die Tabs. Der Link in jedem Eintrag verweist auf eines der drei div-Tags darunter -->
+    <ul>
+        <li><a href="#geschichte">Geschichte</a></li>
+        <li><a href="#produkte">Produkte</a></li>
+        <li><a href="#ueber-stapelfix">Über Stapelfix</a></li>
+    </ul>
+    <div id="geschichte">
+        <h1>Die Geschichte von Stapelfix</h1>
+
+        <h2>Die frühen Jahre</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer suscipit fringilla tortor dignissim egestas.
+            Etiam id felis sit amet urna porttitor mollis commodo ac metus. Duis quis nunc dui, quis interdum tellus.
+            Curabitur sem mauris, molestie eu eleifend at, tincidunt ut orci. Pellentesque scelerisque sapien lorem,
+            ultricies pellentesque mi. Sed interdum, magna at interdum dictum, metus turpis faucibus libero, quis
+            lacinia mi magna ut metus. Praesent dolor ipsum, consequat eget egestas quis, volutpat aliquet massa. Donec
+            luctus aliquet eros sodales pellentesque. Donec eu libero orci, at tristique nibh. </p>
+
+        <h2>Stapelfix wird international</h2>
+
+        <p>Maecenas turpis enim, mollis sit amet laoreet ac, rutrum sed justo. Aliquam erat volutpat. Mauris varius
+            interdum pulvinar. Vivamus ultricies aliquam dui, eu gravida massa egestas a. Suspendisse lacinia arcu id
+            sem luctus ut pretium arcu consequat. Quisque non nibh nec lacus sagittis luctus. Vestibulum egestas sem a
+            odio scelerisque pretium. Donec ac est nunc. Vivamus elementum ipsum et lorem consectetur faucibus. Nulla
+            lorem tortor, malesuada euismod lobortis eget, eleifend eu justo. Vivamus ut felis eget eros eleifend
+            rhoncus. Proin fringilla velit vel neque dignissim blandit. Nulla quis mi ac dui euismod tincidunt a vel
+            massa. Nam in nibh sit amet est convallis semper. Curabitur dolor libero, volutpat nec malesuada vel,
+            tristique ac elit. Vestibulum hendrerit faucibus metus, ac placerat est congue eget. </p>
+
+        <h2>Stapelfix heute</h2>
+
+        <p>Nullam vel sem iaculis nisl suscipit hendrerit quis at nisl. Cras placerat accumsan fermentum. Morbi posuere
+            elit ante, sit amet pellentesque dolor. Vivamus sit amet turpis quis urna ullamcorper eleifend. Sed
+            ultricies lectus ac tellus aliquam vel ullamcorper metus mollis. Nam non enim dolor. Integer quis sapien
+            sem. Sed eleifend sapien et felis hendrerit commodo. Aliquam lectus ligula, porttitor sit amet sagittis in,
+            auctor eget est. In mattis, ante ac volutpat fermentum, ante augue mollis justo, vitae pretium est nunc et
+            arcu. Sed molestie, magna vitae sodales molestie, eros elit facilisis dolor, quis tincidunt urna augue quis
+            leo. Praesent quis libero ac erat bibendum sollicitudin eu at justo. Ut eu ligula non elit fermentum porta.
+            Donec vel dolor arcu, at aliquam ante. </p>
+    </div>
+    <div id="produkte">
+        <h1>Die Produktpalette</h1>
+
+        <h2>Kisten</h2>
+
+        <p>Aliquam in sagittis mi. Morbi ultrices dui ut est venenatis et euismod velit venenatis. Integer enim ipsum,
+            euismod in gravida id, euismod sed diam. Ut ut nulla tortor, vehicula tincidunt augue. Morbi ornare pretium
+            molestie. Etiam tempus, dui ut consequat pharetra, mauris arcu rhoncus erat, a placerat leo risus eu libero.
+            Phasellus vitae varius tellus. Vivamus pretium quam eget arcu venenatis condimentum. Aenean tristique sem
+            sed eros malesuada porta. Ut at enim id leo imperdiet mollis. Nulla condimentum porta fringilla. Proin eu
+            risus ipsum. Quisque molestie ultrices porta. </p>
+
+        <h3>Holz</h3>
+
+        <p>Nulla ac odio vitae magna commodo semper. Cras aliquet varius erat, ac congue lectus tristique ac. Duis in
+            ipsum in tortor consectetur pellentesque nec vel massa. Proin felis dui, fringilla nec congue eu, faucibus
+            vitae nibh. Vestibulum id quam sed sapien molestie euismod. Fusce ullamcorper elementum velit, sit amet
+            condimentum dolor elementum in. Duis vitae sapien id ante dictum aliquam sit amet in nibh. Cum sociis
+            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam leo eros, tincidunt vel
+            pharetra at, sollicitudin sit amet ligula. Nullam vitae elit neque. Praesent tristique nisl aliquet nulla
+            accumsan at scelerisque urna feugiat. Nam viverra rutrum sem, a porta enim commodo eu. </p>
+
+        <h3>Pappe</h3>
+
+        <p>Suspendisse sapien nisl, laoreet nec egestas vel, mattis et magna. Aenean dictum dui et nunc dignissim quis
+            sollicitudin turpis consectetur. Proin tempor mi id nibh placerat ut commodo sapien egestas. Integer
+            ullamcorper porta dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+            cubilia Curae; Cras luctus est nec ante ultricies iaculis. Ut consequat metus eu risus fringilla congue. Sed
+            scelerisque magna sit amet eros tincidunt ac vehicula elit ullamcorper. </p>
+
+        <h2>Tonnen</h2>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia
+            elementum nisl et lobortis. Proin erat leo, egestas et aliquam vel, imperdiet ut augue. Proin magna odio,
+            dictum nec semper a, lacinia vitae magna. Pellentesque nibh augue, condimentum non elementum in, sodales id
+            tellus. Nam tempor, justo quis consequat rutrum, turpis leo tempor elit, at aliquet nulla lacus sed sem.
+            Integer vitae sapien urna, sed ultrices sem. Vivamus ut mi ullamcorper metus vulputate porttitor. </p>
+
+        <h2>Rollen</h2>
+
+        <p>Aenean viverra convallis malesuada. Donec a ante mauris, in rhoncus eros. Pellentesque sed posuere ligula. In
+            in purus dolor, non rutrum elit. Integer tempor molestie orci quis pellentesque. Nullam turpis dolor,
+            viverra et bibendum sed, vehicula a nulla. Sed semper ipsum nibh, ut gravida sapien. Nullam ac justo non leo
+            molestie scelerisque. </p>
+    </div>
+    <div id="ueber-stapelfix">
+        <h1>Die Stapelfix-Crew</h1>
+
+        <p>Donec non augue quis risus ultricies volutpat. Fusce condimentum tincidunt ipsum, quis gravida mauris
+            volutpat ut. Donec consectetur, enim sed molestie adipiscing, mauris ante feugiat diam, ut pretium mi velit
+            vel nibh. Mauris turpis sem, accumsan in cursus in, sagittis vitae metus. Nunc imperdiet, diam eu pulvinar
+            pharetra, metus mauris venenatis justo, eu venenatis lorem nibh id risus. Praesent mattis magna quis metus
+            auctor dictum. Proin nisi dolor, luctus varius tincidunt quis, dignissim et arcu. Donec laoreet interdum
+            quam, id convallis nulla euismod sit amet. Praesent convallis, erat ac egestas hendrerit, lacus metus
+            laoreet dui, sit amet porttitor felis lorem nec urna. </p>
+
+        <h1>Die Vision</h1>
+
+        <p>Sed lacus tellus, aliquam ac accumsan et, ullamcorper ut nulla. Class aptent taciti sociosqu ad litora
+            torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Vivamus eu purus quis ipsum
+            vehicula pellentesque sit amet id lorem. Ut eleifend, neque ullamcorper molestie faucibus, augue sem
+            porttitor purus, non pellentesque nibh lorem vehicula eros. Donec dignissim erat ac ipsum vehicula
+            dignissim. Suspendisse malesuada porttitor sapien non sodales. Donec venenatis consectetur luctus. Mauris
+            fermentum neque at mauris egestas varius. Pellentesque convallis condimentum est, a feugiat enim pulvinar
+            vitae. Nam scelerisque lobortis auctor. Donec sed eros sit amet eros interdum aliquam nec ultrices augue. Ut
+            in lacus a mauris rhoncus congue at adipiscing arcu. Aenean hendrerit urna et nunc adipiscing cursus. </p>
+    </div>
+</div>
+<script>
+    /*Ez voila, Tabs. Das HTML muss die richtige Struktur haben, aber dennoch: es ist unfassbar einfach.*/
+    $("#tabs").tabs();
+</script>
+</body>
+</html>

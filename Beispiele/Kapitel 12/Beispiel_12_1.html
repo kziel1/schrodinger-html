@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>USS Schrödinger - Das Schiff mit Eventlistenern</title>
+    <script>
+        /*Die Funktion addEventHandler - verfügbar an allem, wo es interessant ist - ist der beste Weg, Handler zu registrieren.
+        Viel, viel besser als die on...-Attribute.
+        Wenn die Seite vollständig gelasen ist soll die Funktion setup gerufen werden.*/
+        window.addEventListener("load", setup);
+
+        function setup() {
+            /*Am Start-Knopf wird ein click-Handler registriert: wird der Knopf gedrückt, wird start gerufen.*/
+            document.getElementById("start").addEventListener("click", start);
+        }
+
+        function start() {
+            alert("Konstruktion nicht abgeschlossen");
+        }
+
+    </script>
+</head>
+
+<body>
+<h1>USS Schrödinger</h1>
+<button type="button" id="start">Bis zur Unendlichkeit!</button>
+
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

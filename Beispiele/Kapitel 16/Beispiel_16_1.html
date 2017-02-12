@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Audioübertragung live von der Stapelolympiade</title>
+</head>
+<body>
+<h1>Das Finale im Staplerbalett!</h1>
+<!--Das neue audio-Element macht es ganz einfach, Musik und anderes Geräusch abzuspielen. Das Attribut controls sorgt dafür,
+dass auch Knöpfe angezeigt werden, ansonsten lässt sich das Ding nämlich nicht bedienen.-->
+<audio controls>
+    <!--Mehrere source-Tags geben an alternative Dateiformate an: mp3 für Internet Exploder und Safari, WebM für Chrome und Firefox  -->
+    <source src="stapelolympiade1.mp3" type="audio/mpeg">
+    <source src="stapelolympiade1.webm" type="audio/webm">
+    <!--Wenn der Browser das audio-Tag nicht kennt, dann wird dieser Text angezeigt.  -->
+    Ihr Browser unterstützt das Audio-Tag nicht. <em>Bitte</em> besorgen Sie einen neuen.
+</audio>
+</body>
+</html>

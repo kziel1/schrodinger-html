@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Runde Ecken mit border-radius</title>
+    <style>
+        div {
+            background-color: #AAAAFF;
+            float: left;
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+        }
+
+        /*Einfach nur runde Ecken, alle vier sind gleich-*/
+        #box1 {
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        /*Verschiedene Radii: die erste Zahl für links oben und rechts unten, die zweite für die anderen Ecken*/
+        #box2 {
+            border: 1px solid black;
+            border-radius: 5px 20px;
+        }
+
+        /*Verschiedene Radii: runde Ecken sind nicht dumm, denn sie gehen auch andersrum.*/
+        #box3 {
+            border: 1px solid black;
+            border-radius: 20px 5px;
+        }
+
+        /*Mit drei Radii wird es schwer zu raten, wo welcher hinkommt. Die dritte Zahl gilt für rechts unten, der Rest ist wie zuvor.*/
+        #box4 {
+            border: 1px solid black;
+            border-radius: 10px 20px 40px;
+        }
+
+        /*border-radius braucht nicht unbedingt einen Rahmen. Auch so wird der Hintergrund abgerundet.*/
+        #box5 {
+            border-radius: 10px;
+        }
+
+        /*Mit einem Schrägstrich getrennt kannst du zwei Radii für eine Ecke angeben. So sind die Ecken nicht mehr Kreisrund sondern elliptisch.*/
+        #box6 {
+            border: 1px solid black;
+            border-radius: 20px / 50px;
+        }
+
+        /*Hier nochmal andersherum, um den Unterschied zu sehen.*/
+        #box7 {
+            border: 1px solid black;
+            border-radius: 50px / 20px;
+        }
+
+        /*Und auch relative Größen funktionieren.*/
+        #box8 {
+            border: 1px solid black;
+            border-radius: 2em;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+<div id="box4"></div>
+<div id="box5"></div>
+<div id="box6"></div>
+<div id="box7"></div>
+<div id="box8"></div>
+
+</body>
+</html>

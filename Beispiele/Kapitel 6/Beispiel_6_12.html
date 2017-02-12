@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gute Eingaben, schlechte Eingaben: Pseudoklassen für valide und invalide Eingabefelder</title>
+    <style>
+        label, input {
+            margin-top: 3px;
+        }
+
+        /*Eingabefelder mit einem ungültigen Wert erhalten die Pseudoklasse :invalid*/
+        input:invalid {
+            background-color: #FFBBBB;
+            border: 1px solid black;
+        }
+
+        /*Mit einem gültigen Wert werden sie :valid*/
+        input:valid {
+            background-color: #BBFFBB;
+            border: 1px solid black;
+        }
+    </style>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<form method="get">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+    <br>
+</form>
+</body>
+</html>

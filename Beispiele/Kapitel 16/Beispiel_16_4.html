@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Malen nach Pfaden</title>
+    <script type="text/javascript">
+        window.addEventListener("load", zeichne);
+
+        function zeichne() {
+            /*Auch zum Zeichnen mit Pfaden brauchst du den Grafikkontext*/
+            var canvas = document.getElementById("grafik");
+            var ctx = canvas.getContext("2d");
+            /*Beginne einen neuen Pfad.*/
+            ctx.beginPath();
+            /*Bewege deinen virtuellen Zeichenstift zum Startpunkt*/
+            ctx.moveTo(75, 25);
+            /*Zeichne zwei Linien: eine Linie geht jeweils von dem Punkt, an dem die vorherige Operation endete, zu den
+            angegebenen Koordinaten.*/
+            ctx.lineTo(125, 100);
+            ctx.lineTo(25, 100);
+            /*closePath zeichnet eine Linie zurück zum Startpunkt. So ensteht ein geschlossener Pfad*/
+            ctx.closePath();
+            /*Der Pfad wird gefüllt, es entsteht ein ... schau's dir an.*/
+            ctx.fill();
+        }
+    </script>
+</head>
+<body>
+<canvas id="grafik" width="500" height="200">Canvas geht nich!</canvas>
+</body>
+</html>

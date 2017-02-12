@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>How big is the fish? Genau so groß, wie er für den Bildschirm sein muss.</title>
+</head>
+<body>
+<!--Das Bild ohne Suffix am Namen ist das kleinste. So werden keine zu großen Bilder vorgeladen. -->
+<picture>
+  <source srcset="sushi.jpg" media="(max-width: 381px)"/>
+  <source srcset="sushi-med.jpg" media="(min-width: 381px and max-width: 762px)"/>
+  <source srcset="sushi-big.jpg" media="(min-width: 763px)"/>
+  <img src="sushi.jpg" alt="Ich hab Hunger ...">
+</picture>
+</body>
+</html>

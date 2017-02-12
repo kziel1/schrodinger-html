@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Funktionen ausführen auf Knopfdruck</title>
+    <script>
+        function zaehleSchuhe() {
+            var regalboeden = 8;
+            var paareJeBoden = 5;
+            var paareNebenDemRegal = 7;
+            var paare = paareNebenDemRegal + paareJeBoden * regalboeden;
+            var schuhe = paare * 2;
+            /*document.getElementByID findet das HTML-Element mit der angegebenen ID.
+            Die Eigenschaft innerHTML enthält den Inhalt des Elements, durch sie kannst du auch einen neuen Inhalt setzen*/
+            document.getElementById("ausgabe").innerHTML = schuhe;
+        }
+    </script>
+</head>
+<body>
+Schrödingers Freundin hat <span id="ausgabe"></span> Schuhe. <br/>
+<!--Mit dem Attribut onclick wird diesem Knopf ein Eventhandler zugewiesen: wird er angeklickt wird die Funktion zaehleSchuhe aufgerufen. -->
+<button type="button" onclick="zaehleSchuhe();">Klick mich!</button>
+<noscript>
+    JavaScript ist nicht aktiv!
+</noscript>
+</body>
+</html>

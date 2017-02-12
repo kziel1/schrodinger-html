@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/*
+Jede Klasse bekommt eine andere Schriftfarbe. Klassenselektoren beginnen mit einem Punkt.
+*/
+.hobby {
+    color: blue;
+}
+
+.arbeit {
+    color: grey;
+}
+
+.liebe {
+    color: orange;
+}
+
+
+
+

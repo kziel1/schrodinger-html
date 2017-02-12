@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Einrücken und Ausrücken: text-indent</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<!--Die erste Zeile dieses Absatzes ist um 2 ems eingerückt. -->
+<p style="text-indent: 2em">Hier steht ein langer Text, denn wir wollen ja einen Zeilenumbruch, lalala, immer noch kein
+    Umbruch, mir wird langweilig, text text text, O La Paloma Blanca, na endlich, eine neue Zeile, nein, doch noch
+    nicht, ich brauche dringend einen kleineren Bildschirm, 17-Zoll TFT zu verkaufen, und jetzt will ich auch noch eine
+    dritte Zeile, damit man den Effekt besser sehen kann, wer hat sich bloß dieses Beispiel ausgedacht, den Text liest
+    doch eh keiner, dub di dub di du, immer noch Text, nimmt gar kein Ende mehr, la la la</p>
+
+<!--Die erste Zeile dieses Absatzes ist um 2 ems ausgerückt.
+Die Angabe von margin-left ist nötig, damit der Text auf dem Bildschirm bleibt - ohne diese Angabe würde die erste Zeile
+links aus dem Bildschirm laufen.-->
+<p style="text-indent: -2em; margin-left: 2em;">Hier steht ein langer Text, denn wir wollen ja einen Zeilenumbruch,
+    lalala, immer noch kein Umbruch, mir wird langweilig, text text text, O La Paloma Blanca, na endlich, eine neue
+    Zeile, nein, doch noch nicht, ich brauche dringend einen kleineren Bildschirm, 17-Zoll TFT zu verkaufen, und jetzt
+    will ich auch noch eine dritte Zeile, damit man den Effekt besser sehen kann, wer hat sich blo� dieses Beispiel
+    ausgedacht, den Text liest doch eh keiner, dub di dub di du, immer noch Text, nimmt gar kein Ende mehr, la la la</p>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Bilder laden per File API</title>
+    <script>
+
+        window.addEventListener("load", init);
+
+        function init() {
+            document.getElementById("datei").addEventListener("change", waehleDatei);
+        }
+
+        function waehleDatei(event) {
+            /*In diesem Beispiel kann nur eine Datei ausgewählt werden*/
+            if (event.target.files[0]) {
+                /*Ein FileReader übernimmt das Laden der Datei.*/
+                var leser = new FileReader();
+                /*Es sind einige Eventhandler a FileReader möglich. Wirklich unbedingt brauchst du einen load-Handler,
+                der Rest ist Bonus.*/
+                leser.addEventListener("load", bildGeladen); //Laden erfolgreich abgeschlossen
+                leser.addEventListener("progress", fortschrittAnzeigen);//Es gibt Ladefortschritt
+                leser.addEventListener("loadend", ladenBeendet); //Laden beendet, mit oder ohne Fehler
+                leser.addEventListener("error", zeigeLadefehler); //Es gab einen Fehler
+                leser.addEventListener("loadstart", ladenGestartet); //Laden hat begonnen
+                /*Mit diesem Aufruf geht es los. Das Ergebnis möchten wir als data-URL.*/
+                leser.readAsDataURL(event.target.files[0]);
+            }
+        }
+
+        /*Im Fehlerfall werden verschiedene Meldungen ausgegeben.*/
+        function zeigeLadefehler(event) {
+            var meldung;
+            switch (event.target.error.name) {
+                case "NotFoundError":
+                    meldung = "Datei nicht gefunden.";
+                    break;
+                case "SecurityError":
+                case "NotReadableError":
+                    meldung = "Darf Datei nicht lesen.";
+                    break;
+                case "EncodingError":
+                    meldung = "Datei ist zu lang, um als Data-URL zu lesen.";
+                    break;
+                default:
+                    meldung = "Keine Ahnung";
+            }
+            alert("Konnte Datei nicht laden. Fehler: " + meldung);
+        }
+
+        /*Wenn das Bild erfolgreich geladen wurde, wird es angezeigt*/
+        function bildGeladen(event) {
+            var img = document.createElement("img");
+            img.setAttribute("alt", "Geladenes Bild");
+            img.setAttribute("src", event.target.result);
+            document.getElementById("ausgabe").appendChild(img);
+        }
+
+        /*Bei Fortschritt wird ausgegeben, wie viel Prouent der Datei geladen sind. Wenn deine Datei nicht extrem groß ist,
+        dann wird diese Methode nur einmal oder gar nicht aufgerufen.*/
+        function fortschrittAnzeigen(event) {
+            var anzeige = document.getElementById("fortschritt");
+            anzeige.appendChild(document.createTextNode(((event.loaded * 100) / event.total).toFixed(0) + "% geladen."));
+            anzeige.appendChild(document.createElement("br"));
+        }
+
+        /*Laden beendet*/
+        function ladenBeendet(event) {
+            var anzeige = document.getElementById("fortschritt");
+            if (event.target.error) {
+                anzeige.appendChild(document.createTextNode(" Laden mit Fehler abgeschlossen"));
+            } else {
+                anzeige.appendChild(document.createTextNode(" Laden abgeschlossen"));
+            }
+        }
+
+        /*Laden geht los*/
+        function ladenGestartet() {
+            var anzeige = document.getElementById("fortschritt");
+            anzeige.appendChild(document.createTextNode("Laden gestartet"));
+            anzeige.appendChild(document.createElement("br"));
+        }
+
+
+    </script>
+</head>
+<body>
+<h1>Bilder laden</h1>
+
+<h2>Dateien auswählen</h2>
+<input name="datei" id="datei" type="file"/>
+
+<p id="fortschritt"></p>
+
+<p id="ausgabe"></p>
+</body>
+</html>

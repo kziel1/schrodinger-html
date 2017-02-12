@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wir können auch anders: Datalist anstatt Select</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<form action="http://localhost:8080/forms/hallowelt.php" method="get">
+    <label for="name">Wie heißt du?</label>
+    <input type="text" name="name" id="name" placeholder="Hier dein Name">
+    <br>
+    <label for="gender_male">Männlein</label>
+    <input type="radio" name="geschlecht" value="m" id="gender_male" checked>
+    <br>
+    <label for="gender_female">Weiblein</label>
+    <input type="radio" name="geschlecht" value="f" id="gender_female">
+    <br>
+    <label for="extraschleim">Extraschleim</label>
+    <input type="checkbox" name="extraschleim" value="an" id="extraschleim">
+    <br>
+    <label for="zusatz">Zusatzschleim</label>
+    <!--An einem Eingabefeld kannst du mit dem list-Attribut eine Liste von Voschlägen  angeben, die dem Benutzer bei der Eingabe gezeigt werden
+    Im Gegensatz zur Select Box kann er aber auch etwas ganz eigenes eingeben. -->
+    <input type="text" list="adjektive" name="zusatz[]" id="zusatz">
+    <!--Die Liste wird mit dem Tag datalist definiert. Pass auf, das option-Tag ist hier anders als bei select! -->
+    <datalist id="adjektive">
+        <option value="intelligent"></option>
+        <option value="gutaussehend"></option>
+        <option value="nach Käse riechend"></option>
+        <option value="langweilig"></option>
+        <option value="wohlgeformt"></option>
+        <option value="schmackhaft"></option>
+    </datalist>
+    <br>
+    <button>Sag mal hallo!</button>
+</form>
+</body>
+</html>

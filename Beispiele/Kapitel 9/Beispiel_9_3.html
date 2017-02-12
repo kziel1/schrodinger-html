@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Du hast doch nen Schatten! Oder zumindest dein Text ...</title>
+    <style>
+        p {
+            margin: 20px;
+            font-family: sans-serif;
+        }
+
+        /*Ein einfacher, grauer Textschatten. Zuerst wird die Verschiebung nach rechts angegeben, dann die nach unten, zuletzt die Farbe*/
+        #absatz1 {
+            text-shadow: 0.2em 0.2em gray;
+        }
+        /*Mehrere Schatten werden mit Komma getrennt*/
+        #absatz2 {
+            text-shadow: 0.3em 0.3em red, 0.5em 0.5em orange, 0.7em 0.7em yellow, 0.9em 0.9em green, 1.1em 1.1em blue, 1.3em 1.3em indigo, 1.5em 1.5em violet;
+        }
+
+        /*Zwischen Verschiebung und Farbe kannst du noch die Unschärfe angeben.*/
+        #absatz3 {
+            text-shadow: 0.2em 0.2em 0.5em gray;
+        }
+
+        #absatz4 {
+            text-shadow: 1.5em 1.5em 0.2em violet, 1.3em 1.3em 0.2em indigo, 1.1em 1.1em 0.2em blue, 0.9em 0.9em 0.2em green, 0.7em 0.7em 0.2em yellow, 0.5em 0.5em 0.2em orange, 0.3em 0.3em 0.2em red;
+        }
+
+    </style>
+</head>
+<body>
+<!--Ein einfacher, grauer Textschatten. Und das geht mit reinem CSS. -->
+<p id="absatz1">Du hast doch 'nen Schatten</p>
+
+<!--Es muss nicht nur einen Schatten geben, auch mehrere an verschiedenen Stellen gehen.-->
+<p id="absatz2">Einen? Dutzende</p>
+
+<!--Schatten mit klaren Umrissen kommen in der Natur ja auch nicht vor, warum sollen sie bei uns klare Linien haben -->
+<p id="absatz3">Unscharf wird es auch noch</p>
+
+<!--Mehr Schatten! Mehr Unschärfe!!! -->
+<p id="absatz4">TASTE THE RAINBOW</p>
+</body>
+</html>

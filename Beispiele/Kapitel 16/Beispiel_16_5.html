@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Farbverläufe</title>
+    <script type="text/javascript">
+        /*Dieses Beispiel zeigt drei verschiedenen Fabrverläufe*/
+        function zeichne() {
+            var ctx = document.getElementById("linear1").getContext("2d");
+            /*Der erste Farbverlauf geht in der ersten Hälfte von gelb nach blau, danach von blau nach rot.
+            Dazu werden mehrere Color Stops gesetzt*/
+            var grad = ctx.createLinearGradient(0, 0, 500, 0);
+            grad.addColorStop(0, "yellow");
+            grad.addColorStop(0.5, "blue");
+            grad.addColorStop(1, "red");
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 500, 100);
+
+            /*Farbverlauf Nummer Zwei verläuft nur von schwarz nach rot. Der Farbverlauf umfasst den ganzen Canvas,
+            aber das gefüllte Rechteck nur den rechten Teil davon. So kannst du sehen, dass der Farbverlauf nicht an die
+            gezeichnete Figur gebunden ist: das Rechteck ist am linken Rand nicht schwarz*/
+            ctx = document.getElementById("linear2").getContext("2d");
+            grad = ctx.createLinearGradient(0, 0, 500, 0);
+            grad.addColorStop(0, "black");
+            grad.addColorStop(1, "red");
+            ctx.fillStyle = grad;
+            ctx.fillRect(200, 0, 300, 100);
+
+            /*Lineare Farbverläufe sind nicht die einzigen, es gibt auch radiale Farbverläufe, die von einem Mittelpunkt
+            aus in alle Richtugen verlaufen.*/
+            ctx = document.getElementById("radial").getContext("2d");
+            grad = ctx.createRadialGradient(0, 0, 0, 0, 0, 500);
+            grad.addColorStop(0, "black");
+            grad.addColorStop(1, "red");
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 500, 200);
+        }
+        window.addEventListener("load", zeichne);
+    </script>
+    <style>
+        canvas {
+            display: block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<canvas id="linear1" width="500" height="100">Canvas geht nich!</canvas>
+<canvas id="linear2" width="500" height="100">Canvas geht nich!</canvas>
+<canvas id="radial" width="500" height="200">Canvas geht nich!</canvas>
+
+</body>
+</html>
