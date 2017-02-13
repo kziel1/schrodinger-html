@@ -1,43 +1,43 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Der König spricht</title>
+	<meta charset="utf-8"/>
+	<title>Der König spricht</title>
 </head>
 <body>
 <div id="der-koenig-spricht"></div>
 <button id="frag-den-koenig" type="submit">Euer Majestät, was sollen wir tun?</button>
 <script>
 
-    window.addEventListener("load", init);
+	window.addEventListener("load", init);
 
-    function init() {
-        document.getElementById("frag-den-koenig").addEventListener("click", ajax);
-    }
+	function init() {
+		document.getElementById("frag-den-koenig").addEventListener("click", ajax);
+	}
 
-    /*In dieser Funktion wird ein AJAX-Request ausgelöst.*/
-    function ajax() {
-        /*Zuerst ein XMLHTTPRequest-Objekt erzeugen*/
-        var ajaxRequest = new XMLHttpRequest();
-        /*Eventhandler registrieren*/
-        ajaxRequest.addEventListener("load", ajaxGeladen);
-        ajaxRequest.addEventListener("error", ajaxFehler);
-        /*Und den Request abschicken.*/
-        ajaxRequest.open("get", "/ajax/derkoenig.php");
-        ajaxRequest.send();
-    }
+	/*In dieser Funktion wird ein AJAX-Request ausgelöst.*/
+	function ajax() {
+		/*Zuerst ein XMLHTTPRequest-Objekt erzeugen*/
+		var ajaxRequest = new XMLHttpRequest();
+		/*Eventhandler registrieren*/
+		ajaxRequest.addEventListener("load", ajaxGeladen);
+		ajaxRequest.addEventListener("error", ajaxFehler);
+		/*Und den Request abschicken.*/
+		ajaxRequest.open("get", "/ajax/derkoenig.php");
+		ajaxRequest.send();
+	}
 
-    /*Dieses Beispiel erhält eine schlichte Textantwort mit den Befehlen des Königs vom Server. Der Text wird ausgegeben.*/
-    function ajaxGeladen(event) {
-        var p = document.createElement("p");
-        p.appendChild(document.createTextNode("Der König befiehlt: " + event.target.responseText));
-        document.getElementById("der-koenig-spricht").appendChild(p);
-    }
+	/*Dieses Beispiel erhält eine schlichte Textantwort mit den Befehlen des Königs vom Server. Der Text wird ausgegeben.*/
+	function ajaxGeladen(event) {
+		var p = document.createElement("p");
+		p.appendChild(document.createTextNode("Der König befiehlt: " + event.target.responseText));
+		document.getElementById("der-koenig-spricht").appendChild(p);
+	}
 
-    /*Und alls ein Fehler auftritt, löst das einen Alarm aus*/
-    function ajaxFehler(event) {
-        alert(event.target.statusText);
-    }
+	/*Und alls ein Fehler auftritt, löst das einen Alarm aus*/
+	function ajaxFehler(event) {
+		alert(event.target.statusText);
+	}
 
 
 </script>

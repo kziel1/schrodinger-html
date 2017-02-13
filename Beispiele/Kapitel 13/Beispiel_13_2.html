@@ -1,46 +1,46 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Nodes und ihre Typen</title>
-    <script>
-        /*Diese Funktion läuft mit DOM-Methoden durch das ganze Element und gibt aus, welche Nodes es findet*/
-        function ausgabe(el, ziel) {
-            if (!el) el = document.getElementById("inhalt");
-            if (!ziel) ziel = document.getElementById("ausgabe");
-            var child = el.firstChild; //in firstChild steht immer das erste Kind eines Elements
-            /*Solange es weitere Kinder gibt, läuft die Schleife*/
-            while (child) {
-                var li = document.createElement("li");
-                if (child.nodeType == Node.ELEMENT_NODE) {
-                    li.appendChild(document.createTextNode("Element: " + child.nodeName.toLowerCase() + "\n"));
-                    var sub = document.createElement("ul");
-                    li.appendChild(sub);
-                    /* Die Funktion ruft sich selbst mit anderen Parametern auf, um die Kinder des gerade gefundenen Elementes auszugeben.
-                     Diese Technik heißt Rekursion. */
-                    ausgabe(child, sub);
-                } else if (child.nodeType == Node.TEXT_NODE) {
-                    li.appendChild(document.createTextNode("Text: " + child.nodeValue));
-                } else if (child.nodeType == Node.COMMENT_NODE) {
-                    li.appendChild(document.createTextNode("Kommentar: " + child.nodeValue));
-                }
-                ziel.appendChild(li);
-                /*Nachdem ein Element bearbeitet ist, wird zu seinem nächsten Geschwisterelement weitergegangen.*/
-                child = child.nextSibling;
-            }
-        }
+	<meta charset="utf-8"/>
+	<title>Nodes und ihre Typen</title>
+	<script>
+		/*Diese Funktion läuft mit DOM-Methoden durch das ganze Element und gibt aus, welche Nodes es findet*/
+		function ausgabe(el, ziel) {
+			if (!el) el = document.getElementById("inhalt");
+			if (!ziel) ziel = document.getElementById("ausgabe");
+			var child = el.firstChild; //in firstChild steht immer das erste Kind eines Elements
+			/*Solange es weitere Kinder gibt, läuft die Schleife*/
+			while (child) {
+				var li = document.createElement("li");
+				if (child.nodeType == Node.ELEMENT_NODE) {
+					li.appendChild(document.createTextNode("Element: " + child.nodeName.toLowerCase() + "\n"));
+					var sub = document.createElement("ul");
+					li.appendChild(sub);
+					/* Die Funktion ruft sich selbst mit anderen Parametern auf, um die Kinder des gerade gefundenen Elementes auszugeben.
+					 Diese Technik heißt Rekursion. */
+					ausgabe(child, sub);
+				} else if (child.nodeType == Node.TEXT_NODE) {
+					li.appendChild(document.createTextNode("Text: " + child.nodeValue));
+				} else if (child.nodeType == Node.COMMENT_NODE) {
+					li.appendChild(document.createTextNode("Kommentar: " + child.nodeValue));
+				}
+				ziel.appendChild(li);
+				/*Nachdem ein Element bearbeitet ist, wird zu seinem nächsten Geschwisterelement weitergegangen.*/
+				child = child.nextSibling;
+			}
+		}
 
-        function load() {
-            ausgabe();
-        }
-        window.addEventListener("load", load);
-    </script>
+		function load() {
+			ausgabe();
+		}
+		window.addEventListener("load", load);
+	</script>
 </head>
 
 <body>
 <p id="inhalt">
-    In diesem Dokument gibt es <span class="code">Element</span>s, aber auch andere <span class="code">Node</span>s.
-    Das kann manchmal sehr verwirrend sein. <!-- Absatz mit Beispieltext -->
+	In diesem Dokument gibt es <span class="code">Element</span>s, aber auch andere <span class="code">Node</span>s.
+	Das kann manchmal sehr verwirrend sein. <!-- Absatz mit Beispieltext -->
 </p>
 <ul id="ausgabe">
 

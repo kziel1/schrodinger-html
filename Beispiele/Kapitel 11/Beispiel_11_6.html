@@ -1,35 +1,35 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Finde die größte Zahl</title>
-    <script>
-        /*Diese Funktion findet in einem Array von Zahlen die größte */
-        function findeMaximum(array) {
-            var max;
-            if (array && array.length > 0) {
-                /*Die Schleife läuft durch alle Werte im Array*/
-                for (var i = 0; i < array.length; i++) {
-                    /*Wenn es noch kein Maximum gibt, oder diese Zahl größer ist als das aktuelle Maximum, wird die Zahl zum neuen Maximum.*/
-                    if (!max || array[i] > max) {
-                        max = array[i];
-                    }
-                }
-            }
-            /*Mit return wird das Maximum zurückgegeben*/
-            return max;
-        }
-    </script>
+	<meta charset="utf-8"/>
+	<title>Finde die größte Zahl</title>
+	<script>
+		/*Diese Funktion findet in einem Array von Zahlen die größte */
+		function findeMaximum(array) {
+			var max;
+			if (array && array.length > 0) {
+				/*Die Schleife läuft durch alle Werte im Array*/
+				for (var i = 0; i < array.length; i++) {
+					/*Wenn es noch kein Maximum gibt, oder diese Zahl größer ist als das aktuelle Maximum, wird die Zahl zum neuen Maximum.*/
+					if (!max || array[i] > max) {
+						max = array[i];
+					}
+				}
+			}
+			/*Mit return wird das Maximum zurückgegeben*/
+			return max;
+		}
+	</script>
 </head>
 
 <body>
 Das Maximum von 3, 7, -1, 5, 13, -12, -167, 4, 19, 3.1:
 <script>
-    document.write(findeMaximum([3, 7, -1, 5, 13, -12, -167, 4, 19, 3.1]));
+	document.write(findeMaximum([3, 7, -1, 5, 13, -12, -167, 4, 19, 3.1]));
 </script>
 
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

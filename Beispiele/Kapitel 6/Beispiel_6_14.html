@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Endlich wieder mehr Selektoren: Auswählen nach Attributen</title>
-    <style>
+	<title>Endlich wieder mehr Selektoren: Auswählen nach Attributen</title>
+	<style>
 
-        label, input {
-            margin-top: 3px;
-        }
+		label, input {
+			margin-top: 3px;
+		}
 
-        input {
-            color: black;
-        }
+		input {
+			color: black;
+		}
 
-        /*Wird in eckigen Klammern nur ein Attributnamen angegeben, dann gilt diese Regel für alle Elemente, die das Attribut haben. Der Wert ist egal.*/
-        input[pattern] {
-            border: 2px solid #BBBBFF;
-        }
+		/*Wird in eckigen Klammern nur ein Attributnamen angegeben, dann gilt diese Regel für alle Elemente, die das Attribut haben. Der Wert ist egal.*/
+		input[pattern] {
+			border: 2px solid #BBBBFF;
+		}
 
-        /*Diese Regel gilt nur für Eingabefelder, bei denen das type-Attribut den Wert email hat.*/
-        input[type=email] {
-            border: 2px solid #FFBBBB;
-        }
+		/*Diese Regel gilt nur für Eingabefelder, bei denen das type-Attribut den Wert email hat.*/
+		input[type=email] {
+			border: 2px solid #FFBBBB;
+		}
 
-    </style>
-    <meta charset="utf-8"/>
+	</style>
+	<meta charset="utf-8"/>
 </head>
 <body>
 <form method="get">
-    <label for="text1">Text </label>
-    <input type="text" name="text1" id="text1">
-    <br>
-    <label for="email">Email </label>
-    <input type="email" name="email" id="email">
-    <br>
-    <label for="pattern">Mit Pattern </label>
-    <input type="text" name="pattern" id="pattern" pattern="[a-z]*">
+	<label for="text1">Text </label>
+	<input type="text" name="text1" id="text1">
+	<br>
+	<label for="email">Email </label>
+	<input type="email" name="email" id="email">
+	<br>
+	<label for="pattern">Mit Pattern </label>
+	<input type="text" name="pattern" id="pattern" pattern="[a-z]*">
 </form>
 </body>
 </html>

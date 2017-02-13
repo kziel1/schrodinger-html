@@ -1,54 +1,54 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Spaß mit Vererbung: was wird ausgegeben?</title>
-    <script>
-        /*Auf jeder Ebene einer Vererbungshierarchie können Eigenschaften und Methoden überschrieben werden.
-         Das kann es schon mal etwas anspruchsvoller machen, nachzuvollziehen, was passiert.*/
-        /*Typ A definiert zwei Eigenschaften, zahl1 und zahl2, und die Methode ausgabe. Würdest du sie an
-         einem Objekt vom Typ A direkt rufen gäbe es aber einen Fehler, denn die Methode rechne wird erst in einem Subtyp definiert.*/
-        function A() {
-        }
-        A.prototype = {
-            ausgabe: function () {
-                alert(this.rechne());
-            },
-            zahl1: 5,
-            zahl2: 7
-        };
-        /*B erbt von A und definiert die Methode rechne als Addition: die beiden Zahleneigenschaften werden addiert und zurückgegeben.*/
-        function B() {
-        }
-        B.prototype = new A();
-        B.prototype.rechne = function () {
-            return this.zahl1 + this.zahl2;
-        };
+	<meta charset="utf-8"/>
+	<title>Spaß mit Vererbung: was wird ausgegeben?</title>
+	<script>
+		/*Auf jeder Ebene einer Vererbungshierarchie können Eigenschaften und Methoden überschrieben werden.
+		 Das kann es schon mal etwas anspruchsvoller machen, nachzuvollziehen, was passiert.*/
+		/*Typ A definiert zwei Eigenschaften, zahl1 und zahl2, und die Methode ausgabe. Würdest du sie an
+		 einem Objekt vom Typ A direkt rufen gäbe es aber einen Fehler, denn die Methode rechne wird erst in einem Subtyp definiert.*/
+		function A() {
+		}
+		A.prototype = {
+			ausgabe: function() {
+				alert(this.rechne());
+			},
+			zahl1: 5,
+			zahl2: 7
+		};
+		/*B erbt von A und definiert die Methode rechne als Addition: die beiden Zahleneigenschaften werden addiert und zurückgegeben.*/
+		function B() {
+		}
+		B.prototype = new A();
+		B.prototype.rechne = function() {
+			return this.zahl1 + this.zahl2;
+		};
 
-        /*C erbt ebenfalls von A und definiert die Methode rechne als Subtraktion: die beiden Zahleneigenschaften werden voneinander abgezogen und zurückgegeben.*/
-        function C() {
-        }
-        C.prototype = new A();
-        C.prototype.rechne = function () {
-            return this.zahl1 - this.zahl2;
-        };
-        /*D erbt von B und überschreibt den Wert von zahl1*/
-        function D() {
-        }
-        D.prototype = new B();
-        D.prototype.zahl1 = 13;
-        /*Das Objekt d ist vom Typ D. An diesem speziellen Objekt wird ein neuer Wert für zahl2 gesetzt.*/
-        var d = new D();
-        d.zahl2 = 4;
-        /*Was kommt nun am Ende raus?*/
-        d.ausgabe();
-    </script>
+		/*C erbt ebenfalls von A und definiert die Methode rechne als Subtraktion: die beiden Zahleneigenschaften werden voneinander abgezogen und zurückgegeben.*/
+		function C() {
+		}
+		C.prototype = new A();
+		C.prototype.rechne = function() {
+			return this.zahl1 - this.zahl2;
+		};
+		/*D erbt von B und überschreibt den Wert von zahl1*/
+		function D() {
+		}
+		D.prototype = new B();
+		D.prototype.zahl1 = 13;
+		/*Das Objekt d ist vom Typ D. An diesem speziellen Objekt wird ein neuer Wert für zahl2 gesetzt.*/
+		var d = new D();
+		d.zahl2 = 4;
+		/*Was kommt nun am Ende raus?*/
+		d.ausgabe();
+	</script>
 </head>
 
 <body>
 <h1>Rechne!</h1>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

@@ -1,24 +1,24 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Defaultverhalten verhindern</title>
-    <script>
-        window.addEventListener("load", setup);
-        function setup() {
-            document.getElementById("klick-nicht").addEventListener("click", function (event) {
-                /*preventDefault sorgt dafür, dass das Standardverhalten des Browsers nicht ausgeführt wird. */
-                event.preventDefault();
-            });
-        }
-    </script>
+	<meta charset="utf-8"/>
+	<title>Defaultverhalten verhindern</title>
+	<script>
+		window.addEventListener("load", setup);
+		function setup() {
+			document.getElementById("klick-nicht").addEventListener("click", function(event) {
+				/*preventDefault sorgt dafür, dass das Standardverhalten des Browsers nicht ausgeführt wird. */
+				event.preventDefault();
+			});
+		}
+	</script>
 </head>
 
 <body>
 <!--Dieser Link würde eigentlich zu Google führen, aber preventDefault im Eventhandler verhindert das. -->
 <a id="klick-nicht" href="http://www.google.com">Klicken ist bei mir nicht erlaubt</a>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

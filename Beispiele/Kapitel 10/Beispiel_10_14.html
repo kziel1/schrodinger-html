@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
-    <title>Ich mag ihren Namen nicht! - Aufgabe</title>
+<head>
+	<title>Ich mag ihren Namen nicht! - Aufgabe</title>
 	<script>
-	
-		function versteckeFehler(){
+
+		function versteckeFehler() {
 			var fehlerContainer = document.getElementById("fehler");
 			fehlerContainer.style.display = "none";
 			fehlerContainer.innerHTML = "";
 		}
-	
-		function schreibeFehler(meldung){
+
+		function schreibeFehler(meldung) {
 			//diese Funktion hilft, Fehlermeldungen auszugeben
 			var fehlerContainer = document.getElementById("fehler");
 			fehlerContainer.style.display = "block";
@@ -18,19 +18,19 @@
 			fehlerContainer.innerHTML += "<p>" + meldung + "</p>";
 		}
 		
-		function pruefeVornamen(){
+		function pruefeVornamen() {
 			//pruefe, ob ein Name eingegeben wurde und ob der name nicht Klausie ist - ich weiß nicht warum aber der Kunde hat ein Problem mit dem Namen
 		}
 		
-		function pruefeNachnamen(){
+		function pruefeNachnamen() {
 			//pruefe, ob ein Nachname eingegeben wurde und ob er länger als ein Buchstabe ist
 		}
 		
-		function pruefeEmail(){
+		function pruefeEmail() {
 			//pruefe, ob eine Emailadresse eingegeben wurde und ob sie ein @ enthält. Das ist zwar keine ausreichende Prüfung, aber im Moment gibt es nicht mehrs
 		}
 		
-		function pruefeFormular(){
+		function pruefeFormular() {
 			versteckeFehler();
 			pruefeVornamen();
 			pruefeNachnamen();
@@ -38,7 +38,7 @@
 			schickeFormular();
 		}
 		
-		function schickeFormular(){
+		function schickeFormular() {
 			//hier muss ich dann noch das Formular abschicken, das krieg ich hin
 		}
 	</script>
@@ -46,6 +46,7 @@
 		label {
 			display: block;
 		}
+
 		#fehler {
 			background-color: lightgray;
 			color: red;
@@ -53,15 +54,15 @@
 			display: none;
 		}
 	</style>
-  <head>
-  <body>
-	<div id="fehler"></div>
-	<label for="vorname">Vorname: </label><input id="vorname" name="vorname"><br/>
-	<label for="nachname">Nachname: </label><input id="nachname" name="nachname"><br/>
-	<label for="email">Email: </label><input id="email" name="email"><br/>
-	<button type="button" onclick="pruefeFormular();">Klick mich!</button>
-	<noscript>
-		JavaScript ist nicht aktiv!
-	</noscript>
-  </body>
+	<head>
+<body>
+<div id="fehler"></div>
+<label for="vorname">Vorname: </label><input id="vorname" name="vorname"><br/>
+<label for="nachname">Nachname: </label><input id="nachname" name="nachname"><br/>
+<label for="email">Email: </label><input id="email" name="email"><br/>
+<button type="button" onclick="pruefeFormular();">Klick mich!</button>
+<noscript>
+	JavaScript ist nicht aktiv!
+</noscript>
+</body>
 </html>

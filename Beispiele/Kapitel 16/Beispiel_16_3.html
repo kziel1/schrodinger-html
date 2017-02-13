@@ -1,157 +1,157 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Medallienspiegel auf dem Canvas</title>
-    <script type="text/javascript">
-        /*In diesem Fall gibt es keine Benutzerinteraktion: sobald die Seite geladen ist wird das Diagramm gezeichnet.*/
-        window.addEventListener("load", zeichne);
+	<meta charset="utf-8"/>
+	<title>Medallienspiegel auf dem Canvas</title>
+	<script type="text/javascript">
+		/*In diesem Fall gibt es keine Benutzerinteraktion: sobald die Seite geladen ist wird das Diagramm gezeichnet.*/
+		window.addEventListener("load", zeichne);
 
-        function zeichne() {
-            /*Das canvas-Element wird anhand seiner ID gefunden.*/
-            var canvas = document.getElementById("grafik");
-            /*Aber was du wirklich brauchst, ist der Context.*/
-            var ctx = canvas.getContext("2d");
-            /*Die Daten werden aus der Tabelle in ein Objektmodell gelesen. Natürlich könntest du auch direkt aus den
-            Tabellendaten arbeiten. Aber es ist immer sauberer, Ein- und Ausgabe zu trennen. Und macht dir weniger
-            Kopfschmerzen bei der Fehlersuche.*/
-            var daten = leseTabelle();
-            /*Aus den gelesenen Daten werden zuerst die Balken gezeichnet.*/
-            zeichneAlleBalken(ctx, daten);
-            /*Dann noch Beschriftungen dazugesetzt.*/
-            beschrifte(ctx, daten);
-            /*Und zum Schluss das Maskottchen gemalt*/
-            zeichneKistie(ctx);
-        }
+		function zeichne() {
+			/*Das canvas-Element wird anhand seiner ID gefunden.*/
+			var canvas = document.getElementById("grafik");
+			/*Aber was du wirklich brauchst, ist der Context.*/
+			var ctx = canvas.getContext("2d");
+			/*Die Daten werden aus der Tabelle in ein Objektmodell gelesen. Natürlich könntest du auch direkt aus den
+			 Tabellendaten arbeiten. Aber es ist immer sauberer, Ein- und Ausgabe zu trennen. Und macht dir weniger
+			 Kopfschmerzen bei der Fehlersuche.*/
+			var daten = leseTabelle();
+			/*Aus den gelesenen Daten werden zuerst die Balken gezeichnet.*/
+			zeichneAlleBalken(ctx, daten);
+			/*Dann noch Beschriftungen dazugesetzt.*/
+			beschrifte(ctx, daten);
+			/*Und zum Schluss das Maskottchen gemalt*/
+			zeichneKistie(ctx);
+		}
 
-        function leseTabelle() {
-            var table = document.getElementById("medaillenspiegel");
-            /*Die Abteilungsnamen stehen im Tabellenkopf.*/
-            var abteilungen = table.getElementsByTagName("thead")[0].getElementsByTagName("th");
-            var zeilen = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-            /*Die drei Zeilen des Tabellen-Body enthalten Gold-, Silber- und Bronzemedaillen*/
-            var gold = zeilen[0].getElementsByTagName("td");
-            var silber = zeilen[1].getElementsByTagName("td");
-            var bronze = zeilen[2].getElementsByTagName("td");
-            /*Aus den zusammengehörigen Daten wird jeweils ein Objekt erzeugt.*/
-            var ergebnis = [];
-            for (var i = 0; i < abteilungen.length; i++) {
-                ergebnis[i] = {
-                    abteilung: abteilungen[i].innerHTML,
-                    gold: parseInt(gold[i].innerHTML),
-                    silber: parseInt(silber[i].innerHTML),
-                    bronze: parseInt(bronze[i].innerHTML)
-                }
-            }
-            return ergebnis;
-        }
+		function leseTabelle() {
+			var table = document.getElementById("medaillenspiegel");
+			/*Die Abteilungsnamen stehen im Tabellenkopf.*/
+			var abteilungen = table.getElementsByTagName("thead")[0].getElementsByTagName("th");
+			var zeilen = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+			/*Die drei Zeilen des Tabellen-Body enthalten Gold-, Silber- und Bronzemedaillen*/
+			var gold = zeilen[0].getElementsByTagName("td");
+			var silber = zeilen[1].getElementsByTagName("td");
+			var bronze = zeilen[2].getElementsByTagName("td");
+			/*Aus den zusammengehörigen Daten wird jeweils ein Objekt erzeugt.*/
+			var ergebnis = [];
+			for (var i = 0; i < abteilungen.length; i++) {
+				ergebnis[i] = {
+					abteilung: abteilungen[i].innerHTML,
+					gold: parseInt(gold[i].innerHTML),
+					silber: parseInt(silber[i].innerHTML),
+					bronze: parseInt(bronze[i].innerHTML)
+				}
+			}
+			return ergebnis;
+		}
 
-        function zeichneAlleBalken(ctx, daten) {
-            /*Es werden Transformationen angewendet, aber vorher wird der Zustand des Context gespeichert.*/
-            ctx.save();
-            /*Durch diese beiden Transformationen werden die Balken von der Unterkante aufwärts gezeichnet.
-            Die genaue Erklärung findest du im Buch*/
-            ctx.scale(1, -1);
-            ctx.translate(0, -200);
-            /*Für jedes Datenobjekt werden drei Balken gezeichnet, je einer Für Gold, silber und Bronze*/
-            for (var i = 0; i < daten.length; i++) {
-                zeichneBalken(ctx, i * 120 + 20, daten[i].gold, "#FFD700", "#CFA700");
-                zeichneBalken(ctx, i * 120 + 50, daten[i].silber, "#C0C0C0", "#909090");
-                zeichneBalken(ctx, i * 120 + 80, daten[i].bronze, "#AF773B", "#7F470B");
-            }
-            /*Am Ende wird der Context vom Anfang wiederhergestellt. Mit anderen Worten, die Transformationen werden wieder
-            abgeschaltet. So herrscht außerhalb dieser Methode wieder der selbe Zustand wie vorher. */
-            ctx.restore();
-        }
+		function zeichneAlleBalken(ctx, daten) {
+			/*Es werden Transformationen angewendet, aber vorher wird der Zustand des Context gespeichert.*/
+			ctx.save();
+			/*Durch diese beiden Transformationen werden die Balken von der Unterkante aufwärts gezeichnet.
+			 Die genaue Erklärung findest du im Buch*/
+			ctx.scale(1, -1);
+			ctx.translate(0, -200);
+			/*Für jedes Datenobjekt werden drei Balken gezeichnet, je einer Für Gold, silber und Bronze*/
+			for (var i = 0; i < daten.length; i++) {
+				zeichneBalken(ctx, i * 120 + 20, daten[i].gold, "#FFD700", "#CFA700");
+				zeichneBalken(ctx, i * 120 + 50, daten[i].silber, "#C0C0C0", "#909090");
+				zeichneBalken(ctx, i * 120 + 80, daten[i].bronze, "#AF773B", "#7F470B");
+			}
+			/*Am Ende wird der Context vom Anfang wiederhergestellt. Mit anderen Worten, die Transformationen werden wieder
+			 abgeschaltet. So herrscht außerhalb dieser Methode wieder der selbe Zustand wie vorher. */
+			ctx.restore();
+		}
 
-        /*Hier wird ein einzelner Balken gezeichnet.
-        Parameter:
-        ctx - der Grafikkontext
-        startX - die x-Koordinate des Balkens
-        medaillen - die Anzahl der Medaillen. Daraus wird die Höhe berechnet.
-        farbe1 - die erste Farbe für den Farbverlauf
-        farbe2 - die zweite Farbe für den Farbverlauf
-        */
-        function zeichneBalken(ctx, startX, medaillen, farbe1, farbe2) {
-            ctx.save();
-            /*Es wird ein linearer Farbverlauf erstellt*/
-            var gradient = ctx.createLinearGradient(0, 0, 0, medaillen * 20);
-            gradient.addColorStop(0, farbe1);
-            gradient.addColorStop(1, farbe2);
-            /*Mit diesem Farbverlauf soll der Balken gefüllt werden*/
-            ctx.fillStyle = gradient;
-            /*Zuerst wird die Füllung gezeichnet, dann der schwarze Rand*/
-            ctx.fillRect(startX, 0, 30, medaillen * 20);
-            ctx.strokeRect(startX, 0, 30, medaillen * 20);
-            ctx.restore();
-        }
+		/*Hier wird ein einzelner Balken gezeichnet.
+		 Parameter:
+		 ctx - der Grafikkontext
+		 startX - die x-Koordinate des Balkens
+		 medaillen - die Anzahl der Medaillen. Daraus wird die Höhe berechnet.
+		 farbe1 - die erste Farbe für den Farbverlauf
+		 farbe2 - die zweite Farbe für den Farbverlauf
+		 */
+		function zeichneBalken(ctx, startX, medaillen, farbe1, farbe2) {
+			ctx.save();
+			/*Es wird ein linearer Farbverlauf erstellt*/
+			var gradient = ctx.createLinearGradient(0, 0, 0, medaillen * 20);
+			gradient.addColorStop(0, farbe1);
+			gradient.addColorStop(1, farbe2);
+			/*Mit diesem Farbverlauf soll der Balken gefüllt werden*/
+			ctx.fillStyle = gradient;
+			/*Zuerst wird die Füllung gezeichnet, dann der schwarze Rand*/
+			ctx.fillRect(startX, 0, 30, medaillen * 20);
+			ctx.strokeRect(startX, 0, 30, medaillen * 20);
+			ctx.restore();
+		}
 
-        /*Die Beschriftung für alle Balken wird in einer Methode zusammengefasst, da der Code kurz genug ist.*/
-        function beschrifte(ctx, daten) {
-            ctx.save();
-            /*Für die Beschriftung wird eine andere Transformation benötigt: der Text muss gedreht werden, um ins Diagram zu passen*/
-            ctx.translate(0, 200);
-            ctx.rotate(-0.5 * Math.PI);
-            /*So ist es am einfachsten, den Text zu positionieren: die angegebenen Koordinaten sind die linke, obere Ecke des Textes*/
-            ctx.textBaseline = "top";
-            ctx.textAlign = "left";
-            /*Schritftart und Farbe setzen.*/
-            ctx.font = "bold 16px sans-serif";
-            ctx.fillStyle = "black";
-            /*Für jedes Datenobjekt wird der Abteilungsname ausgegeben*/
-            for (var i = 0; i < daten.length; i++) {
-                ctx.fillText(daten[i].abteilung, 0, i * 120);
-            }
-            ctx.restore();
-        }
+		/*Die Beschriftung für alle Balken wird in einer Methode zusammengefasst, da der Code kurz genug ist.*/
+		function beschrifte(ctx, daten) {
+			ctx.save();
+			/*Für die Beschriftung wird eine andere Transformation benötigt: der Text muss gedreht werden, um ins Diagram zu passen*/
+			ctx.translate(0, 200);
+			ctx.rotate(-0.5 * Math.PI);
+			/*So ist es am einfachsten, den Text zu positionieren: die angegebenen Koordinaten sind die linke, obere Ecke des Textes*/
+			ctx.textBaseline = "top";
+			ctx.textAlign = "left";
+			/*Schritftart und Farbe setzen.*/
+			ctx.font = "bold 16px sans-serif";
+			ctx.fillStyle = "black";
+			/*Für jedes Datenobjekt wird der Abteilungsname ausgegeben*/
+			for (var i = 0; i < daten.length; i++) {
+				ctx.fillText(daten[i].abteilung, 0, i * 120);
+			}
+			ctx.restore();
+		}
 
-        function zeichneKistie(ctx){
-            /*Ein Image-Objekt ist ganz ähnlich wie ein img-Tag, nur wird es nicht von selbst angezeigt.*/
-            var img = new Image();
-            /*Um mit diesem Bild etwas anfangen zu können, musst du auf das load-Event warten. Vorher geht nichts.*/
-            img.addEventListener("load", function(event){
-                /*Wenn das Bild geladen ist, wird es auf den Canvas gemalt.*/
-                ctx.drawImage(event.target, 400, 0, 100, 95);
-            });
-            img.src = "kistie.png";
-        }
-    </script>
+		function zeichneKistie(ctx) {
+			/*Ein Image-Objekt ist ganz ähnlich wie ein img-Tag, nur wird es nicht von selbst angezeigt.*/
+			var img = new Image();
+			/*Um mit diesem Bild etwas anfangen zu können, musst du auf das load-Event warten. Vorher geht nichts.*/
+			img.addEventListener("load", function(event) {
+				/*Wenn das Bild geladen ist, wird es auf den Canvas gemalt.*/
+				ctx.drawImage(event.target, 400, 0, 100, 95);
+			});
+			img.src = "kistie.png";
+		}
+	</script>
 </head>
 <body>
 <canvas id="grafik" width="500" height="200">Geht nich!</canvas>
 <table id="medaillenspiegel">
-    <thead>
-    <tr>
-        <td></td>
-        <th>Lager</th>
-        <th>Produktion</th>
-        <th>Büro</th>
-        <th>Geschäftsführung</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th>Gold</th>
-        <td>3</td>
-        <td>2</td>
-        <td>4</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <th>Silber</th>
-        <td>1</td>
-        <td>5</td>
-        <td>2</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <th>Bronze</th>
-        <td>2</td>
-        <td>5</td>
-        <td>4</td>
-        <td>0</td>
-    </tr>
-    </tbody>
+	<thead>
+	<tr>
+		<td></td>
+		<th>Lager</th>
+		<th>Produktion</th>
+		<th>Büro</th>
+		<th>Geschäftsführung</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<th>Gold</th>
+		<td>3</td>
+		<td>2</td>
+		<td>4</td>
+		<td>1</td>
+	</tr>
+	<tr>
+		<th>Silber</th>
+		<td>1</td>
+		<td>5</td>
+		<td>2</td>
+		<td>1</td>
+	</tr>
+	<tr>
+		<th>Bronze</th>
+		<td>2</td>
+		<td>5</td>
+		<td>4</td>
+		<td>0</td>
+	</tr>
+	</tbody>
 </table>
 </body>
 </html>

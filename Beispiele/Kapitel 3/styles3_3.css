@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*Alle Absätze sollen schwarzen Text enthalten.*/
 p {
-    color: black;
+	color: black;
 }
 
 /*
@@ -9,7 +9,7 @@ Außer dem Absatz mit der id zweiter-absatz, dessen Text wird rot. Ein id-Selekt
 Da der id-Selektor spezifischer ist als der Tag-Selektor gewinnt seine Regel.
 */
 #zweiter-absatz {
-    color: red;
+	color: red;
 }
 
 

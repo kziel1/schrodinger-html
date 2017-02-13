@@ -1,73 +1,73 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Immer mehr Aufgaben für den Zauberlehrling</title>
-    <style>
-        .offen {
-            text-decoration: underline;
-        }
+	<meta charset="utf-8"/>
+	<title>Immer mehr Aufgaben für den Zauberlehrling</title>
+	<style>
+		.offen {
+			text-decoration: underline;
+		}
 
-        .erledigt {
-            text-decoration: line-through;
-        }
-    </style>
-    <script>
-        window.addEventListener("load", setup);
+		.erledigt {
+			text-decoration: line-through;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", setup);
 
-        function setup() {
-            document.getElementById("erledigt").addEventListener("click", erledigeAufgabe);
-            document.getElementById("alles-erledigt").addEventListener("click", erledigeAlle);
-            document.getElementById("hinzufuegen").addEventListener("click", hinzufuegen);
-        }
-        /*Aufgaben erledigen funktioniert wie vorher, das neue kommt eim hinzufügen*/
-        function erledigeAufgabe() {
-            var offene = document.getElementById("aufgaben").getElementsByClassName("offen");
-            if (offene.length > 0) {
-                var el = offene[0];
-                if (offene[0].classList) {
-                    el.classList.remove("offen");
-                    el.classList.add("erledigt");
-                } else {
-                    offene[0].className = "erledigt";
-                }
-            }
-        }
+		function setup() {
+			document.getElementById("erledigt").addEventListener("click", erledigeAufgabe);
+			document.getElementById("alles-erledigt").addEventListener("click", erledigeAlle);
+			document.getElementById("hinzufuegen").addEventListener("click", hinzufuegen);
+		}
+		/*Aufgaben erledigen funktioniert wie vorher, das neue kommt eim hinzufügen*/
+		function erledigeAufgabe() {
+			var offene = document.getElementById("aufgaben").getElementsByClassName("offen");
+			if (offene.length > 0) {
+				var el = offene[0];
+				if (offene[0].classList) {
+					el.classList.remove("offen");
+					el.classList.add("erledigt");
+				} else {
+					offene[0].className = "erledigt";
+				}
+			}
+		}
 
-        function erledigeAlle() {
-            var offene = document.getElementById("aufgaben").getElementsByClassName("offen");
-            while (offene.length > 0) {
-                offene[0].className = "erledigt";
-            }
-        }
+		function erledigeAlle() {
+			var offene = document.getElementById("aufgaben").getElementsByClassName("offen");
+			while (offene.length > 0) {
+				offene[0].className = "erledigt";
+			}
+		}
 
-        /*Hier werden neue Aufgaben für den Zauberlehrling hinzugefügt*/
-        function hinzufuegen() {
-            var neuerText = document.getElementById("neue-aufgabe").value;
-            if (neuerText.trim().length > 0) {
-                /*document.createElement erzeugt ein Element vom übergebenen Typ*/
-                var neuesElement = document.createElement("li");
-                /*createTextNode erzeugt Text, appendChild fügt ihn sofort zum Listeneintrag hinzu*/
-                neuesElement.appendChild(document.createTextNode(neuerText));
-                /*Die neue Aufgabe ist noch offen.*/
-                neuesElement.classList.add("offen");
-                /*Das neue Element wird an die Aufgabenliste angehangen*/
-                document.getElementById("aufgaben").appendChild(neuesElement);
-                document.getElementById("neue-aufgabe").value = "";
-            }
-        }
-    </script>
+		/*Hier werden neue Aufgaben für den Zauberlehrling hinzugefügt*/
+		function hinzufuegen() {
+			var neuerText = document.getElementById("neue-aufgabe").value;
+			if (neuerText.trim().length > 0) {
+				/*document.createElement erzeugt ein Element vom übergebenen Typ*/
+				var neuesElement = document.createElement("li");
+				/*createTextNode erzeugt Text, appendChild fügt ihn sofort zum Listeneintrag hinzu*/
+				neuesElement.appendChild(document.createTextNode(neuerText));
+				/*Die neue Aufgabe ist noch offen.*/
+				neuesElement.classList.add("offen");
+				/*Das neue Element wird an die Aufgabenliste angehangen*/
+				document.getElementById("aufgaben").appendChild(neuesElement);
+				document.getElementById("neue-aufgabe").value = "";
+			}
+		}
+	</script>
 </head>
 
 <body>
 <h1>Aufgaben für den Zauberlehrling</h1>
 <ul id="aufgaben">
-    <li class="offen">Zauberbücher lesen</li>
-    <li class="offen">Tabellenzauber üben</li>
-    <li class="offen">Des Meisters Schuhe putzen</li>
-    <li class="offen">Wasser schleppen</li>
-    <li class="offen">Den Boden wischen</li>
-    <li class="offen">Kaffee kochen</li>
+	<li class="offen">Zauberbücher lesen</li>
+	<li class="offen">Tabellenzauber üben</li>
+	<li class="offen">Des Meisters Schuhe putzen</li>
+	<li class="offen">Wasser schleppen</li>
+	<li class="offen">Den Boden wischen</li>
+	<li class="offen">Kaffee kochen</li>
 </ul>
 <button type="button" id="erledigt">Erledigt</button>
 <button type="button" id="alles-erledigt">Alles erledigt!</button>

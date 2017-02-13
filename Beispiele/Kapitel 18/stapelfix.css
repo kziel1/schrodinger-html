@@ -13,24 +13,24 @@ a, a:visited, a:hover, a:focus {
 	text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6 {
 	font-family: sans-serif;
 }
 
-#kopf{
+#kopf {
 	width: 90%;
 	padding: 2em 5% 3em 5%;
 	background-color: lightgray;
 }
 
-#navigation{
+#navigation {
 	width: 90%;
 	padding: 0 5%;
 	height: 40px;
 	background-color: darkgray;
 }
 
-#navigation  li{
+#navigation li {
 	float: left;
 	display: block;
 	list-style-type: none;
@@ -42,23 +42,23 @@ h1, h2, h3, h4, h5, h6{
 	width: 150px;
 }
 
-#navigation a{
+#navigation a {
 	display: block;
 	height: 100%;
 	font-variant: small-caps;
 }
 
-#inhalt{
+#inhalt {
 	width: 74%;
 	padding: 1em 4% 1em 2%;
 	float: left;
 }
 
-#inhalt h1{
+#inhalt h1 {
 	font-size: 1.6em;
 }
 
-#inhalt *{
+#inhalt * {
 	margin: 10px;
 }
 
@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, h6{
 	width: 20%;
 }
 
-#sidebar h1{
+#sidebar h1 {
 	font-size: 1.2em;
 }
 
@@ -79,7 +79,6 @@ h1, h2, h3, h4, h5, h6{
 	margin: 1em;
 	clear: both;
 }
-
 
 #fuss {
 	width: 100%;

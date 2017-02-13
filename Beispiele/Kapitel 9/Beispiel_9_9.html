@@ -1,73 +1,73 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Schieben, Drehen und Aufpusten: Transformationen</title>
-    <style>
+	<meta charset="utf-8"/>
+	<title>Schieben, Drehen und Aufpusten: Transformationen</title>
+	<style>
 
-        p {
-            width: 100px;
-            float: left;
-            margin: 20px;
-        }
+		p {
+			width: 100px;
+			float: left;
+			margin: 20px;
+		}
 
-        #translate {
-            transform: translateY(20px);
-            -webkit-transform: translateY(20px);
-            -ms-transform: translateY(20px);
-        }
+		#translate {
+			transform: translateY(20px);
+			-webkit-transform: translateY(20px);
+			-ms-transform: translateY(20px);
+		}
 
-        #scale {
-            transform: scale(1.2);
-            -webkit-transform: scale(1.2);
-            -ms-transform: scale(1.2);
-        }
+		#scale {
+			transform: scale(1.2);
+			-webkit-transform: scale(1.2);
+			-ms-transform: scale(1.2);
+		}
 
-        #scale-unequal {
-            transform: scale(1.2, 0.5);
-            -webkit-transform: scale(1.2, 0.5);
-            -ms-transform: scale(1.2, 0.5);
-        }
+		#scale-unequal {
+			transform: scale(1.2, 0.5);
+			-webkit-transform: scale(1.2, 0.5);
+			-ms-transform: scale(1.2, 0.5);
+		}
 
-        #rotate {
-            transform: rotate(5deg);
-            -webkit-transform: rotate(5deg);
-            -ms-transform: rotate(5deg);
-        }
+		#rotate {
+			transform: rotate(5deg);
+			-webkit-transform: rotate(5deg);
+			-ms-transform: rotate(5deg);
+		}
 
-        #skew {
-            transform: skewX(20deg);
-            -webkit-transform: skewX(20deg);
-            -ms-transform: skewX(20deg);
-        }
+		#skew {
+			transform: skewX(20deg);
+			-webkit-transform: skewX(20deg);
+			-ms-transform: skewX(20deg);
+		}
 
-    </style>
+	</style>
 </head>
 <body>
 
 <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </p>
 <!--Mit translateY wird dieser Absatz nach unten verschoben. -->
 <p id="translate">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </p>
 <!--scale mit einem Parameter lässt diesen Absatz um 20% wachsen -->
 <p id="scale">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </p>
 <!--Mit zwei Parametern für scale wird das Element in x- und y-Richtung ungleich gestreckt. -->
 <p id="scale-unequal">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </p>
 <!--Um 5° gedreht mit rotate -->
 <p id="rotate">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </p>
 <!--Beim Scheren (skew) wird die Oberkante des Elements gegenüber der Unterkante verschoben, es entsteht ein Parallelogram.
  Mit skewY geht das auch in die andere Richtung.-->
 <p id="skew">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </p>
 
 </body>

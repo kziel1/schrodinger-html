@@ -1,62 +1,62 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Zwei Aufgabenlisten für den Zauberlehrling</title>
-    <style>
-        li {
-            text-decoration: underline;
-        }
-    </style>
-    <script>
-        window.addEventListener("load", setup);
+	<meta charset="utf-8"/>
+	<title>Zwei Aufgabenlisten für den Zauberlehrling</title>
+	<style>
+		li {
+			text-decoration: underline;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", setup);
 
-        function setup() {
-            //Sobald die Seite geladen ist werden als erstes beide Listen alphabetisch sortiert. So musst du das nicht von Hand machen
-            sortiereListe(document.getElementById("to-do"));
-            sortiereListe(document.getElementById("done"));
-            var lis = document.getElementsByTagName("li");
-            for (var i = 0; i < lis.length; i++) {
-                lis[i].addEventListener("click", verschiebeAufgabe);
-            }
-        }
+		function setup() {
+			//Sobald die Seite geladen ist werden als erstes beide Listen alphabetisch sortiert. So musst du das nicht von Hand machen
+			sortiereListe(document.getElementById("to-do"));
+			sortiereListe(document.getElementById("done"));
+			var lis = document.getElementsByTagName("li");
+			for (var i = 0; i < lis.length; i++) {
+				lis[i].addEventListener("click", verschiebeAufgabe);
+			}
+		}
 
-        function verschiebeAufgabe(event) {
-            var li = event.target;
-            /*Das angeklickte li wird von einer Liste in die andere verschoben. Dazu muss es nicht erst aus seiner
-            aktuellen Liste gelöscht werden, das passiert von selbst, wenn du es an anderer Stelle einfügst.*/
-            if (li.parentNode.id == "to-do") {
-                einsortieren(li, document.getElementById("done"));
-            } else {
-                einsortieren(li, document.getElementById("to-do"));
-            }
-        }
+		function verschiebeAufgabe(event) {
+			var li = event.target;
+			/*Das angeklickte li wird von einer Liste in die andere verschoben. Dazu muss es nicht erst aus seiner
+			 aktuellen Liste gelöscht werden, das passiert von selbst, wenn du es an anderer Stelle einfügst.*/
+			if (li.parentNode.id == "to-do") {
+				einsortieren(li, document.getElementById("done"));
+			} else {
+				einsortieren(li, document.getElementById("to-do"));
+			}
+		}
 
-        function einsortieren(item, liste) {
-            var text = item.textContent;
-            var current = liste.firstChild;
-            /*Diese Schleife findet das erste Element, dessen Text alphabetisch nach dem neuen Element steht.*/
-            while (current && (current.nodeType != Node.ELEMENT_NODE || current.textContent < text)) {
-                current = current.nextSibling;
-            }
-            /*Dann wird das neue Element vor diesem eingefügt. Das funktioniert auch, wenn es noch kein Element gab:
-            * ist der zweite Parameter an insertBefore null, dann wird das neue Element am Ende eingefügt.*/
-            liste.insertBefore(item, current);
-        }
+		function einsortieren(item, liste) {
+			var text = item.textContent;
+			var current = liste.firstChild;
+			/*Diese Schleife findet das erste Element, dessen Text alphabetisch nach dem neuen Element steht.*/
+			while (current && (current.nodeType != Node.ELEMENT_NODE || current.textContent < text)) {
+				current = current.nextSibling;
+			}
+			/*Dann wird das neue Element vor diesem eingefügt. Das funktioniert auch, wenn es noch kein Element gab:
+			 * ist der zweite Parameter an insertBefore null, dann wird das neue Element am Ende eingefügt.*/
+			liste.insertBefore(item, current);
+		}
 
-        function sortiereListe(liste) {
-            var items = [];
-            while (liste.firstChild) {
-                var el = liste.removeChild(liste.firstChild);
-                if (el.nodeType == Node.ELEMENT_NODE) {
-                    items.push(el);
-                }
-            }
-            while (items.length) {
-                einsortieren(items.shift(), liste);
-            }
-        }
-    </script>
+		function sortiereListe(liste) {
+			var items = [];
+			while (liste.firstChild) {
+				var el = liste.removeChild(liste.firstChild);
+				if (el.nodeType == Node.ELEMENT_NODE) {
+					items.push(el);
+				}
+			}
+			while (items.length) {
+				einsortieren(items.shift(), liste);
+			}
+		}
+	</script>
 </head>
 
 <body>
@@ -64,12 +64,12 @@
 
 <h2>Noch zu tun</h2>
 <ul id="to-do">
-    <li>Zauberbücher lesen</li>
-    <li>Tabellenzauber üben</li>
-    <li>Des Meisters Schuhe putzen</li>
-    <li>Wasser schleppen</li>
-    <li>Den Boden wischen</li>
-    <li>Kaffee kochen</li>
+	<li>Zauberbücher lesen</li>
+	<li>Tabellenzauber üben</li>
+	<li>Des Meisters Schuhe putzen</li>
+	<li>Wasser schleppen</li>
+	<li>Den Boden wischen</li>
+	<li>Kaffee kochen</li>
 </ul>
 <h2>Erledigt</h2>
 <ul id="done">

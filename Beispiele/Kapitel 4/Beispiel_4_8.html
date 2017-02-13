@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kinderselektoren</title>
-    <style>
-            /*
-            Im Gegensatz zu Nachkommenselektoren wirken Kindselektoren nur, wenn die Tags direkt ineinander verschachtelt sind!
-             Deshalb hat diese Regel keine Wirkung, da <span> kein direkter Nachkomme von div ist.
-            */
-        div > span {
-            color: orange;
-        }
+	<title>Kinderselektoren</title>
+	<style>
+		/*
+		Im Gegensatz zu Nachkommenselektoren wirken Kindselektoren nur, wenn die Tags direkt ineinander verschachtelt sind!
+		 Deshalb hat diese Regel keine Wirkung, da <span> kein direkter Nachkomme von div ist.
+		*/
+		div > span {
+			color: orange;
+		}
 
-        div > h1 {
-            color: purple;
-        }
-    </style>
-    <meta charset="utf-8"/>
+		div > h1 {
+			color: purple;
+		}
+	</style>
+	<meta charset="utf-8"/>
 </head>
 <body>
 <div>
-    <h1 class="myh">Dies ist <span class="myspan">h1</span></h1>
+	<h1 class="myh">Dies ist <span class="myspan">h1</span></h1>
 </div>
 </body>
 </html>

@@ -1,48 +1,48 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Geburtstagsliste - Objekte als Maps</title>
-    <script>
-        /*In dieser globalen Variable werden die Geburstage gespeichert.
-        Das Objekt wird hier "nur" als assoziatives Array benutzt, also als Datenstruktur, die zu einem beliebigen
-        Schlüssel einen Wert speichert.*/
-        var liste = {};
+	<meta charset="utf-8"/>
+	<title>Geburtstagsliste - Objekte als Maps</title>
+	<script>
+		/*In dieser globalen Variable werden die Geburstage gespeichert.
+		 Das Objekt wird hier "nur" als assoziatives Array benutzt, also als Datenstruktur, die zu einem beliebigen
+		 Schlüssel einen Wert speichert.*/
+		var liste = {};
 
-        window.addEventListener("load", init);
+		window.addEventListener("load", init);
 
-        function init() {
-            document.getElementById("add").addEventListener("click", hinzufuegen);
-        }
+		function init() {
+			document.getElementById("add").addEventListener("click", hinzufuegen);
+		}
 
-        function hinzufuegen() {
-            /*Die eingegebenen Daten werden aus den Eingabefeldern ausgelesen*/
-            var name = document.getElementById("name");
-            var date = document.getElementById("geburtstag");
-            /*So einfach wird ein Wert in der globalen Variable gespeichert. In diesem Fall funktioniert nur die
-            Schreibweise mit [], um eine Eigenschatz zu setzen, weil der Name der Eigenschaft in einer Variable steht.*/
-            liste[name.value] = date.value;
-            /*Eingabefelder leeren*/
-            date.value = "";
-            name.value = "";
-            /*Nach dem Speichern wird die ganze Liste wieder ausgegeben.*/
-            ausgeben();
-        }
+		function hinzufuegen() {
+			/*Die eingegebenen Daten werden aus den Eingabefeldern ausgelesen*/
+			var name = document.getElementById("name");
+			var date = document.getElementById("geburtstag");
+			/*So einfach wird ein Wert in der globalen Variable gespeichert. In diesem Fall funktioniert nur die
+			 Schreibweise mit [], um eine Eigenschatz zu setzen, weil der Name der Eigenschaft in einer Variable steht.*/
+			liste[name.value] = date.value;
+			/*Eingabefelder leeren*/
+			date.value = "";
+			name.value = "";
+			/*Nach dem Speichern wird die ganze Liste wieder ausgegeben.*/
+			ausgeben();
+		}
 
-        function ausgeben() {
-            /*Für die Ausgabe wird zunächst das Zielelement komplett geteert.*/
-            var ul = document.getElementById("ausgabe");
-            while (ul.firstChild)
-                ul.removeChild(ul.firstChild);
-            /*Mit einer for ... in Schleife wird über alle Eigenschaften des Objekts iteriert.*/
-            for (var name in liste) {
-                /*Jede einzelne wird an die Ausgabe angehangen*/
-                var li = document.createElement("li");
-                li.appendChild(document.createTextNode(name + " - " + liste[name]));
-                ul.appendChild(li);
-            }
-        }
-    </script>
+		function ausgeben() {
+			/*Für die Ausgabe wird zunächst das Zielelement komplett geteert.*/
+			var ul = document.getElementById("ausgabe");
+			while (ul.firstChild)
+				ul.removeChild(ul.firstChild);
+			/*Mit einer for ... in Schleife wird über alle Eigenschaften des Objekts iteriert.*/
+			for (var name in liste) {
+				/*Jede einzelne wird an die Ausgabe angehangen*/
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode(name + " - " + liste[name]));
+				ul.appendChild(li);
+			}
+		}
+	</script>
 </head>
 
 <body>
@@ -54,7 +54,7 @@ Name: <input type="text" name="name" id="name"> Geburtstag: <input type="text" n
 <h2>Die Liste</h2>
 <ul id="ausgabe"></ul>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

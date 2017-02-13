@@ -1,25 +1,25 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Rahmenbilder als Bilderrahmen</title>
-    <style>
-        div {
-            float: left;
-            width: 200px;
-            height: 200px;
-            background-image: url("bg.png");
-            /*Dieses Bild soll als Rahmen verwendet werden*/
-            border-image-source: url("rahmen.png");
-            /*Und so wird es in Teile gehackt.*/
-            border-image-slice: 116 65 116 65;
-            border-image-repeat: repeat;
-            /*Trotzdem muss noch ein Rahmen da sein, sonst bekommst du das Bild nicht zu sehen*/
-            border-width: 3em;
-            border-style: solid;
-        }
+	<meta charset="utf-8"/>
+	<title>Rahmenbilder als Bilderrahmen</title>
+	<style>
+		div {
+			float: left;
+			width: 200px;
+			height: 200px;
+			background-image: url("bg.png");
+			/*Dieses Bild soll als Rahmen verwendet werden*/
+			border-image-source: url("rahmen.png");
+			/*Und so wird es in Teile gehackt.*/
+			border-image-slice: 116 65 116 65;
+			border-image-repeat: repeat;
+			/*Trotzdem muss noch ein Rahmen da sein, sonst bekommst du das Bild nicht zu sehen*/
+			border-width: 3em;
+			border-style: solid;
+		}
 
-    </style>
+	</style>
 </head>
 <body>
 <div></div>

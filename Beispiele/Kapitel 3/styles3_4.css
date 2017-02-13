@@ -3,15 +3,15 @@
 Jede Klasse bekommt eine andere Schriftfarbe. Klassenselektoren beginnen mit einem Punkt.
 */
 .hobby {
-    color: blue;
+	color: blue;
 }
 
 .arbeit {
-    color: grey;
+	color: grey;
 }
 
 .liebe {
-    color: orange;
+	color: orange;
 }
 
 

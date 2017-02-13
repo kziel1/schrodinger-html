@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Relative Positionierung und Stapelreihenfolge mit z-index</title>
-    <meta charset="utf-8"/>
+	<title>Relative Positionierung und Stapelreihenfolge mit z-index</title>
+	<meta charset="utf-8"/>
 </head>
 <body>
 <!--Alle vier divs würden eigentlich untereinander stehen. Aber durch relative Positionierung werden Nummer 2 und 4
 30 Pixel nach oben und 20 Pixel nach rechts verschoben. Dadurch überlappen sie sich mit ihrem Vorgänger.  -->
 <div style="background-color: #FFAAAA; width: 200px; height: 100px;">
-    Unten
+	Unten
 </div>
 <div style="background-color: #AAFFAA;;width: 200px; height: 100px; position: relative; top: -30px; left: 20px;">
-    Oben
+	Oben
 </div>
 <!--z-index gibt an, welches Element bei Überlappungen vorne liegt. -->
 <div style="background-color: #FFAAAA; width: 200px; height: 100px; position: relative; z-index: 2;">
-    Oben
+	Oben
 </div>
-<div style="background-color: #AAFFAA;;width: 200px; height: 100px; position: relative; top: -30px; left: 20px; z-index: 1;">
-    Unten
+<div
+	style="background-color: #AAFFAA;;width: 200px; height: 100px; position: relative; top: -30px; left: 20px; z-index: 1;">
+	Unten
 </div>
 
 </body>

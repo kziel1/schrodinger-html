@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pflicht oder nicht?</title>
-    <style>
+	<title>Pflicht oder nicht?</title>
+	<style>
 
-        label, input {
-            margin-top: 3px;
-        }
+		label, input {
+			margin-top: 3px;
+		}
 
-        input:required {
-            background-color: #BBBBFF;
-            border: 1px solid black;
-        }
+		input:required {
+			background-color: #BBBBFF;
+			border: 1px solid black;
+		}
 
-        input {
-            font-style: italic;
-        }
+		input {
+			font-style: italic;
+		}
 
-        /*Felder die nicht required sind sind optional, und auch dafür gibt es eine Pseudoklassea*/
-        input:optional {
-            background-color: #AAAAAA;
-            border: 1px solid black;
-        }
-    </style>
-    <meta charset="utf-8"/>
+		/*Felder die nicht required sind sind optional, und auch dafür gibt es eine Pseudoklassea*/
+		input:optional {
+			background-color: #AAAAAA;
+			border: 1px solid black;
+		}
+	</style>
+	<meta charset="utf-8"/>
 </head>
 <body>
 <form method="get">
-    <label for="req">Pflichtfeld</label>
-    <input type="text" name="req" id="req" required>
-    <br>
-    <label for="optional">Optionales Feld</label>
-    <input type="text" name="optional" id="optional">
-    <br>
-    <button>Abschicken</button>
+	<label for="req">Pflichtfeld</label>
+	<input type="text" name="req" id="req" required>
+	<br>
+	<label for="optional">Optionales Feld</label>
+	<input type="text" name="optional" id="optional">
+	<br>
+	<button>Abschicken</button>
 </form>
 </body>
 </html>

@@ -1,31 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Strings verbinden</title>
-    <script>
-        /*Diese Funktion nimmr ein Array von Strings und verbindet sie mit Kommas zu einem String*/
-        function verbindeStrings(strings) {
-            var ergebnis = "";
-            for (var i = 0; i < strings.length; i++) {
-                /*Bei allen Elementen außer dem ersten soll ein Komma vor dem neuen String stehen.*/
-                if (i) {
-                    ergebnis += ", ";
-                }
-                ergebnis += strings[i];
-            }
-            return ergebnis;
-        }
-    </script>
+	<meta charset="utf-8"/>
+	<title>Strings verbinden</title>
+	<script>
+		/*Diese Funktion nimmr ein Array von Strings und verbindet sie mit Kommas zu einem String*/
+		function verbindeStrings(strings) {
+			var ergebnis = "";
+			for (var i = 0; i < strings.length; i++) {
+				/*Bei allen Elementen außer dem ersten soll ein Komma vor dem neuen String stehen.*/
+				if (i) {
+					ergebnis += ", ";
+				}
+				ergebnis += strings[i];
+			}
+			return ergebnis;
+		}
+	</script>
 </head>
 
 <body>
 <h1>Verbundene Strings</h1>
 <script>
-    document.write(verbindeStrings(["eins", "zwei", "drei", "vier", "fünf"]));
+	document.write(verbindeStrings(["eins", "zwei", "drei", "vier", "fünf"]));
 </script>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

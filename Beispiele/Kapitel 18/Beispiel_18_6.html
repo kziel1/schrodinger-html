@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>How big is the fish? Genau so groß, wie er für den Bildschirm sein muss.</title>
+	<meta charset="utf-8"/>
+	<title>How big is the fish? Genau so groß, wie er für den Bildschirm sein muss.</title>
 </head>
 <body>
 <!--Das Bild ohne Suffix am Namen ist das kleinste. So werden keine zu großen Bilder vorgeladen. -->
 <img src="sushi.jpg" alt="Ich hab Hunger ...">
 <script>
-    window.addEventListener("load", passeBilderAn);
-    function passeBilderAn() {
-        var suffix;
-        if (window.innerWidth < 382) {
-            //wenn das kleinste Bild das richtige ist gibt es nichts zu tun
-            return;
-        }
-        //ansonste wird das passende Suffix ausgewählt, um ein größeres zu lasen.
-        else if (window.innerWidth < 763) {
-            suffix = "-med";
-        } else {
-            suffix = "-big";
-        }
-        /*Es werden alle Bilder gesucht.*/
-        var bilder = document.getElementsByTagName("img");
-        for (var i = 0; i < bilder.length; i++) {
-            var bild = bilder[i];
-            var url = bild.src;
-            /*Für jedes Bild wird mit Stringoperationen der Dateiname zerlegt und der gewählte Suffix eingebaut.*/
-            var erweiterungspunkt = url.lastIndexOf(".");
-            url = url.substring(0, erweiterungspunkt) + suffix + url.substring(erweiterungspunkt);
-            /*Dann wird die Bild-URL durch die neue ersetzt, das größere Bild wird nachgeladen.*/
-            bild.src = url;
-        }
-    }
+	window.addEventListener("load", passeBilderAn);
+	function passeBilderAn() {
+		var suffix;
+		if (window.innerWidth < 382) {
+			//wenn das kleinste Bild das richtige ist gibt es nichts zu tun
+			return;
+		}
+		//ansonste wird das passende Suffix ausgewählt, um ein größeres zu lasen.
+		else if (window.innerWidth < 763) {
+			suffix = "-med";
+		} else {
+			suffix = "-big";
+		}
+		/*Es werden alle Bilder gesucht.*/
+		var bilder = document.getElementsByTagName("img");
+		for (var i = 0; i < bilder.length; i++) {
+			var bild = bilder[i];
+			var url = bild.src;
+			/*Für jedes Bild wird mit Stringoperationen der Dateiname zerlegt und der gewählte Suffix eingebaut.*/
+			var erweiterungspunkt = url.lastIndexOf(".");
+			url = url.substring(0, erweiterungspunkt) + suffix + url.substring(erweiterungspunkt);
+			/*Dann wird die Bild-URL durch die neue ersetzt, das größere Bild wird nachgeladen.*/
+			bild.src = url;
+		}
+	}
 
 </script>
 </body>

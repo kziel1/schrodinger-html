@@ -1,39 +1,39 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
-    <title>Der Zauberlehrling ist nicht dumm, macht die Liste andersrum</title>
+<head>
+	<title>Der Zauberlehrling ist nicht dumm, macht die Liste andersrum</title>
 	<script>
-        window.addEventListener("load", setup);
+		window.addEventListener("load", setup);
 
-        function setup(){
-            document.getElementById("knopf").addEventListener("click", umdrehen);
-        }
+		function setup() {
+			document.getElementById("knopf").addEventListener("click", umdrehen);
+		}
 
-        function umdrehen(){
+		function umdrehen() {
 			var liste = document.getElementById("die-liste");
 			var kinder = [];
-            /*Als erstes werden alle Kindelemente der Liste entfernt un in einem Array gespeichert.*/
-			while(liste.firstChild){
+			/*Als erstes werden alle Kindelemente der Liste entfernt un in einem Array gespeichert.*/
+			while (liste.firstChild) {
 				kinder.push(liste.removeChild(liste.firstChild));
 			}
-            /*Dann wird das Array von hinten nach vorne wieder geleert und sein Inhalt in die Liste eingefügt.
-            Und schon ist alles umgedreht.*/
-			while (kinder.length){
+			/*Dann wird das Array von hinten nach vorne wieder geleert und sein Inhalt in die Liste eingefügt.
+			 Und schon ist alles umgedreht.*/
+			while (kinder.length) {
 				liste.appendChild(kinder.pop());
 			}
 		}
 	</script>
-  <head>
-  
-  <body>
-	<ul id="die-liste">
-		<li>Zauberbücher lesen</li>
-		<li>Tabellenzauber üben</li>
-		<li>Des Meisters Schuhe putzen</li>
-		<li>Wasser schleppen</li>
-		<li>Den Boden wischen</li>
-		<li>Kaffee kochen</li>
-	</ul>
-	<button type="button" id="knopf">Umdrehen!</button>
-  </body>
+	<head>
+
+<body>
+<ul id="die-liste">
+	<li>Zauberbücher lesen</li>
+	<li>Tabellenzauber üben</li>
+	<li>Des Meisters Schuhe putzen</li>
+	<li>Wasser schleppen</li>
+	<li>Den Boden wischen</li>
+	<li>Kaffee kochen</li>
+</ul>
+<button type="button" id="knopf">Umdrehen!</button>
+</body>
 </html>

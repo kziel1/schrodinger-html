@@ -1,54 +1,54 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Katzen vom Fließband: Konstruktorfunktionen</title>
-    <script>
-        /*Konstruktorfunktionen sind Funktionen wie jede andere. Um sie sofort erkennen zu können, gibt es die Konvention,
-        sie mit einem Großbuchstaben beginnen zu lassen. */
-        function Katze(name, rasse, besitzer) {
-            /*Innerhalb der Konstruktorfunktion verweist this schon auf das neue Objekt, du kannst sofort alle wichtigen
-            Eigenschaften initialisieren.*/
-            this.name = name;
-            this.rasse = rasse;
-            this.besitzer = besitzer;
-        }
-        /*Zusammen mit Konstruktorfunktionen sind Prototypen nützlich: der Prototyp eines Konstruktors definiert Eigenschaften
-        und Methoden, die in jedem Objekt zur Verfügung stehen sollen, das mit diesem Konstruktor erzeugt wurde.  */
-        Katze.prototype = {
-            /*Alle Katzen können miauen, und alle Katzen haben 4 Beine. Du kannst aber alle Eigenschaften des Prototyps
-            auch in deinem Objekt überschreiben, zum Beispiel wenn deine Katze ein Unglück hatte. Änderungen auf
-            Objektebene gelten auch nur für dieses Objekt, sie wirken sich nicht automatisch auf den Prototyp aus. */
-            miau: function () {
-                alert("'Miau' sagt " + this.name + "(" + this.anzahlBeine + " Beine)");
-            },
-            anzahlBeine: 4
-        };
+	<meta charset="utf-8"/>
+	<title>Katzen vom Fließband: Konstruktorfunktionen</title>
+	<script>
+		/*Konstruktorfunktionen sind Funktionen wie jede andere. Um sie sofort erkennen zu können, gibt es die Konvention,
+		 sie mit einem Großbuchstaben beginnen zu lassen. */
+		function Katze(name, rasse, besitzer) {
+			/*Innerhalb der Konstruktorfunktion verweist this schon auf das neue Objekt, du kannst sofort alle wichtigen
+			 Eigenschaften initialisieren.*/
+			this.name = name;
+			this.rasse = rasse;
+			this.besitzer = besitzer;
+		}
+		/*Zusammen mit Konstruktorfunktionen sind Prototypen nützlich: der Prototyp eines Konstruktors definiert Eigenschaften
+		 und Methoden, die in jedem Objekt zur Verfügung stehen sollen, das mit diesem Konstruktor erzeugt wurde.  */
+		Katze.prototype = {
+			/*Alle Katzen können miauen, und alle Katzen haben 4 Beine. Du kannst aber alle Eigenschaften des Prototyps
+			 auch in deinem Objekt überschreiben, zum Beispiel wenn deine Katze ein Unglück hatte. Änderungen auf
+			 Objektebene gelten auch nur für dieses Objekt, sie wirken sich nicht automatisch auf den Prototyp aus. */
+			miau: function() {
+				alert("'Miau' sagt " + this.name + "(" + this.anzahlBeine + " Beine)");
+			},
+			anzahlBeine: 4
+		};
 
-        /*Mit einer Konstruktorfunktion kannst du ganz einfach mehrere Objekte des selben Typs erzeugen. Wichtig ist dabei
-        das Schlüsselwort new vor der Konstruktorfunktion, es sorgt dafür das wirklich ein neues Objekt erzeugt wird.*/
-        var schroedingersKatze = new Katze("Kleiner Stinker", "Straßenmischung", "Schrödinger");
-        var pixie = new Katze("Pixie", "Artefaktkatze", "Kai");
-        var garfield = new Katze("Garfield", "Fett", "John Arbuckle");
-        var unglueckskatze = new Katze("Garfield", "Fett", "John Arbuckle");
-        unglueckskatze.anzahlBeine = 3;
-        /*Und voila: alle Katzen können miauen.*/
-        schroedingersKatze.miau();
-        pixie.miau();
-        garfield.miau();
-        unglueckskatze.miau();
-    </script>
-    <style>
-        label {
-            display: block;
-        }
-    </style>
+		/*Mit einer Konstruktorfunktion kannst du ganz einfach mehrere Objekte des selben Typs erzeugen. Wichtig ist dabei
+		 das Schlüsselwort new vor der Konstruktorfunktion, es sorgt dafür das wirklich ein neues Objekt erzeugt wird.*/
+		var schroedingersKatze = new Katze("Kleiner Stinker", "Straßenmischung", "Schrödinger");
+		var pixie = new Katze("Pixie", "Artefaktkatze", "Kai");
+		var garfield = new Katze("Garfield", "Fett", "John Arbuckle");
+		var unglueckskatze = new Katze("Garfield", "Fett", "John Arbuckle");
+		unglueckskatze.anzahlBeine = 3;
+		/*Und voila: alle Katzen können miauen.*/
+		schroedingersKatze.miau();
+		pixie.miau();
+		garfield.miau();
+		unglueckskatze.miau();
+	</script>
+	<style>
+		label {
+			display: block;
+		}
+	</style>
 </head>
 
 <body>
 <h1>Miau?</h1>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

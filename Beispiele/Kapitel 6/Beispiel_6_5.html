@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Such dein liebstes Einschleimen aus. Der Einschleimer+ mit Select Box.</title>
-    <meta charset="utf-8"/>
+	<title>Such dein liebstes Einschleimen aus. Der Einschleimer+ mit Select Box.</title>
+	<meta charset="utf-8"/>
 </head>
 <body>
 <form action="http://localhost:8080/forms/hallowelt.php" method="get">
-    <label for="name">Wie heißt du?</label>
-    <input type="text" name="name" id="name" placeholder="Hier dein Name">
-    <br>
-    <label for="gender_male">Männlein</label>
-    <input type="radio" name="geschlecht" value="m" id="gender_male" checked>
-    <br>
-    <label for="gender_female">Weiblein</label>
-    <input type="radio" name="geschlecht" value="f" id="gender_female">
-    <br>
-    <label for="extraschleim">Extraschleim</label>
-    <input type="checkbox" name="extraschleim" value="an" id="extraschleim">
-    <br>
-    <label for="zusatz">Zusatzschleim</label>
-    <!--Das select-Tag erzeugt eine Auswahlliste, aus der du ein Element aussuchen kannst -->
-    <select name="zusatz[]" id="zusatz">
-        <!--optgroup setzt eine Überschrift, die aber selbst nicht ausgewählt werden kann. -->
-        <optgroup label="The Good">
-            <!--option erzeugt einen Listeneintrag, der auch ausgewählt werden kann. -->
-            <option value="intelligent">intelligent</option>
-            <option value="gutaussehend">gutaussehend</option>
-        </optgroup>
-        <optgroup label="The Bad">
-            <option value="nach Käse riechend">nach Käse riechend</option>
-            <option value="langweilig">langweilig</option>
-        </optgroup>
-        <optgroup label="And The Creepy">
-            <option value="wohlgeformt">wohlgeformt</option>
-            <option value="schmackhaft">schmackhaft</option>
-        </optgroup>
-    </select>
-    <br>
-    <button>Sag mal hallo!</button>
+	<label for="name">Wie heißt du?</label>
+	<input type="text" name="name" id="name" placeholder="Hier dein Name">
+	<br>
+	<label for="gender_male">Männlein</label>
+	<input type="radio" name="geschlecht" value="m" id="gender_male" checked>
+	<br>
+	<label for="gender_female">Weiblein</label>
+	<input type="radio" name="geschlecht" value="f" id="gender_female">
+	<br>
+	<label for="extraschleim">Extraschleim</label>
+	<input type="checkbox" name="extraschleim" value="an" id="extraschleim">
+	<br>
+	<label for="zusatz">Zusatzschleim</label>
+	<!--Das select-Tag erzeugt eine Auswahlliste, aus der du ein Element aussuchen kannst -->
+	<select name="zusatz[]" id="zusatz">
+		<!--optgroup setzt eine Überschrift, die aber selbst nicht ausgewählt werden kann. -->
+		<optgroup label="The Good">
+			<!--option erzeugt einen Listeneintrag, der auch ausgewählt werden kann. -->
+			<option value="intelligent">intelligent</option>
+			<option value="gutaussehend">gutaussehend</option>
+		</optgroup>
+		<optgroup label="The Bad">
+			<option value="nach Käse riechend">nach Käse riechend</option>
+			<option value="langweilig">langweilig</option>
+		</optgroup>
+		<optgroup label="And The Creepy">
+			<option value="wohlgeformt">wohlgeformt</option>
+			<option value="schmackhaft">schmackhaft</option>
+		</optgroup>
+	</select>
+	<br>
+	<button>Sag mal hallo!</button>
 </form>
 </body>
 </html>

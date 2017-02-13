@@ -1,194 +1,193 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Browser Wars - Die Kinofassung</title>
-    <style>
+	<meta charset="utf-8"/>
+	<title>Browser Wars - Die Kinofassung</title>
+	<style>
 
-        body {
-            background: black;
-            color: yellow;
-        }
+		body {
+			background: black;
+			color: yellow;
+		}
 
-        /*Hier wird das Glühen für den Titel definiert.*/
-        #leinwand h1 {
-            color: orange;
-            padding: 50px;
-            font-family: sans-serif;
-            font-weight: bold;
-            font-size: 32px;
-            text-align: center;
-            line-height: 0.7;
-            text-shadow: 0 0 40px yellow, 0 0 30px yellow, 0 0 20px yellow, 0 0 10px orange, 0 0 5px orange, 0 0 2px red;
+		/*Hier wird das Glühen für den Titel definiert.*/
+		#leinwand h1 {
+			color: orange;
+			padding: 50px;
+			font-family: sans-serif;
+			font-weight: bold;
+			font-size: 32px;
+			text-align: center;
+			line-height: 0.7;
+			text-shadow: 0 0 40px yellow, 0 0 30px yellow, 0 0 20px yellow, 0 0 10px orange, 0 0 5px orange, 0 0 2px red;
 
-        }
+		}
 
-        #leinwand p {
-            margin: 20px;
-            font-family: sans-serif;
-            text-align: justify;
-        }
+		#leinwand p {
+			margin: 20px;
+			font-family: sans-serif;
+			text-align: justify;
+		}
 
-        /*Die Leinwand wird mit einem Vorhang ausgestattet*/
-        #leinwand {
-            width: 640px;
-            height: 480px;
-            margin: auto;
-            border-image: url(vorhang.png) 0 151 0 151 repeat;
-            -moz-border-image: url(vorhang.png) 0 151 0 151 repeat;
-            -webkit-border-image: url(vorhang.png) 0 151 0 151 repeat;
-            border-width: 0 151px;
-            border-style: solid;
-            overflow: hidden;
-            perspective: 100px;
-            -webkit-perspective: 100px;
-        }
+		/*Die Leinwand wird mit einem Vorhang ausgestattet*/
+		#leinwand {
+			width: 640px;
+			height: 480px;
+			margin: auto;
+			border-image: url(vorhang.png) 0 151 0 151 repeat;
+			-moz-border-image: url(vorhang.png) 0 151 0 151 repeat;
+			-webkit-border-image: url(vorhang.png) 0 151 0 151 repeat;
+			border-width: 0 151px;
+			border-style: solid;
+			overflow: hidden;
+			perspective: 100px;
+			-webkit-perspective: 100px;
+		}
 
-        /*Dieses Element neigt den Lauftext nach hinten. Warum es notwendig ist und nicht der Film direkt transformiert werden kann, liest du am besten im Buch nach.*/
-        #viewport {
-            width: 640px;
-            height: 480px;
-            transform: rotateX(15deg);
-            -webkit-transform: rotateX(15deg);
-            overflow: hidden;
-        }
+		/*Dieses Element neigt den Lauftext nach hinten. Warum es notwendig ist und nicht der Film direkt transformiert werden kann, liest du am besten im Buch nach.*/
+		#viewport {
+			width: 640px;
+			height: 480px;
+			transform: rotateX(15deg);
+			-webkit-transform: rotateX(15deg);
+			overflow: hidden;
+		}
+
+		@keyframes scroll {
+			from {
+				top: 480px;
+			}
+			to {
+				top: -2330px;
+			}
+		}
+
+		@-webkit-keyframes scroll {
+			from {
+				top: 480px;
+			}
+			to {
+				top: -2330px;
+			}
+		}
+
+		/*Und hier kommt endlich der Film. Über 45 Sekunden läuft der ganze Text nach oben.*/
+		#film {
+			position: relative;
+			animation-name: scroll;
+			animation-duration: 45s;
+			animation-iteration-count: 1;
+			animation-timing-function: linear;
+			animation-fill-mode: forwards;
+			-webkit-animation-name: scroll;
+			-webkit-animation-duration: 45s;
+			-webkit-animation-iteration-count: 1;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-fill-mode: forwards;
+		}
 
 
-        @keyframes scroll {
-            from {
-                top: 480px;
-            }
-            to {
-                top: -2330px;
-            }
-        }
-
-        @-webkit-keyframes scroll {
-            from {
-                top: 480px;
-            }
-            to {
-                top: -2330px;
-            }
-        }
-
-        /*Und hier kommt endlich der Film. Über 45 Sekunden läuft der ganze Text nach oben.*/
-        #film {
-            position: relative;
-            animation-name: scroll;
-            animation-duration: 45s;
-            animation-iteration-count: 1;
-            animation-timing-function: linear;
-            animation-fill-mode: forwards;
-            -webkit-animation-name: scroll;
-            -webkit-animation-duration: 45s;
-            -webkit-animation-iteration-count: 1;
-            -webkit-animation-timing-function: linear;
-            -webkit-animation-fill-mode: forwards;
-        }
-
-
-    </style>
+	</style>
 </head>
 <body>
 <div id="leinwand">
-    <div id="viewport">
-        <div id="film">
-            <h1>Browser<br/>Wars</h1>
+	<div id="viewport">
+		<div id="film">
+			<h1>Browser<br/>Wars</h1>
 
-            <p>Am Anfang, lange bevor es Webseiten gab oder jemand seinen Computer zuhause an ein Telefon angeschlossen
-                hat, gab es das ARPANET. Das ARPANET wurde von der Advanced Research Projects Agency (ARPA) des US
-                Verteidigungsministeriums entwickelt, und es war damals ein revolutionärer Schritt: es war das erste
-                paketbasierte (packet switched) Computernetzwerk. Es war auch vorher möglich, Computer miteinander zu
-                verbinden, aber die Verbindungen waren leitungsbasiert (circuit switched): es wurde eine durchgehende
-                elektrische Leitung von einem Computer zum anderen hergestellt. Es funktionierte, aber die Leitung war
-                belegt und stand für andere Computer nicht zur Verfügung.</p>
+			<p>Am Anfang, lange bevor es Webseiten gab oder jemand seinen Computer zuhause an ein Telefon angeschlossen
+				hat, gab es das ARPANET. Das ARPANET wurde von der Advanced Research Projects Agency (ARPA) des US
+				Verteidigungsministeriums entwickelt, und es war damals ein revolutionärer Schritt: es war das erste
+				paketbasierte (packet switched) Computernetzwerk. Es war auch vorher möglich, Computer miteinander zu
+				verbinden, aber die Verbindungen waren leitungsbasiert (circuit switched): es wurde eine durchgehende
+				elektrische Leitung von einem Computer zum anderen hergestellt. Es funktionierte, aber die Leitung war
+				belegt und stand für andere Computer nicht zur Verfügung.</p>
 
-            <p>Die revolutionäre Idee des ARPANET war es, die zu übertragenen Daten in Pakete zu zerlegen und jedes
-                Paket mit einer Empfängeradresse zu versehen, genau wie ein Postpaket. Dadurch war es plötzlich nicht
-                mehr nötig, eine Leitung zwischen genau zwei Computern zu haben: eine Leitung konnte jetzt Pakete für
-                verschiedene Computer transportieren, und anhand der Empfängeradresse konnte es zum richtigen geleitet
-                werden. So wurden große Computernetzwerke überhaupt erst realisierbar. Das ist zwar nur die ganz grobe
-                Erklärung eines paketbasierten Netzwerkes, aber für unsere Zwecke reicht es. Es gibt ganze Bücher nur zu
-                diesem Thema.</p>
+			<p>Die revolutionäre Idee des ARPANET war es, die zu übertragenen Daten in Pakete zu zerlegen und jedes
+				Paket mit einer Empfängeradresse zu versehen, genau wie ein Postpaket. Dadurch war es plötzlich nicht
+				mehr nötig, eine Leitung zwischen genau zwei Computern zu haben: eine Leitung konnte jetzt Pakete für
+				verschiedene Computer transportieren, und anhand der Empfängeradresse konnte es zum richtigen geleitet
+				werden. So wurden große Computernetzwerke überhaupt erst realisierbar. Das ist zwar nur die ganz grobe
+				Erklärung eines paketbasierten Netzwerkes, aber für unsere Zwecke reicht es. Es gibt ganze Bücher nur zu
+				diesem Thema.</p>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt nulla ut diam sagittis porta.
-                Etiam euismod dictum dapibus. Maecenas tellus nisi, hendrerit id pretium vitae, cursus vel augue. Proin
-                sed risus et tellus sagittis auctor. Vestibulum odio diam, sollicitudin ut mollis id, accumsan eget
-                enim. Phasellus in tellus vitae metus imperdiet feugiat nec ut lorem. Sed vel elit sit amet sem
-                fringilla porta.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt nulla ut diam sagittis porta.
+				Etiam euismod dictum dapibus. Maecenas tellus nisi, hendrerit id pretium vitae, cursus vel augue. Proin
+				sed risus et tellus sagittis auctor. Vestibulum odio diam, sollicitudin ut mollis id, accumsan eget
+				enim. Phasellus in tellus vitae metus imperdiet feugiat nec ut lorem. Sed vel elit sit amet sem
+				fringilla porta.</p>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nulla facilisi. Proin quis quam tortor. Nunc non arcu lorem. Pellentesque sagittis
-                magna eu turpis dictum ut mattis enim convallis. Pellentesque convallis viverra facilisis. Nullam ac
-                malesuada mauris. Donec non erat eu ipsum facilisis scelerisque at sit amet leo. Integer imperdiet
-                posuere purus id sollicitudin. Integer nec scelerisque erat.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Nulla facilisi. Proin quis quam tortor. Nunc non arcu lorem. Pellentesque sagittis
+				magna eu turpis dictum ut mattis enim convallis. Pellentesque convallis viverra facilisis. Nullam ac
+				malesuada mauris. Donec non erat eu ipsum facilisis scelerisque at sit amet leo. Integer imperdiet
+				posuere purus id sollicitudin. Integer nec scelerisque erat.</p>
 
-            <p>Donec sem odio, bibendum nec aliquam vitae, vestibulum id felis. Praesent sodales cursus purus, et
-                tincidunt tortor volutpat sed. Aenean quis eros nec quam ullamcorper aliquam. In tellus mauris, egestas
-                quis molestie a, vestibulum quis nibh. In consequat lacinia neque quis ultricies. Integer convallis
-                molestie neque, in pulvinar nulla luctus sit amet. Etiam justo lacus, molestie vel mollis ut, vehicula
-                at tellus. Sed urna lorem, fermentum ultricies vulputate vitae, rutrum nec libero. Etiam libero tellus,
-                semper eu dignissim vitae, mollis vitae mauris. Quisque sodales luctus augue, ac dignissim mi imperdiet
-                id. Proin eget lacus eu lorem placerat feugiat. Pellentesque neque quam, varius id commodo quis,
-                dignissim nec dolor. Aliquam convallis, mauris vel tempus sollicitudin, sapien orci fringilla lorem, at
-                porta nibh quam id turpis.</p>
+			<p>Donec sem odio, bibendum nec aliquam vitae, vestibulum id felis. Praesent sodales cursus purus, et
+				tincidunt tortor volutpat sed. Aenean quis eros nec quam ullamcorper aliquam. In tellus mauris, egestas
+				quis molestie a, vestibulum quis nibh. In consequat lacinia neque quis ultricies. Integer convallis
+				molestie neque, in pulvinar nulla luctus sit amet. Etiam justo lacus, molestie vel mollis ut, vehicula
+				at tellus. Sed urna lorem, fermentum ultricies vulputate vitae, rutrum nec libero. Etiam libero tellus,
+				semper eu dignissim vitae, mollis vitae mauris. Quisque sodales luctus augue, ac dignissim mi imperdiet
+				id. Proin eget lacus eu lorem placerat feugiat. Pellentesque neque quam, varius id commodo quis,
+				dignissim nec dolor. Aliquam convallis, mauris vel tempus sollicitudin, sapien orci fringilla lorem, at
+				porta nibh quam id turpis.</p>
 
-            <p>Praesent lacus erat, malesuada tristique euismod et, ultricies at ligula. Aenean vehicula lorem et leo
-                hendrerit egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat imperdiet
-                magna, eget vulputate tortor congue vel. Etiam id dui sapien, sit amet porttitor sapien. Nullam
-                vestibulum hendrerit dolor, sit amet lacinia nibh congue dictum. Nam pharetra laoreet massa quis
-                tincidunt. Phasellus vitae hendrerit quam. Vestibulum at dui a dui vulputate viverra ut consectetur
-                ipsum. Nam sit amet turpis felis, nec dignissim sapien. In id magna enim. Aenean pulvinar semper ipsum,
-                vitae feugiat diam lobortis non. Mauris ultrices auctor est quis venenatis.</p>
+			<p>Praesent lacus erat, malesuada tristique euismod et, ultricies at ligula. Aenean vehicula lorem et leo
+				hendrerit egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat imperdiet
+				magna, eget vulputate tortor congue vel. Etiam id dui sapien, sit amet porttitor sapien. Nullam
+				vestibulum hendrerit dolor, sit amet lacinia nibh congue dictum. Nam pharetra laoreet massa quis
+				tincidunt. Phasellus vitae hendrerit quam. Vestibulum at dui a dui vulputate viverra ut consectetur
+				ipsum. Nam sit amet turpis felis, nec dignissim sapien. In id magna enim. Aenean pulvinar semper ipsum,
+				vitae feugiat diam lobortis non. Mauris ultrices auctor est quis venenatis.</p>
 
-            <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus
-                posuere, justo eget suscipit porttitor, lectus nunc hendrerit lacus, eget pulvinar orci leo at augue.
-                Quisque interdum varius malesuada. Donec urna orci, gravida eget faucibus in, auctor et massa. Praesent
-                blandit luctus ipsum, vel luctus augue aliquam nec. Sed sollicitudin ullamcorper libero at fringilla.
-                Aliquam interdum vulputate ante, at lobortis ligula imperdiet ut.</p>
+			<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus
+				posuere, justo eget suscipit porttitor, lectus nunc hendrerit lacus, eget pulvinar orci leo at augue.
+				Quisque interdum varius malesuada. Donec urna orci, gravida eget faucibus in, auctor et massa. Praesent
+				blandit luctus ipsum, vel luctus augue aliquam nec. Sed sollicitudin ullamcorper libero at fringilla.
+				Aliquam interdum vulputate ante, at lobortis ligula imperdiet ut.</p>
 
-            <p>Suspendisse malesuada, arcu et laoreet malesuada, libero urna tristique sapien, id sagittis leo nibh ac
-                libero. Phasellus lobortis convallis turpis a fermentum. Vestibulum gravida sem at ante tempus sagittis.
-                Nulla facilisi. Nullam sed sem eu dolor congue ornare. Suspendisse dictum dolor vitae tortor malesuada
-                ac cursus velit aliquet. Morbi posuere eros quis metus tempus eleifend. Praesent eget ligula eros.
-                Integer ac dui leo, nec aliquam dolor. Vivamus accumsan mattis ante, sit amet viverra felis commodo ac.
-                Cras quis bibendum dolor.</p>
+			<p>Suspendisse malesuada, arcu et laoreet malesuada, libero urna tristique sapien, id sagittis leo nibh ac
+				libero. Phasellus lobortis convallis turpis a fermentum. Vestibulum gravida sem at ante tempus sagittis.
+				Nulla facilisi. Nullam sed sem eu dolor congue ornare. Suspendisse dictum dolor vitae tortor malesuada
+				ac cursus velit aliquet. Morbi posuere eros quis metus tempus eleifend. Praesent eget ligula eros.
+				Integer ac dui leo, nec aliquam dolor. Vivamus accumsan mattis ante, sit amet viverra felis commodo ac.
+				Cras quis bibendum dolor.</p>
 
-            <p>Suspendisse potenti. Phasellus sit amet aliquam massa. Pellentesque habitant morbi tristique senectus et
-                netus et malesuada fames ac turpis egestas. Phasellus sollicitudin nulla id leo congue malesuada.
-                Suspendisse rutrum porttitor nisl, vitae porta tortor viverra sed. Class aptent taciti sociosqu ad
-                litora torquent per conubia nostra, per inceptos himenaeos. Duis elementum dui id magna rhoncus ut
-                cursus leo luctus. Etiam a elementum lacus. Maecenas eleifend pharetra mi, eget consectetur lacus
-                imperdiet a. Aliquam erat volutpat. Fusce at felis sem, eu gravida arcu. Quisque facilisis suscipit sem
-                eget pellentesque. Ut pretium est vel odio lobortis pretium vulputate sem ultrices. In vel dui
-                magna.</p>
+			<p>Suspendisse potenti. Phasellus sit amet aliquam massa. Pellentesque habitant morbi tristique senectus et
+				netus et malesuada fames ac turpis egestas. Phasellus sollicitudin nulla id leo congue malesuada.
+				Suspendisse rutrum porttitor nisl, vitae porta tortor viverra sed. Class aptent taciti sociosqu ad
+				litora torquent per conubia nostra, per inceptos himenaeos. Duis elementum dui id magna rhoncus ut
+				cursus leo luctus. Etiam a elementum lacus. Maecenas eleifend pharetra mi, eget consectetur lacus
+				imperdiet a. Aliquam erat volutpat. Fusce at felis sem, eu gravida arcu. Quisque facilisis suscipit sem
+				eget pellentesque. Ut pretium est vel odio lobortis pretium vulputate sem ultrices. In vel dui
+				magna.</p>
 
-            <p>Curabitur luctus mattis turpis, et cursus risus fringilla eu. Donec molestie vestibulum libero vel
-                accumsan. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                Cras rhoncus volutpat tellus mattis fermentum. Nullam convallis blandit sagittis. Nullam tristique
-                elementum faucibus. Aliquam faucibus, nunc et euismod vehicula, quam dolor aliquet nibh, et adipiscing
-                turpis arcu in risus. Duis risus felis, suscipit sed tempor ut, aliquam vitae neque.</p>
+			<p>Curabitur luctus mattis turpis, et cursus risus fringilla eu. Donec molestie vestibulum libero vel
+				accumsan. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				Cras rhoncus volutpat tellus mattis fermentum. Nullam convallis blandit sagittis. Nullam tristique
+				elementum faucibus. Aliquam faucibus, nunc et euismod vehicula, quam dolor aliquet nibh, et adipiscing
+				turpis arcu in risus. Duis risus felis, suscipit sed tempor ut, aliquam vitae neque.</p>
 
-            <p>Vivamus imperdiet euismod dolor, vel ornare mauris pulvinar ut. Nullam leo sem, luctus sit amet
-                consectetur quis, elementum nec urna. Nam sapien neque, posuere eget tincidunt ac, aliquet ut ante. Cras
-                ut leo quis dolor adipiscing dictum nec tristique purus. Cras id neque a justo venenatis scelerisque sed
-                vel diam. Morbi dignissim mattis accumsan. Vivamus sit amet nunc diam, sit amet tristique purus. Vivamus
-                a mauris ipsum, et vestibulum dolor. Donec interdum, ligula a consequat semper, ligula purus molestie
-                libero, ac malesuada ipsum erat nec lectus.</p>
+			<p>Vivamus imperdiet euismod dolor, vel ornare mauris pulvinar ut. Nullam leo sem, luctus sit amet
+				consectetur quis, elementum nec urna. Nam sapien neque, posuere eget tincidunt ac, aliquet ut ante. Cras
+				ut leo quis dolor adipiscing dictum nec tristique purus. Cras id neque a justo venenatis scelerisque sed
+				vel diam. Morbi dignissim mattis accumsan. Vivamus sit amet nunc diam, sit amet tristique purus. Vivamus
+				a mauris ipsum, et vestibulum dolor. Donec interdum, ligula a consequat semper, ligula purus molestie
+				libero, ac malesuada ipsum erat nec lectus.</p>
 
-            <p>Curabitur nibh metus, gravida sit amet rhoncus sit amet, elementum ut erat. Etiam urna enim, viverra in
-                sagittis eu, luctus non purus. Ut pretium volutpat odio, non vulputate arcu facilisis sit amet.
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum
-                felis vel ligula dapibus ut laoreet diam iaculis. Vestibulum aliquet scelerisque massa id porta. Vivamus
-                id lorem eget ligula consectetur ultricies in vitae neque. Donec et molestie ligula. Quisque faucibus
-                enim quis mauris venenatis vulputate. Ut faucibus odio ut elit varius pharetra. Vivamus accumsan
-                facilisis diam at commodo. Suspendisse facilisis felis quis leo facilisis in viverra dui laoreet.
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In nibh
-                augue, dapibus ac hendrerit ut, tempor ut lectus. Sed interdum, nulla vitae faucibus hendrerit, magna
-                ipsum posuere mi, sit amet aliquam enim neque non risus. </p>
-        </div>
-    </div>
+			<p>Curabitur nibh metus, gravida sit amet rhoncus sit amet, elementum ut erat. Etiam urna enim, viverra in
+				sagittis eu, luctus non purus. Ut pretium volutpat odio, non vulputate arcu facilisis sit amet.
+				Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum
+				felis vel ligula dapibus ut laoreet diam iaculis. Vestibulum aliquet scelerisque massa id porta. Vivamus
+				id lorem eget ligula consectetur ultricies in vitae neque. Donec et molestie ligula. Quisque faucibus
+				enim quis mauris venenatis vulputate. Ut faucibus odio ut elit varius pharetra. Vivamus accumsan
+				facilisis diam at commodo. Suspendisse facilisis felis quis leo facilisis in viverra dui laoreet.
+				Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In nibh
+				augue, dapibus ac hendrerit ut, tempor ut lectus. Sed interdum, nulla vitae faucibus hendrerit, magna
+				ipsum posuere mi, sit amet aliquam enim neque non risus. </p>
+		</div>
+	</div>
 </div>
 </body>
 </html>

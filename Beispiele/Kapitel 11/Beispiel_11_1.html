@@ -1,23 +1,23 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Funktionen für Anfänger: Quersumme berechnen</title>
-    <script>
-        /*Mit dem Schlüsselwort function wird eine Funktion deklariert.*/
-        function quersumme(zahl /*In den Klammern können Funktionsparameter angegeben werden. Aber auch wenn es keine gibt müssen die Klammern da sein.*/) {
-            /*Innerhalb der Funktion benutzt du Parameter genau wie andere Variablen.*/
-            zahl = zahl.toString();
-            return parseInt(zahl.charAt(0)) + parseInt(zahl.charAt(1));
-        }
-    </script>
+	<meta charset="utf-8"/>
+	<title>Funktionen für Anfänger: Quersumme berechnen</title>
+	<script>
+		/*Mit dem Schlüsselwort function wird eine Funktion deklariert.*/
+		function quersumme(zahl /*In den Klammern können Funktionsparameter angegeben werden. Aber auch wenn es keine gibt müssen die Klammern da sein.*/) {
+			/*Innerhalb der Funktion benutzt du Parameter genau wie andere Variablen.*/
+			zahl = zahl.toString();
+			return parseInt(zahl.charAt(0)) + parseInt(zahl.charAt(1));
+		}
+	</script>
 </head>
 
 <body>
 Quersumme von 13:
 <script>
-    /*Beim Aufruf der Funktion wird ein Parameter in Klammern übergeben.*/
-    document.write(quersumme(13));
+	/*Beim Aufruf der Funktion wird ein Parameter in Klammern übergeben.*/
+	document.write(quersumme(13));
 </script>
 <br/>
 Quersumme von 47:
@@ -26,7 +26,7 @@ Quersumme von 47:
 Quersumme von 87:
 <script>document.write(quersumme(87));</script>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

@@ -1,118 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Zellen zusammenlegen: rowspan</title>
-    <style>
-        table {
-            border-collapse: collapse;
-        }
+	<title>Zellen zusammenlegen: rowspan</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
 
-        td {
-            border: 1px solid #777777;
-        }
+		td {
+			border: 1px solid #777777;
+		}
 
-    </style>
-    <meta charset="utf-8"/>
+	</style>
+	<meta charset="utf-8"/>
 </head>
 <body>
 <table>
-    <caption>Schrödingers CD-Sammlung</caption>
-    <thead>
-    <tr>
-        <th>Album</th>
-        <th>Künstler</th>
-        <th>Erscheinungsjahr</th>
-        <th>Tracks</th>
-        <th>Schrödipunkte</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Queen</td>
-        <td>Queen</td>
-        <td>1973</td>
-        <td>10</td>
-        <td>8</td>
-    </tr>
-    <tr>
-        <td>Queen II</td>
-        <td>Queen</td>
-        <td>1974</td>
-        <td>11</td>
-        <td>8.5</td>
-    </tr>
-    <tr>
-        <td>Sheer Heart Attack</td>
-        <td>Queen</td>
-        <td>1974</td>
-        <td>13</td>
-        <td>7.5</td>
-    </tr>
-    <tr>
-        <td>A Night at the Opera</td>
-        <td>Queen</td>
-        <td>1975</td>
-        <td>12</td>
-        <td>10</td>
-    </tr>
-    <tr>
-        <td>Jazz</td>
-        <td>Queen</td>
-        <td>1978</td>
-        <td>13</td>
-        <td>8.5</td>
-    </tr>
-    </tbody>
+	<caption>Schrödingers CD-Sammlung</caption>
+	<thead>
+	<tr>
+		<th>Album</th>
+		<th>Künstler</th>
+		<th>Erscheinungsjahr</th>
+		<th>Tracks</th>
+		<th>Schrödipunkte</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Queen</td>
+		<td>Queen</td>
+		<td>1973</td>
+		<td>10</td>
+		<td>8</td>
+	</tr>
+	<tr>
+		<td>Queen II</td>
+		<td>Queen</td>
+		<td>1974</td>
+		<td>11</td>
+		<td>8.5</td>
+	</tr>
+	<tr>
+		<td>Sheer Heart Attack</td>
+		<td>Queen</td>
+		<td>1974</td>
+		<td>13</td>
+		<td>7.5</td>
+	</tr>
+	<tr>
+		<td>A Night at the Opera</td>
+		<td>Queen</td>
+		<td>1975</td>
+		<td>12</td>
+		<td>10</td>
+	</tr>
+	<tr>
+		<td>Jazz</td>
+		<td>Queen</td>
+		<td>1978</td>
+		<td>13</td>
+		<td>8.5</td>
+	</tr>
+	</tbody>
 </table>
 <table>
-    <caption>Schrödingers CD-Sammlung</caption>
-    <thead>
-    <tr>
-        <th>Album</th>
-        <th>Künstler</th>
-        <th>Erscheinungsjahr</th>
-        <th>Tracks</th>
-        <th>Schrödipunkte</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Queen</td>
-        <!--Das Attribut rowspan sorgt dafür, dass sich diese Zelle über insgesamt 5 Zeilen erstreckt, also diese und vier weitere -->
-        <td rowspan="5">Queen</td>
-        <td>1973</td>
-        <td>10</td>
-        <td>8</td>
-    </tr>
-    <tr>
-        <td>Queen II</td>
-        <!--Diese Position muss leer bleiben, hier kommt die Zelle von oben hin -->
-        <td>1974</td>
-        <td>11</td>
-        <td>8.5</td>
-    </tr>
-    <tr>
-        <td>Sheer Heart Attack</td>
-        <!--Diese Position muss leer bleiben, hier kommt die Zelle von oben hin -->
-        <td>1974</td>
-        <td>13</td>
-        <td>7.5</td>
-    </tr>
-    <tr>
-        <td>A Night at the Opera</td>
-        <!--Diese Position muss leer bleiben, hier kommt die Zelle von oben hin -->
-        <td>1975</td>
-        <td>12</td>
-        <td>10</td>
-    </tr>
-    <tr>
-        <td>Jazz</td>
-        <!--Diese Position muss leer bleiben, hier kommt die Zelle von oben hin -->
-        <td>1978</td>
-        <td>13</td>
-        <td>8.5</td>
-    </tr>
-    </tbody>
+	<caption>Schrödingers CD-Sammlung</caption>
+	<thead>
+	<tr>
+		<th>Album</th>
+		<th>Künstler</th>
+		<th>Erscheinungsjahr</th>
+		<th>Tracks</th>
+		<th>Schrödipunkte</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Queen</td>
+		<!--Das Attribut rowspan sorgt dafür, dass sich diese Zelle über insgesamt 5 Zeilen erstreckt, also diese und vier weitere -->
+		<td rowspan="5">Queen</td>
+		<td>1973</td>
+		<td>10</td>
+		<td>8</td>
+	</tr>
+	<tr>
+		<td>Queen II</td>
+		<!--Diese Position muss leer bleiben, hier kommt die Zelle von oben hin -->
+		<td>1974</td>
+		<td>11</td>
+		<td>8.5</td>
+	</tr>
+	<tr>
+		<td>Sheer Heart Attack</td>
+		<!--Diese Position muss leer bleiben, hier kommt die Zelle von oben hin -->
+		<td>1974</td>
+		<td>13</td>
+		<td>7.5</td>
+	</tr>
+	<tr>
+		<td>A Night at the Opera</td>
+		<!--Diese Position muss leer bleiben, hier kommt die Zelle von oben hin -->
+		<td>1975</td>
+		<td>12</td>
+		<td>10</td>
+	</tr>
+	<tr>
+		<td>Jazz</td>
+		<!--Diese Position muss leer bleiben, hier kommt die Zelle von oben hin -->
+		<td>1978</td>
+		<td>13</td>
+		<td>8.5</td>
+	</tr>
+	</tbody>
 </table>
 </body>
 </html>

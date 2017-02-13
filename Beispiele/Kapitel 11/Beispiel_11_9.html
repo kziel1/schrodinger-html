@@ -1,51 +1,51 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Magie zum nachzaubern: Funktionen als Parameter annehmen</title>
-    <script>
-        /*Um selbst eine Funktion als Parameter anzunehmen, ist nichts spezielles zu tun. Gar nichts.
-        Diese Funktion filtert ein Array: nur die Werte, für die filterfunktion einen truthy-Wert liefert, landen im Ergebnis*/
-        function filter(array, filterfunktion) {
-            var ergebnis = [];
-            for (var i = 0; i < array.length; i++) {
-                /*Mit Funktionsklammern nach dem Parameternamen kannst du die Funktion sofort aufrufen. Wie sie ursprünglich hieß, ist egal*/
-                if (filterfunktion(array[i])) {
-                    ergebnis.push(array[i]);
-                }
-            }
-            return ergebnis;
-        }
-    </script>
+	<meta charset="utf-8"/>
+	<title>Magie zum nachzaubern: Funktionen als Parameter annehmen</title>
+	<script>
+		/*Um selbst eine Funktion als Parameter anzunehmen, ist nichts spezielles zu tun. Gar nichts.
+		 Diese Funktion filtert ein Array: nur die Werte, für die filterfunktion einen truthy-Wert liefert, landen im Ergebnis*/
+		function filter(array, filterfunktion) {
+			var ergebnis = [];
+			for (var i = 0; i < array.length; i++) {
+				/*Mit Funktionsklammern nach dem Parameternamen kannst du die Funktion sofort aufrufen. Wie sie ursprünglich hieß, ist egal*/
+				if (filterfunktion(array[i])) {
+					ergebnis.push(array[i]);
+				}
+			}
+			return ergebnis;
+		}
+	</script>
 </head>
 
 <body>
 <h1>Gerade Zahlen</h1>
 Alle geraden Zahlen aus 1, 2, 3, 7, 4, 9, 2, 5, 8, 1, 13, 4, 200, 5:<br/>
 <script>
-    /*Diese Funktion testet, ob eine Zahl gerade ist.*/
-    function filterNurGerade(zahl) {
-        return zahl % 2 == 0;
-    }
-    var zahlenarray = [1, 2, 3, 7, 4, 9, 2, 5, 8, 1, 13, 4, 200, 5];
-    /*Ubd hier wird die FUnktion benutzt, um ein Array zu filtern*/
-    document.write(filter(zahlenarray, filterNurGerade).join(", "));
+	/*Diese Funktion testet, ob eine Zahl gerade ist.*/
+	function filterNurGerade(zahl) {
+		return zahl % 2 == 0;
+	}
+	var zahlenarray = [1, 2, 3, 7, 4, 9, 2, 5, 8, 1, 13, 4, 200, 5];
+	/*Ubd hier wird die FUnktion benutzt, um ein Array zu filtern*/
+	document.write(filter(zahlenarray, filterNurGerade).join(", "));
 </script>
 <h1>Vokale</h1>
 Alle Worte die mit Vokalen anfangen aus: Es war einmal ein JavaScript Programmierer in einem Auto<br/>
 <script>
-    /*Diese Funktion testet, ob ein Wort mit einem Vokal beginnt*/
-    function filterVokale(wort) {
-        var ersterBuchstabe = wort.charAt(0).toLowerCase();
-        return ersterBuchstabe == "a" || ersterBuchstabe == "e" || ersterBuchstabe == "i" || ersterBuchstabe == "o" || ersterBuchstabe == "u";
-    }
-    var stringarray = ["Es", "war", "einmal", "ein", "JavaScript", "Programmierer", "in", "einem", "Auto"];
-    /*Und hier wird ein String-Array damit gefiltert*/
-    document.write(filter(stringarray, filterVokale).join(", "));
+	/*Diese Funktion testet, ob ein Wort mit einem Vokal beginnt*/
+	function filterVokale(wort) {
+		var ersterBuchstabe = wort.charAt(0).toLowerCase();
+		return ersterBuchstabe == "a" || ersterBuchstabe == "e" || ersterBuchstabe == "i" || ersterBuchstabe == "o" || ersterBuchstabe == "u";
+	}
+	var stringarray = ["Es", "war", "einmal", "ein", "JavaScript", "Programmierer", "in", "einem", "Auto"];
+	/*Und hier wird ein String-Array damit gefiltert*/
+	document.write(filter(stringarray, filterVokale).join(", "));
 </script>
 
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

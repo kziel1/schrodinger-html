@@ -1,90 +1,90 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Kuchen backen - Fileauswahl mit Drag & Drop</title>
-    <style>
-        .bereit-zum-abwurf {
-            border: 2px dashed red;
-        }
+	<meta charset="utf-8"/>
+	<title>Kuchen backen - Fileauswahl mit Drag & Drop</title>
+	<style>
+		.bereit-zum-abwurf {
+			border: 2px dashed red;
+		}
 
-        div {
-            width: 400px;
-            height: 50px;
-            border: 1px solid black;
-            background-color: lightgray;
-            text-align: center;
-            font-variant: small-caps;
-            padding-top: 10px;
-        }
-    </style>
-    <script>
+		div {
+			width: 400px;
+			height: 50px;
+			border: 1px solid black;
+			background-color: lightgray;
+			text-align: center;
+			font-variant: small-caps;
+			padding-top: 10px;
+		}
+	</style>
+	<script>
 
-        window.addEventListener("load", init);
+		window.addEventListener("load", init);
 
-        function init() {
-            var einwurf = document.getElementById('dateieinwurf');
-            einwurf.addEventListener('dragover', ueberziehen);
-            einwurf.addEventListener('dragenter', dragenter);
-            einwurf.addEventListener('dragleave', dragleave);
-            einwurf.addEventListener('drop', waehleDatei);
-        }
+		function init() {
+			var einwurf = document.getElementById('dateieinwurf');
+			einwurf.addEventListener('dragover', ueberziehen);
+			einwurf.addEventListener('dragenter', dragenter);
+			einwurf.addEventListener('dragleave', dragleave);
+			einwurf.addEventListener('drop', waehleDatei);
+		}
 
-        /*Der dragover-Handler muss, blödsinnig wie es auch ist, vorhanden sein und das empfangene Event stoppen,
-        nur dann klappts auch mit dem Droppen.*/
-        function ueberziehen(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            event.dataTransfer.dropEffect = 'move';
-        }
+		/*Der dragover-Handler muss, blödsinnig wie es auch ist, vorhanden sein und das empfangene Event stoppen,
+		 nur dann klappts auch mit dem Droppen.*/
+		function ueberziehen(event) {
+			event.stopPropagation();
+			event.preventDefault();
+			event.dataTransfer.dropEffect = 'move';
+		}
 
-        /*Dem User anzuzeigen, dass er auf diesem Element eine Datei abwerfen kann, muss sein. Sonst kommt er da nie drauf.*/
-        function dragenter(event) {
-            event.target.classList.add("bereit-zum-abwurf");
-        }
+		/*Dem User anzuzeigen, dass er auf diesem Element eine Datei abwerfen kann, muss sein. Sonst kommt er da nie drauf.*/
+		function dragenter(event) {
+			event.target.classList.add("bereit-zum-abwurf");
+		}
 
-        function dragleave(event) {
-            event.target.classList.remove("bereit-zum-abwurf");
-        }
+		function dragleave(event) {
+			event.target.classList.remove("bereit-zum-abwurf");
+		}
 
-        function waehleDatei(event) {
-            /*Das Drop-Event MUSS gestoppt werden, sonst wird das Default-Verhalten des Browsers ausgelöst und die Datei
-            in diesem Fenster geöffnet.*/
-            event.stopPropagation();
-            event.preventDefault();
-            if (event.dataTransfer.files[0]) {
-                var leser = new FileReader();
-                leser.addEventListener("load", rezeptGeladen);
-                leser.addEventListener("error", zeigeLadefehler);
-                /*readAsText liest eine Datei als Text ein. Überraschung.
-                Interessanter ist das Feld dataTransfer des Events, das enthält die gedroppten Daten.*/
-                leser.readAsText(event.dataTransfer.files[0], "UTF-8");
-            }
-        }
+		function waehleDatei(event) {
+			/*Das Drop-Event MUSS gestoppt werden, sonst wird das Default-Verhalten des Browsers ausgelöst und die Datei
+			 in diesem Fenster geöffnet.*/
+			event.stopPropagation();
+			event.preventDefault();
+			if (event.dataTransfer.files[0]) {
+				var leser = new FileReader();
+				leser.addEventListener("load", rezeptGeladen);
+				leser.addEventListener("error", zeigeLadefehler);
+				/*readAsText liest eine Datei als Text ein. Überraschung.
+				 Interessanter ist das Feld dataTransfer des Events, das enthält die gedroppten Daten.*/
+				leser.readAsText(event.dataTransfer.files[0], "UTF-8");
+			}
+		}
 
-        function zeigeLadefehler(event) {
-            alert("Konnte Datei nicht laden!");
-        }
+		function zeigeLadefehler(event) {
+			alert("Konnte Datei nicht laden!");
+		}
 
-        /*Ist die Datei vollständig geladen wird ihr Inhalt verarbeitet.*/
-        function rezeptGeladen(event) {
-            var body = document.getElementsByTagName("body")[0];
-            /*Der Dateiinhalt wird in Zeilen getrennt. \n steht für einen Zeilenumbruch*/
-            var zeilen = event.target.result.split("\n");
-            /*Die erste Zeile enthält den Namen des Rezepts und wird zur Überschrift*/
-            var title = document.createElement("h1");
-            title.appendChild(document.createTextNode(zeilen[0]));
-            body.appendChild(title);
-            var ausgabe = document.createElement("ul");
-            body.appendChild(ausgabe);
-            /*Alle weiteren Zeilen enthalten jeweils eine Anweisung des Rezepts*/
-            for (var i = 1; i < zeilen.length; i++) {
-                var li = document.createElement("li");
-                li.appendChild(document.createTextNode(zeilen[i]));
-                ausgabe.appendChild(li);
-            }
-        }
-    </script>
+		/*Ist die Datei vollständig geladen wird ihr Inhalt verarbeitet.*/
+		function rezeptGeladen(event) {
+			var body = document.getElementsByTagName("body")[0];
+			/*Der Dateiinhalt wird in Zeilen getrennt. \n steht für einen Zeilenumbruch*/
+			var zeilen = event.target.result.split("\n");
+			/*Die erste Zeile enthält den Namen des Rezepts und wird zur Überschrift*/
+			var title = document.createElement("h1");
+			title.appendChild(document.createTextNode(zeilen[0]));
+			body.appendChild(title);
+			var ausgabe = document.createElement("ul");
+			body.appendChild(ausgabe);
+			/*Alle weiteren Zeilen enthalten jeweils eine Anweisung des Rezepts*/
+			for (var i = 1; i < zeilen.length; i++) {
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode(zeilen[i]));
+				ausgabe.appendChild(li);
+			}
+		}
+	</script>
 </head>
 <body>
 <h1>Rezepte zu Webseiten</h1>

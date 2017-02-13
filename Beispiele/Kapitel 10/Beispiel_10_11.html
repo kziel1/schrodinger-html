@@ -1,22 +1,22 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <!--Schon mit so wenig JavaScript kannst du eine Einkaufsliste erstellen: eingeben was du brauchst, Knopf drücken und fertig -->
-    <meta charset="utf-8"/>
-    <title>Einkaufliste</title>
-    <script>
-        function neuerEintrag() {
-            /*Als erstes wird der Wert des Eingabefelds ausgelesen*/
-            var eingabe = document.getElementById("neu");
-            var neu = eingabe.value;
-            /*Dann wird ein neues Listenelement an die Einkaufsliste angehangen.*/
-            var liste = document.getElementById("einkaufsliste");
-            var inhalt = liste.innerHTML + "<li>" + neu + "</li>";
-            liste.innerHTML = inhalt;
-            /*Zum Schluss wird das Eingabefeld geleert.*/
-            eingabe.value = "";
-        }
-    </script>
+	<!--Schon mit so wenig JavaScript kannst du eine Einkaufsliste erstellen: eingeben was du brauchst, Knopf drücken und fertig -->
+	<meta charset="utf-8"/>
+	<title>Einkaufliste</title>
+	<script>
+		function neuerEintrag() {
+			/*Als erstes wird der Wert des Eingabefelds ausgelesen*/
+			var eingabe = document.getElementById("neu");
+			var neu = eingabe.value;
+			/*Dann wird ein neues Listenelement an die Einkaufsliste angehangen.*/
+			var liste = document.getElementById("einkaufsliste");
+			var inhalt = liste.innerHTML + "<li>" + neu + "</li>";
+			liste.innerHTML = inhalt;
+			/*Zum Schluss wird das Eingabefeld geleert.*/
+			eingabe.value = "";
+		}
+	</script>
 </head>
 <body>
 <h3>Einkaufszettel</h3>
@@ -25,7 +25,7 @@
 <!--Dem button wird wieder ein Eventhandler zugewiesen -->
 <button type="button" onclick="neuerEintrag();">Klick mich!</button>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

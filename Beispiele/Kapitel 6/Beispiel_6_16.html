@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dateien hochladen: weniger einfach, aber hübsch</title>
-    <style>
-        .datei {
-            position: relative;
-        }
+	<title>Dateien hochladen: weniger einfach, aber hübsch</title>
+	<style>
+		.datei {
+			position: relative;
+		}
 
-        .huebsch {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
+		.huebsch {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
 
-        .huebsch input {
-            position: relative;
-            top: -10px;
-        }
+		.huebsch input {
+			position: relative;
+			top: -10px;
+		}
 
-        /*Das hässliche Eingabefeld wird mit opacity: 0 ausgeblendet. Der z-index sorgt dafür, dass es über dem hübschen Feld liegt:
-        wenn man glaubt, auf das hübsche Feld zu klicken, erwischt man in Wirklichkeit dieses.*/
-        .haesslich {
-            position: relative;
-            opacity: 0;
-            z-index: 2;
-        }
-    </style>
-    <meta charset="utf-8"/>
+		/*Das hässliche Eingabefeld wird mit opacity: 0 ausgeblendet. Der z-index sorgt dafür, dass es über dem hübschen Feld liegt:
+		wenn man glaubt, auf das hübsche Feld zu klicken, erwischt man in Wirklichkeit dieses.*/
+		.haesslich {
+			position: relative;
+			opacity: 0;
+			z-index: 2;
+		}
+	</style>
+	<meta charset="utf-8"/>
 </head>
 <body>
 <div class="datei">
-    <input type="file" class="haesslich"/>
+	<input type="file" class="haesslich"/>
 
-    <div class="huebsch">
-        <input/>
-        <img src="waehlen.png" alt=""/>
-    </div>
+	<div class="huebsch">
+		<input/>
+		<img src="waehlen.png" alt=""/>
+	</div>
 </div>
 </body>
 </html>

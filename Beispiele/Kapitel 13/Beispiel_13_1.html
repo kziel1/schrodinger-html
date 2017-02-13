@@ -1,79 +1,79 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Aufgaben für den Zauberlehrling</title>
-    <style>
-        .offen {
-            text-decoration: underline;
-        }
+	<meta charset="utf-8"/>
+	<title>Aufgaben für den Zauberlehrling</title>
+	<style>
+		.offen {
+			text-decoration: underline;
+		}
 
-        .erledigt {
-            text-decoration: line-through;
-        }
+		.erledigt {
+			text-decoration: line-through;
+		}
 
-        a {
-            cursor: pointer;
-            color: blue;
-        }
-    </style>
-    <script>
-        window.addEventListener("load", setup);
+		a {
+			cursor: pointer;
+			color: blue;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", setup);
 
-        function setup() {
-            document.getElementById("erledigt").addEventListener("click", erledigeErsteOffeneAufgabe);
-            document.getElementById("alles-erledigt").addEventListener("click", erledigeAlle);
-            /*Mit getElementsByTagName werden alle a-Tags in der Aufgabenliste gefunden und dann mit click-Handlern ausgestattet.*/
-            var links = document.getElementById("aufgaben").getElementsByTagName("a");
-            for (var i = 0; i < links.length; i++) {
-                links[i].addEventListener("click", erledigeAufgabeDirekt);
-            }
-        }
+		function setup() {
+			document.getElementById("erledigt").addEventListener("click", erledigeErsteOffeneAufgabe);
+			document.getElementById("alles-erledigt").addEventListener("click", erledigeAlle);
+			/*Mit getElementsByTagName werden alle a-Tags in der Aufgabenliste gefunden und dann mit click-Handlern ausgestattet.*/
+			var links = document.getElementById("aufgaben").getElementsByTagName("a");
+			for (var i = 0; i < links.length; i++) {
+				links[i].addEventListener("click", erledigeAufgabeDirekt);
+			}
+		}
 
-        function erledigeErsteOffeneAufgabe() {
-            /*Mit getElementsByClassName werden alle noch offenen Aufgaben gefunden. Wenn es noch welche gibt, dass wird die erste erledigt.*/
-            var offene = document.getElementById("aufgaben").getElementsByClassName("offen");
-            if (offene.length > 0) {
-                erledigeAufgabe(offene[0]);
-            }
-        }
+		function erledigeErsteOffeneAufgabe() {
+			/*Mit getElementsByClassName werden alle noch offenen Aufgaben gefunden. Wenn es noch welche gibt, dass wird die erste erledigt.*/
+			var offene = document.getElementById("aufgaben").getElementsByClassName("offen");
+			if (offene.length > 0) {
+				erledigeAufgabe(offene[0]);
+			}
+		}
 
-        function erledigeAlle() {
-            /*Auch hier werden alle offenen Aufgaben gefunden, aber mit einer while-Schleife werden sie alle erledigt.*/
-            var offene = document.getElementById("aufgaben").getElementsByClassName("offen");
-            while (offene.length > 0) {
-                erledigeAufgabe(offene[0]);
-            }
-        }
+		function erledigeAlle() {
+			/*Auch hier werden alle offenen Aufgaben gefunden, aber mit einer while-Schleife werden sie alle erledigt.*/
+			var offene = document.getElementById("aufgaben").getElementsByClassName("offen");
+			while (offene.length > 0) {
+				erledigeAufgabe(offene[0]);
+			}
+		}
 
-        function erledigeAufgabeDirekt(event) {
-            /*Wird einer der erledigt-Links geklickt, dann wird sein Elternelement, das li, erledigt.*/
-            erledigeAufgabe(event.target.parentElement);
-        }
+		function erledigeAufgabeDirekt(event) {
+			/*Wird einer der erledigt-Links geklickt, dann wird sein Elternelement, das li, erledigt.*/
+			erledigeAufgabe(event.target.parentElement);
+		}
 
-        /*Diese Funktion macht die Drecksarbeit für alle anderen: sie ersetzt den Klassennamen "offen" durch "erledigt"
-        und streicht so die Aufgabe von der Liste.*/
-        function erledigeAufgabe(aufgabe) {
-            if (!aufgabe) throw "Parameter aufgabe wird benötigt";
-            if (aufgabe.classList) {
-                aufgabe.classList.remove("offen");
-                aufgabe.classList.add("erledigt");
-            } else {
-                aufgabe.className = "erledigt";
-            }
-        }
-    </script>
+		/*Diese Funktion macht die Drecksarbeit für alle anderen: sie ersetzt den Klassennamen "offen" durch "erledigt"
+		 und streicht so die Aufgabe von der Liste.*/
+		function erledigeAufgabe(aufgabe) {
+			if (!aufgabe) throw "Parameter aufgabe wird benötigt";
+			if (aufgabe.classList) {
+				aufgabe.classList.remove("offen");
+				aufgabe.classList.add("erledigt");
+			} else {
+				aufgabe.className = "erledigt";
+			}
+		}
+	</script>
 </head>
 
 <body>
 <h1>Aufgaben für den Zauberlehrling</h1>
 <ul id="aufgaben">
-    <li class="offen">Zauberbücher lesen <a>Erledigt</a></li>
-    <li class="offen">Tabellenzauber üben <a>Erledigt</a></li>
-    <li class="offen">Des Meisters Schuhe putzen <a>Erledigt</a></li>
-    <li class="offen">Wasser schleppen <a>Erledigt</a></li>
-    <li class="offen">Den Boden wischen <a>Erledigt</a></li>
-    <li class="offen">Kaffee kochen <a>Erledigt</a></li>
+	<li class="offen">Zauberbücher lesen <a>Erledigt</a></li>
+	<li class="offen">Tabellenzauber üben <a>Erledigt</a></li>
+	<li class="offen">Des Meisters Schuhe putzen <a>Erledigt</a></li>
+	<li class="offen">Wasser schleppen <a>Erledigt</a></li>
+	<li class="offen">Den Boden wischen <a>Erledigt</a></li>
+	<li class="offen">Kaffee kochen <a>Erledigt</a></li>
 </ul>
 <button type="button" id="erledigt">Erledigt</button>
 <button type="button" id="alles-erledigt">Alles erledigt!</button>

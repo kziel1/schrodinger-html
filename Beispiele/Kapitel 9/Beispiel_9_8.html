@@ -1,39 +1,39 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Animationen noch anders: Übergänge</title>
-    <style>
+	<meta charset="utf-8"/>
+	<title>Animationen noch anders: Übergänge</title>
+	<style>
 
-        div#hoverme {
-            width: 200px;
-            height: 200px;
-            position: absolute;
-            top: 20px;
-            margin: 15px;
-            border: 1px solid black;
-            background-color: red;
-            color: blue;
-            /*
-            Transitions sind eine andere Art von Animation. Alle CSS-Eigenschaften, die in transition-properties aufgezählt werden,
-            ändern ihren Wert nicht mehr plötzlich sondern langsam, über mehrere Sekunden.
-            */
-            transition-properties: background-color, color;
-            transition-duration: 5s;
-            -webkit-transition-properties: background-color, color;
-            -webkit-transition-duration: 5s;
+		div#hoverme {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 20px;
+			margin: 15px;
+			border: 1px solid black;
+			background-color: red;
+			color: blue;
+			/*
+			Transitions sind eine andere Art von Animation. Alle CSS-Eigenschaften, die in transition-properties aufgezählt werden,
+			ändern ihren Wert nicht mehr plötzlich sondern langsam, über mehrere Sekunden.
+			*/
+			transition-properties: background-color, color;
+			transition-duration: 5s;
+			-webkit-transition-properties: background-color, color;
+			-webkit-transition-duration: 5s;
 
-        }
+		}
 
-        /*
-        Eine einfache Art, CSS-Eigenschaften schon ohne JavaScript zu ändern, ist die :hover-Pseudoklasse.
-        Fährst du mit dem Mauszeiger über das div, ändert es langsam die Farbe
-        */
-        div#hoverme:hover {
-            background-color: blue;
-            color: red;
-        }
-    </style>
+		/*
+		Eine einfache Art, CSS-Eigenschaften schon ohne JavaScript zu ändern, ist die :hover-Pseudoklasse.
+		Fährst du mit dem Mauszeiger über das div, ändert es langsam die Farbe
+		*/
+		div#hoverme:hover {
+			background-color: blue;
+			color: red;
+		}
+	</style>
 </head>
 <body>
 

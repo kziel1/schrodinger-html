@@ -1,24 +1,24 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>USS Schrödinger - Sicherheit durch Startknopf</title>
-    <script>
-        window.addEventListener("load", setup);
-        function setup() {
-            document.getElementById("start").addEventListener("click", abflug);
-        }
+	<meta charset="utf-8"/>
+	<title>USS Schrödinger - Sicherheit durch Startknopf</title>
+	<script>
+		window.addEventListener("load", setup);
+		function setup() {
+			document.getElementById("start").addEventListener("click", abflug);
+		}
 
-        /*Allen Eventhandlern wird als erster Parameter ein Event-Objekt übergeben, dass mehr Informationen enthält, was überhaupt passiert ist. */
-        function abflug(event) {
-            /*Nur wenn die STRG-Taste gedrückt ist, startet das Schiff.*/
-            if (event.ctrlKey) {
-                alert("Konstruktion nicht abgeschlossen");
-            } else {
-                alert("Falscher Startcode! Das Sicherheitsteam ist auf dem Weg!");
-            }
-        }
-    </script>
+		/*Allen Eventhandlern wird als erster Parameter ein Event-Objekt übergeben, dass mehr Informationen enthält, was überhaupt passiert ist. */
+		function abflug(event) {
+			/*Nur wenn die STRG-Taste gedrückt ist, startet das Schiff.*/
+			if (event.ctrlKey) {
+				alert("Konstruktion nicht abgeschlossen");
+			} else {
+				alert("Falscher Startcode! Das Sicherheitsteam ist auf dem Weg!");
+			}
+		}
+	</script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
 <button type="button" id="start">Bis zur Unendlichkeit!</button>
 
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

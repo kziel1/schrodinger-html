@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Stapelfix fixe Stapelproduktsuche</title>
-    <meta charset="utf-8"/>
+	<title>Stapelfix fixe Stapelproduktsuche</title>
+	<meta charset="utf-8"/>
 </head>
 <body>
 <form action="http://localhost:8080/forms/stapelsuche.php" method="get">
-    <label for="term">Suchwort</label>
-    <input type="text" name="suchwort" id="term" placeholder="Wonach suchen sie?">
-    <br>
-    <!--Ein fieldset fasst mehrere Formularfelder zusammen. Vor allem optisch, mit einem tollen Rahmen. -->
-    <fieldset style="width: 300px;">
-        <legend>Kategorie</legend>
-        <label for="kategorie_kisten">Kisten</label>
-        <input type="radio" name="kategorie" value="kisten" id="kategorie_kisten">
-        <br>
-        <label for="kategorie_flaschen">Flaschen</label>
-        <input type="radio" name="kategorie" value="flaschen" id="kategorie_flaschen">
-        <br>
-        <label for="kategorie_sonstige">Sonstige</label>
-        <input type="radio" name="kategorie" value="sonstige" id="kategorie_sonstige">
-        <br>
-        <label for="kategorie_alle">Alle</label>
-        <input type="radio" name="kategorie" value="alle" id="kategorie_alle" checked>
-    </fieldset>
-    <br>
-    <label for="outofstock">Nicht vorrätige Produkte anzeigen?</label>
-    <input type="checkbox" name="outofstock" value="ja" id="outofstock">
-    <br>
-    <fieldset style="width: 300px;">
-        <legend>Format</legend>
-        <label for="format_tabelle">Tabelle</label>
-        <input type="radio" name="format" value="tabelle" id="format_tabelle" checked>
-    </fieldset>
-    <br>
-    <button>Suchen</button>
+	<label for="term">Suchwort</label>
+	<input type="text" name="suchwort" id="term" placeholder="Wonach suchen sie?">
+	<br>
+	<!--Ein fieldset fasst mehrere Formularfelder zusammen. Vor allem optisch, mit einem tollen Rahmen. -->
+	<fieldset style="width: 300px;">
+		<legend>Kategorie</legend>
+		<label for="kategorie_kisten">Kisten</label>
+		<input type="radio" name="kategorie" value="kisten" id="kategorie_kisten">
+		<br>
+		<label for="kategorie_flaschen">Flaschen</label>
+		<input type="radio" name="kategorie" value="flaschen" id="kategorie_flaschen">
+		<br>
+		<label for="kategorie_sonstige">Sonstige</label>
+		<input type="radio" name="kategorie" value="sonstige" id="kategorie_sonstige">
+		<br>
+		<label for="kategorie_alle">Alle</label>
+		<input type="radio" name="kategorie" value="alle" id="kategorie_alle" checked>
+	</fieldset>
+	<br>
+	<label for="outofstock">Nicht vorrätige Produkte anzeigen?</label>
+	<input type="checkbox" name="outofstock" value="ja" id="outofstock">
+	<br>
+	<fieldset style="width: 300px;">
+		<legend>Format</legend>
+		<label for="format_tabelle">Tabelle</label>
+		<input type="radio" name="format" value="tabelle" id="format_tabelle" checked>
+	</fieldset>
+	<br>
+	<button>Suchen</button>
 </form>
 </body>
 </html>

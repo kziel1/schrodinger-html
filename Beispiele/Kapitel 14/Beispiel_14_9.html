@@ -1,34 +1,34 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Hol den Hinkelstein. Lerne, den Hinkelstein zu holen.</title>
-    <script>
-        function Hund() {
-        }
-        /*idefix und pluto sind Hunde*/
-        var idefix = new Hund();
-        var pluto = new Hund();
-        /*Nur idefix lernt, einen Hinkelstein zu holen.*/
-        idefix.holDenHinkelstein = function () {
-            alert("Woof!");
-        };
-        idefix.holDenHinkelstein();
-        /*Pluto hat noch keine Ahnung, wie er Hinkelsteine holt. Die nächste Zeile würde zu einem Fehler führen. Versuch es ruhig.*/
-        //pluto.holDenHinkelstein(); //FEHLER
-        /*Aber auch "fertigen" Objekten kannst du neue Tricks beibringen: der Prototyp von Hund lernt von idefix,
-         Hinkelsteine zu apportieren.*/
-        Hund.prototype.holDenHinkelstein = idefix.holDenHinkelstein;
-        /*Und schon können es alle Hunde, selbst die, die erschaffen wurden, bevor der Prototyp die Methode hatte.*/
-        idefix.holDenHinkelstein();
-        pluto.holDenHinkelstein();
-    </script>
+	<meta charset="utf-8"/>
+	<title>Hol den Hinkelstein. Lerne, den Hinkelstein zu holen.</title>
+	<script>
+		function Hund() {
+		}
+		/*idefix und pluto sind Hunde*/
+		var idefix = new Hund();
+		var pluto = new Hund();
+		/*Nur idefix lernt, einen Hinkelstein zu holen.*/
+		idefix.holDenHinkelstein = function() {
+			alert("Woof!");
+		};
+		idefix.holDenHinkelstein();
+		/*Pluto hat noch keine Ahnung, wie er Hinkelsteine holt. Die nächste Zeile würde zu einem Fehler führen. Versuch es ruhig.*/
+		//pluto.holDenHinkelstein(); //FEHLER
+		/*Aber auch "fertigen" Objekten kannst du neue Tricks beibringen: der Prototyp von Hund lernt von idefix,
+		 Hinkelsteine zu apportieren.*/
+		Hund.prototype.holDenHinkelstein = idefix.holDenHinkelstein;
+		/*Und schon können es alle Hunde, selbst die, die erschaffen wurden, bevor der Prototyp die Methode hatte.*/
+		idefix.holDenHinkelstein();
+		pluto.holDenHinkelstein();
+	</script>
 </head>
 
 <body>
 <h1>Hol den Hinkelstein!</h1>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

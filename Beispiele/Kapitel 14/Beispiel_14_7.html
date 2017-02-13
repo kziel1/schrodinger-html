@@ -1,59 +1,59 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8"/>
-    <title>Tierisch gut vererbt</title>
+<head>
+	<meta charset="utf-8"/>
+	<title>Tierisch gut vererbt</title>
 	<script>
-        /*Das Tier steht an der Spitze der Vererbungskette. Alle Tiere können sich bewegen, deshalbt kommt die Methode
-         bewege in den Prototyp von Tier */
-		function Tier(name){
+		/*Das Tier steht an der Spitze der Vererbungskette. Alle Tiere können sich bewegen, deshalbt kommt die Methode
+		 bewege in den Prototyp von Tier */
+		function Tier(name) {
 			this.name = name;
 		}
 		Tier.prototype = {
-			bewege: function(){
-				alert(this.name +" rennt!");
+			bewege: function() {
+				alert(this.name + " rennt!");
 			}
 		};
 
-        /*Haustiere sind eine spezielle Art von Tier, deshalb erbt der Typ Haustier von Tier: dazu wird der Prototyp von
-        Haustier auf ein Tier gesetzt, und schon kann ein Haustier alles, was ein Tier kann.*/
-		function Haustier(name){
+		/*Haustiere sind eine spezielle Art von Tier, deshalb erbt der Typ Haustier von Tier: dazu wird der Prototyp von
+		 Haustier auf ein Tier gesetzt, und schon kann ein Haustier alles, was ein Tier kann.*/
+		function Haustier(name) {
 			this.name = name;
 		}
 		Haustier.prototype = new Tier();
-        /*Außerdem können alle Haustiere um Essen betteln. Es ist nervig, aber das unterscheidet sie von anderen Tieren.*/
-		Haustier.prototype.bettle = function(){
+		/*Außerdem können alle Haustiere um Essen betteln. Es ist nervig, aber das unterscheidet sie von anderen Tieren.*/
+		Haustier.prototype.bettle = function() {
 			alert("Gib " + this.name + " Futter! Los! Los! Los!");
 		};
-        /*Eine Katze ist ein spezielles Haustier, sie erbt also von Haustier.*/
-		function Katze(name){
+		/*Eine Katze ist ein spezielles Haustier, sie erbt also von Haustier.*/
+		function Katze(name) {
 			this.name = name;
 		}
 		Katze.prototype = new Haustier();
-        /*Katzen können, anders als andere Haustiere, miauen.*/
-		Katze.prototype.miau = function(){
+		/*Katzen können, anders als andere Haustiere, miauen.*/
+		Katze.prototype.miau = function() {
 			alert("'Miau' sagt " + this.name);
 		};
-        /*Auch ein Goldfisch ist ein Haustier, er kann alles was andere Haustiere können. Aber er kann nicht miauen, denn
-        er hat nichts mit der Katze zu tun. Katze und Goldfisch haben einen gemeinsamen Supertyp, aber mehr auch nicht.*/
-		function Goldfisch(name){
+		/*Auch ein Goldfisch ist ein Haustier, er kann alles was andere Haustiere können. Aber er kann nicht miauen, denn
+		 er hat nichts mit der Katze zu tun. Katze und Goldfisch haben einen gemeinsamen Supertyp, aber mehr auch nicht.*/
+		function Goldfisch(name) {
 			this.name = name;
 		}
 		Goldfisch.prototype = new Haustier();
-        /*Goldfische bewegen sich anders als andere Tiere, deshalb überschreiben sie die Methode bewege mit ihrer eigenen Version.*/
-		Goldfisch.prototype.bewege = function(){
-			alert(this.name +" schwimmt!");
+		/*Goldfische bewegen sich anders als andere Tiere, deshalb überschreiben sie die Methode bewege mit ihrer eigenen Version.*/
+		Goldfisch.prototype.bewege = function() {
+			alert(this.name + " schwimmt!");
 		};
 		var schroedingersFisch = new Goldfisch("Goldie");
 		schroedingersFisch.bewege();
 		schroedingersFisch.bettle();
 	</script>
-  </head>
-  
-  <body>
-	<h1>Miau?</h1>
-	<noscript>
-		JavaScript ist nicht aktiv!
-	</noscript>
-  </body>
+</head>
+
+<body>
+<h1>Miau?</h1>
+<noscript>
+	JavaScript ist nicht aktiv!
+</noscript>
+</body>
 </html>

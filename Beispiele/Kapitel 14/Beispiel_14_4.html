@@ -1,51 +1,51 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Formulare und Objekte - Formular füllen aus dem Objekt</title>
-    <script>
-        var schroedingersKatze = {
-            name: "Kleiner Stinker",
-            besitzer: "Schroedinger",
-            alter: 4,
-            gewicht: 4.5,
-            rasse: "Straßenmischung",
-            initFormular: function () {
-                /*Jetzt kann das Objekt selbst seine Daten ins Formular schreiben.*/
-                var felder = document.getElementsByTagName("input");
-                for (var i = 0; i < felder.length; i++) {
-                    felder[i].value = this[felder[i].name];
-                    /*Und noch besser: durch Eventlistener kann es auch auf Änderungen in den Feldern reagieren.
-                    Ganz wichtig dabei: bind, denn dadurch wird this richtig gesetzt, auch beim Eventhandling*/
-                    felder[i].addEventListener("blur", this.update.bind(this));
-                }
-            },
-            update: function (event) {
-                this[event.target.name] = event.target.value;
-                alert("Neuer Wert für " + event.target.name + ": " + event.target.value);
-            }
-        };
+	<title>Formulare und Objekte - Formular füllen aus dem Objekt</title>
+	<script>
+		var schroedingersKatze = {
+			name: "Kleiner Stinker",
+			besitzer: "Schroedinger",
+			alter: 4,
+			gewicht: 4.5,
+			rasse: "Straßenmischung",
+			initFormular: function() {
+				/*Jetzt kann das Objekt selbst seine Daten ins Formular schreiben.*/
+				var felder = document.getElementsByTagName("input");
+				for (var i = 0; i < felder.length; i++) {
+					felder[i].value = this[felder[i].name];
+					/*Und noch besser: durch Eventlistener kann es auch auf Änderungen in den Feldern reagieren.
+					 Ganz wichtig dabei: bind, denn dadurch wird this richtig gesetzt, auch beim Eventhandling*/
+					felder[i].addEventListener("blur", this.update.bind(this));
+				}
+			},
+			update: function(event) {
+				this[event.target.name] = event.target.value;
+				alert("Neuer Wert für " + event.target.name + ": " + event.target.value);
+			}
+		};
 
-        window.addEventListener("load", schroedingersKatze.initFormular.bind(schroedingersKatze));
-    </script>
-    <style>
-        label {
-            display: block;
-        }
-    </style>
+		window.addEventListener("load", schroedingersKatze.initFormular.bind(schroedingersKatze));
+	</script>
+	<style>
+		label {
+			display: block;
+		}
+	</style>
 </head>
 
 <body>
 <h1>Formulare und Objekte</h1>
 
 <form name="katze">
-    <label for="name">Name: </label><input id="name" name="name" value=""/><br/>
-    <label for="besitzer">Besitzer: </label><input id="besitzer" name="besitzer" value=""/><br/>
-    <label for="alter">Alter: </label><input id="alter" name="alter" value=""/><br/>
-    <label for="gewicht">Gewicht: </label><input id="gewicht" name="gewicht" value=""/><br/>
-    <label for="rasse">Rasse: </label><input id="rasse" name="rasse" value=""/><br/>
+	<label for="name">Name: </label><input id="name" name="name" value=""/><br/>
+	<label for="besitzer">Besitzer: </label><input id="besitzer" name="besitzer" value=""/><br/>
+	<label for="alter">Alter: </label><input id="alter" name="alter" value=""/><br/>
+	<label for="gewicht">Gewicht: </label><input id="gewicht" name="gewicht" value=""/><br/>
+	<label for="rasse">Rasse: </label><input id="rasse" name="rasse" value=""/><br/>
 </form>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

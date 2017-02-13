@@ -1,54 +1,54 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Kuchen backen - Fileauswahl, so richtig schön gemacht</title>
-    <script>
+	<title>Kuchen backen - Fileauswahl, so richtig schön gemacht</title>
+	<script>
 
-        window.addEventListener("load", init);
-        function init() {
-            document.getElementById("datei").addEventListener("change", waehleDatei);
-            /*Wird der Knopf geklickt, dann simuliert der Eventhandler einen Klick auf das unsichtbare Dateifeld:
-            die Dateiauswahl öffnet sich.*/
-            document.getElementById("dateiknopf").addEventListener("click", function () {
-                document.getElementById("datei").click();
-            });
-        }
+		window.addEventListener("load", init);
+		function init() {
+			document.getElementById("datei").addEventListener("change", waehleDatei);
+			/*Wird der Knopf geklickt, dann simuliert der Eventhandler einen Klick auf das unsichtbare Dateifeld:
+			 die Dateiauswahl öffnet sich.*/
+			document.getElementById("dateiknopf").addEventListener("click", function() {
+				document.getElementById("datei").click();
+			});
+		}
 
-        /*Hier passiert nicht viel neues, die ausgewählte Datei wird geladen.*/
-        function waehleDatei(event) {
-            if (event.target.files[0]) {
-                var leser = new FileReader();
-                leser.addEventListener("load", rezeptGeladen);
-                leser.addEventListener("error", zeigeLadefehler);
-                /*readAsText liest eine Datei als Text ein. Überraschung.*/
-                leser.readAsText(event.target.files[0], "UTF-8");
-            }
-        }
+		/*Hier passiert nicht viel neues, die ausgewählte Datei wird geladen.*/
+		function waehleDatei(event) {
+			if (event.target.files[0]) {
+				var leser = new FileReader();
+				leser.addEventListener("load", rezeptGeladen);
+				leser.addEventListener("error", zeigeLadefehler);
+				/*readAsText liest eine Datei als Text ein. Überraschung.*/
+				leser.readAsText(event.target.files[0], "UTF-8");
+			}
+		}
 
-        function zeigeLadefehler(event) {
-            alert("Konnte Datei nicht laden!");
-        }
+		function zeigeLadefehler(event) {
+			alert("Konnte Datei nicht laden!");
+		}
 
-        /*Ist die Datei vollständig geladen wird ihr Inhalt verarbeitet.*/
-        function rezeptGeladen(event) {
-            var body = document.getElementsByTagName("body")[0];
-            /*Der Dateiinhalt wird in Zeilen getrennt. \n steht für einen Zeilenumbruch*/
-            var zeilen = event.target.result.split("\n");
-            /*Die erste Zeile enthält den Namen des Rezepts und wird zur Überschrift*/
-            var title = document.createElement("h1");
-            title.appendChild(document.createTextNode(zeilen[0]));
-            body.appendChild(title);
-            var ausgabe = document.createElement("ul");
-            body.appendChild(ausgabe);
-            /*Alle weiteren Zeilen enthalten jeweils eine Anweisung des Rezepts*/
-            for (var i = 1; i < zeilen.length; i++) {
-                var li = document.createElement("li");
-                li.appendChild(document.createTextNode(zeilen[i]));
-                ausgabe.appendChild(li);
-            }
-        }
-    </script>
-<head>
+		/*Ist die Datei vollständig geladen wird ihr Inhalt verarbeitet.*/
+		function rezeptGeladen(event) {
+			var body = document.getElementsByTagName("body")[0];
+			/*Der Dateiinhalt wird in Zeilen getrennt. \n steht für einen Zeilenumbruch*/
+			var zeilen = event.target.result.split("\n");
+			/*Die erste Zeile enthält den Namen des Rezepts und wird zur Überschrift*/
+			var title = document.createElement("h1");
+			title.appendChild(document.createTextNode(zeilen[0]));
+			body.appendChild(title);
+			var ausgabe = document.createElement("ul");
+			body.appendChild(ausgabe);
+			/*Alle weiteren Zeilen enthalten jeweils eine Anweisung des Rezepts*/
+			for (var i = 1; i < zeilen.length; i++) {
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode(zeilen[i]));
+				ausgabe.appendChild(li);
+			}
+		}
+	</script>
+	<head>
 <body>
 <h1>Rezepte zu Webseiten</h1>
 

@@ -1,31 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Mausbewegung und Tastendruck</title>
-    <script>
-        function bewegt(event) {
-            /*Das Mausevent enthält Bildschirmkoordinaten*/
-            document.getElementById("screenX").innerHTML = event.screenX;
-            document.getElementById("screenY").innerHTML = event.screenY;
-            /*und Viewportkoordinaten*/
-            document.getElementById("clientX").innerHTML = event.clientX;
-            document.getElementById("clientY").innerHTML = event.clientY;
-        }
+	<meta charset="utf-8"/>
+	<title>Mausbewegung und Tastendruck</title>
+	<script>
+		function bewegt(event) {
+			/*Das Mausevent enthält Bildschirmkoordinaten*/
+			document.getElementById("screenX").innerHTML = event.screenX;
+			document.getElementById("screenY").innerHTML = event.screenY;
+			/*und Viewportkoordinaten*/
+			document.getElementById("clientX").innerHTML = event.clientX;
+			document.getElementById("clientY").innerHTML = event.clientY;
+		}
 
-        function taste(event) {
-            /*In Tastenevents findet sich ein Keycode.*/
-            document.getElementById("taste").innerHTML = event.keyCode;
-        }
+		function taste(event) {
+			/*In Tastenevents findet sich ein Keycode.*/
+			document.getElementById("taste").innerHTML = event.keyCode;
+		}
 
-        function setup() {
-            /*Das Event mousemove wird bei jeder Mausbewegung über dem Element, hier dem Fenster, gefeuert.*/
-            window.addEventListener("mousemove", bewegt);
-            /*keyup wird gefeuert, wenn du eine Taste auf der Tastatur loslässt.*/
-            window.addEventListener("keyup", taste);
-        }
-        window.addEventListener("load", setup);
-    </script>
+		function setup() {
+			/*Das Event mousemove wird bei jeder Mausbewegung über dem Element, hier dem Fenster, gefeuert.*/
+			window.addEventListener("mousemove", bewegt);
+			/*keyup wird gefeuert, wenn du eine Taste auf der Tastatur loslässt.*/
+			window.addEventListener("keyup", taste);
+		}
+		window.addEventListener("load", setup);
+	</script>
 </head>
 
 <body>
@@ -34,7 +34,7 @@ ScreenX: <span id="screenX">?</span> ScreenY: <span id="screenY">?</span><br/>
 ClientX: <span id="clientX">?</span> ClientY: <span id="clientY">?</span><br/>
 Letzte Taste: <span id="taste">?</span>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

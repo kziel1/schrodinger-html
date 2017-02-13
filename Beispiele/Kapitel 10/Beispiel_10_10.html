@@ -1,24 +1,24 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Schuhe berechnen mit Eingabe</title>
-    <script>
-        function zaehleSchuhe() {
-            /*Wenn du ein Eingabefeld mit getElementById gefunden hast, kannst du mit der value-Eigenschaft seinen Wert auslesen.*/
-            var regalboeden = document.getElementById("boeden").value;
-            var paareJeBoden = document.getElementById("paare-je-boden").value;
-            var paareNebenDemRegal = document.getElementById("neben-dem-regal").value;
-            /*Der Wert des Eingabefelds ist zunächst ein String (eine Zeichenkette), mit der Funktion parseInt wird wieder eine Zahl daraus*/
-            regalboeden = parseInt(regalboeden);
-            paareJeBoden = parseInt(paareJeBoden);
-            paareNebenDemRegal = parseInt(paareNebenDemRegal);
-            /*Und dann kannst du auch wieder damit rechnen.*/
-            var paare = paareNebenDemRegal + paareJeBoden * regalboeden;
-            var schuhe = paare * 2;
-            document.getElementById("ausgabe").innerHTML = schuhe;
-        }
-    </script>
+	<meta charset="utf-8"/>
+	<title>Schuhe berechnen mit Eingabe</title>
+	<script>
+		function zaehleSchuhe() {
+			/*Wenn du ein Eingabefeld mit getElementById gefunden hast, kannst du mit der value-Eigenschaft seinen Wert auslesen.*/
+			var regalboeden = document.getElementById("boeden").value;
+			var paareJeBoden = document.getElementById("paare-je-boden").value;
+			var paareNebenDemRegal = document.getElementById("neben-dem-regal").value;
+			/*Der Wert des Eingabefelds ist zunächst ein String (eine Zeichenkette), mit der Funktion parseInt wird wieder eine Zahl daraus*/
+			regalboeden = parseInt(regalboeden);
+			paareJeBoden = parseInt(paareJeBoden);
+			paareNebenDemRegal = parseInt(paareNebenDemRegal);
+			/*Und dann kannst du auch wieder damit rechnen.*/
+			var paare = paareNebenDemRegal + paareJeBoden * regalboeden;
+			var schuhe = paare * 2;
+			document.getElementById("ausgabe").innerHTML = schuhe;
+		}
+	</script>
 </head>
 <body>
 Regalböden: <input type="text" id="boeden" value="8"/><br/>
@@ -27,7 +27,7 @@ Neben dem Regal: <input type="text" id="neben-dem-regal" value="7"/><br/>
 Schrödingers Freundin hat <span id="ausgabe"></span> Schuhe. <br/>
 <button type="button" onclick="zaehleSchuhe();">Klick mich!</button>
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

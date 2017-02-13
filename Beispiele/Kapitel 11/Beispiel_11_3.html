@@ -1,30 +1,30 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Mehr von Funktionen: Durchschnitt berechnen die Zweite. </title>
-    <script>
-        function durchschnitt(zahlen) {
-            /*Mit einem Array als Parameter wird die Funktion vielseitiger: im Array kannst du beliebig viele Zahlen übergeben.*/
-            if (zahlen && zahlen.length > 0) {
-                var summe = 0;
-                /*Mit der for-Schleife werden alle Zahlen im Array aufaddiert*/
-                for (var i = 0; i < zahlen.length; i++) {
-                    summe += zahlen[i];
-                }
-                return summe / zahlen.length;
-            } else {
-                return 0;
-            }
-        }
-    </script>
+	<meta charset="utf-8"/>
+	<title>Mehr von Funktionen: Durchschnitt berechnen die Zweite. </title>
+	<script>
+		function durchschnitt(zahlen) {
+			/*Mit einem Array als Parameter wird die Funktion vielseitiger: im Array kannst du beliebig viele Zahlen übergeben.*/
+			if (zahlen && zahlen.length > 0) {
+				var summe = 0;
+				/*Mit der for-Schleife werden alle Zahlen im Array aufaddiert*/
+				for (var i = 0; i < zahlen.length; i++) {
+					summe += zahlen[i];
+				}
+				return summe / zahlen.length;
+			} else {
+				return 0;
+			}
+		}
+	</script>
 </head>
 
 <body>
 Durchschnitt von 7:
 <script>
-    /*Beim Funktionsaufruf werden die Zahlen in ein Array verpackt, dafür sind die eckigen Klammern da.*/
-    document.write(durchschnitt([7]));
+	/*Beim Funktionsaufruf werden die Zahlen in ein Array verpackt, dafür sind die eckigen Klammern da.*/
+	document.write(durchschnitt([7]));
 </script>
 <br/>
 Durchschnitt von 7, 11:
@@ -38,7 +38,7 @@ Durchschnitt von 7, 11, 3, 9:
 <br/>
 
 <noscript>
-    JavaScript ist nicht aktiv!
+	JavaScript ist nicht aktiv!
 </noscript>
 </body>
 </html>

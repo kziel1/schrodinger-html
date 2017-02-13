@@ -2,71 +2,72 @@
 <!--Mehrspaltige Layouts lassen sich mit float ganz einfach umsetzen: hier sind es vier Spalten, und nur ganz wenig CSS -->
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Float kann noch mehr: Floating Layout</title>
-    <style>
-        /*Alle Spalten sind 25% breit und floaten links. Mehr brauchst du schon nicht mehr, der Rest ist nur Farbe.*/
-        .column {
-            width: 25%;
-            float: left;
-            margin: 0;
-            border: none;
-        }
-        /*Der Footer soll natürlich unter allen Spalten stehen: ein clear und schon gehts.*/
-        .footer {
-            clear: both;
-        }
+	<meta charset="utf-8"/>
+	<title>Float kann noch mehr: Floating Layout</title>
+	<style>
+		/*Alle Spalten sind 25% breit und floaten links. Mehr brauchst du schon nicht mehr, der Rest ist nur Farbe.*/
+		.column {
+			width: 25%;
+			float: left;
+			margin: 0;
+			border: none;
+		}
 
-        /*Diese Spalte soll mindestens 200 Pixel breit sein, auch wenn das mehr als 25% sind. Dadurch kann es zu Scrollbalken am Fenster kommen.*/
-        #column1 {
-            background-color: #AAAAFF;
-            min-width: 200px;
-        }
+		/*Der Footer soll natürlich unter allen Spalten stehen: ein clear und schon gehts.*/
+		.footer {
+			clear: both;
+		}
 
-        /*Diese Spalte ist mindestens 100 Pixel breit, aber auch höchstens 200*/
-        #column2 {
-            background-color: #AAFFAA;
-            min-width: 100px;
-            max-width: 200px;
-        }
+		/*Diese Spalte soll mindestens 200 Pixel breit sein, auch wenn das mehr als 25% sind. Dadurch kann es zu Scrollbalken am Fenster kommen.*/
+		#column1 {
+			background-color: #AAAAFF;
+			min-width: 200px;
+		}
 
-        #column3 {
-            background-color: #FFAAAA;
-        }
+		/*Diese Spalte ist mindestens 100 Pixel breit, aber auch höchstens 200*/
+		#column2 {
+			background-color: #AAFFAA;
+			min-width: 100px;
+			max-width: 200px;
+		}
 
-        #column4 {
-            background-color: #FFAAFF;
-        }
+		#column3 {
+			background-color: #FFAAAA;
+		}
 
-    </style>
+		#column4 {
+			background-color: #FFAAFF;
+		}
+
+	</style>
 </head>
 <body>
 
 <div class="column" id="column1">Test</div>
 <div class="column" id="column2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel erat at felis
-    venenatis tempor pulvinar vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec vitae
-    scelerisque arcu. Ut varius, risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum sit
-    amet sapien. Vestibulum quis metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis ac.
-    Donec convallis ornare vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu
-    auctor in, viverra in ipsum. Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien.
-    Sed dictum, purus sit amet convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce
-    lacinia mauris sed urna dignissim congue.
+	venenatis tempor pulvinar vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec vitae
+	scelerisque arcu. Ut varius, risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum sit
+	amet sapien. Vestibulum quis metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis ac.
+	Donec convallis ornare vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu
+	auctor in, viverra in ipsum. Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien.
+	Sed dictum, purus sit amet convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce
+	lacinia mauris sed urna dignissim congue.
 </div>
 <div class="column" id="column3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel erat at felis
-    venenatis tempor pulvinar vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec vitae
-    scelerisque arcu. Ut varius, risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum sit
-    amet sapien. Vestibulum quis metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis ac.
-    Donec convallis ornare vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu
-    auctor in, viverra in ipsum. Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien.
-    Sed dictum, purus sit amet convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce
-    lacinia mauris sed urna dignissim congue.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel erat
-    at felis venenatis tempor pulvinar vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec
-    vitae scelerisque arcu. Ut varius, risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum
-    sit amet sapien. Vestibulum quis metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis
-    ac. Donec convallis ornare vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu
-    auctor in, viverra in ipsum. Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien.
-    Sed dictum, purus sit amet convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce
-    lacinia mauris sed urna dignissim congue.
+	venenatis tempor pulvinar vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec vitae
+	scelerisque arcu. Ut varius, risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum sit
+	amet sapien. Vestibulum quis metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis ac.
+	Donec convallis ornare vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu
+	auctor in, viverra in ipsum. Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien.
+	Sed dictum, purus sit amet convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce
+	lacinia mauris sed urna dignissim congue.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel erat
+	at felis venenatis tempor pulvinar vulputate nisl. Nam eget mollis metus. Integer malesuada auctor feugiat. Donec
+	vitae scelerisque arcu. Ut varius, risus venenatis rutrum tempor, tellus lacus blandit orci, ut dapibus nisl ipsum
+	sit amet sapien. Vestibulum quis metus at metus tempor rutrum. Cras cursus interdum sem, ut viverra velit convallis
+	ac. Donec convallis ornare vehicula. Aliquam accumsan convallis tellus in laoreet. Fusce massa sem, ullamcorper eu
+	auctor in, viverra in ipsum. Nulla rhoncus semper varius. Nunc eget felis ut justo viverra fringilla vel sed sapien.
+	Sed dictum, purus sit amet convallis fringilla, sem nibh egestas justo, eu porta leo risus eget lectus. Fusce
+	lacinia mauris sed urna dignissim congue.
 </div>
 <div class="column" id="column4">Test</div>
 <div class="footer">Footer</div>
