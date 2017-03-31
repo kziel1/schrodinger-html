@@ -1,0 +1,23 @@
+div {
+	margin: 20px;
+}
+
+.holder_default {
+	width:500px;
+	height:180px;
+	border: 10px dashed #ccc;
+}
+
+#holder.hover {
+	width:400px;
+	height:180px;
+	border: 10px dashed #0c0 !important;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.visible {
+	visibility: visible;
+}
