@@ -1,55 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="UTF-8">
 	<title>titel</title>
 	<link rel="stylesheet" href="style.css"/>
-	<script src="vue.js"></script>
-	<script src="index.js"></script>
+	<!--<script src="vue.js"></script>-->
+	<!--<script src="index.js"></script>-->
 </head>
 <body>
 
-<div id="holder" style="" id="holder" class="holder_default">
-	<img src="" id="image_droped" width="500" height="180" style="width:500px; height:180px; border: 10px dashed #7A97FC;" class=" hidden"/>
+<!--<div id="holder" style="" id="holder" class="holder_default">-->
+	<!--<img src="" id="image_droped" width="500" height="180" style="width:500px; height:180px; border: 10px dashed #7A97FC;" class=" hidden"/>-->
+<!--</div>-->
+
+<div>
+
 </div>
 
+<textarea></textarea>
+
+<div class="progress-trail-widget" data-bind="event: {drop: onFileDropEvent, dragenter: onFileDragEnterEvent, dragleave: onFileDragLeaveEvent, dragover: onFileDragEvent}">
+	<div class="content left" aria-hidden="true">
+		<!--ko if: requesterAvatar().initials === null -->
+		<img class="author-avatar big anon" data-bind="attr: {src: defaultOperatorPicture }" alt=""/>
+		<!--/ko-->
+		<!--ko if: requesterAvatar().image -->
+		<img class="author-avatar big" data-bind="attr: {src: imageDataPrefix + requesterAvatar().image}" alt=""/>
+		<!--/ko-->
+		<!--ko ifnot: !!requesterAvatar().image || requesterAvatar().initials === null -->
+		<div class="author-avatar big" data-bind="text: requesterAvatar().initials"></div>
+		<!--/ko-->
+	</div>
+	<div class="content center">
+		<div class="request-block">
+			<!--ko if: requesterAvatar().image -->
+			<img class="author-avatar mobile" data-bind="attr: {src: imageDataPrefix + requesterAvatar().image}" alt=""/>
+			<!--/ko-->
+			<!--ko ifnot: requesterAvatar().image -->
+			<div aria-hidden="true" class="author-avatar mobile" data-bind="text: requesterAvatar().initials"></div>
+			<!--/ko-->
+			<div class="request-info">
+				<h3 data-bind="html: requesterName"></h3>
+				<span class="request-date">
+					<span data-bind="text: nav.resource('ssd.request_board_detailview_registered')"></span>
+					<span data-bind="html: requestDate"></span>
+				</span>
+			</div>
+			<div role="article" class="screen-reader-friendly">
+				<!--ko foreach: requests -->
+				<div class="request" data-bind="html: memoText">
+					asdsad <br>
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+					asdsad
+					asd<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+					qw
+					e
+					ewq
+					ewqwqe
 
 
-<div id="app">
-	{{ message }}
+				</div>
+				<!--/ko-->
+			</div>
+			<div class="requests-container collapsed-text">
+				<div aria-hidden="true" data-bind="click: toggleCollapsible">
+					<!--ko foreach: requests -->
+					<div class="request" data-bind="html: memoText"></div>
+					<!--/ko-->
+				</div>
+				<button aria-hidden="true" class="collapsible-button expand" data-bind="click: toggleCollapsible, text: nav.resource('conversations.show_more')"></button>
+				<button aria-hidden="true" class="collapsible-button collapse" data-bind="click: toggleCollapsible, text: nav.resource('conversations.hide')"></button>
+			</div>
+		</div>
+
+		<div class="action-block">
+			<div class="action showall" data-bind="visible: hideActions">
+				<button class="collapsible-button show-actions" data-bind="click: showActions, text: showActionsButtonText"></button>
+			</div>
+			<!--ko foreach: actions -->
+			<div class="action action-flex-row" data-bind="css: {'action-hidden': $parent.hideActions() && hideable, 'self': isPerson}">
+				<div class="action-flex-row">
+					<div class="action-left" aria-hidden="true">
+						<!--ko if: $data.anonOperator || $data.avatar().initials === null -->
+						<img class="author-avatar anon" data-bind="attr: {src: $parent.defaultOperatorPicture }">
+						<!--/ko-->
+						<!--ko ifnot: $data.anonOperator || $data.avatar().initials === null -->
+						<!--ko if: $data.avatar().image -->
+						<img class="author-avatar" data-bind="attr: {src: $parent.imageDataPrefix + $data.avatar().image}" alt=""/>
+						<!--/ko-->
+						<!--ko ifnot: $data.avatar().image -->
+						<div class="author-avatar" data-bind="text: $data.avatar().initials"></div>
+						<!--/ko-->
+						<!--/ko-->
+					</div>
+					<div class="action-content">
+						<div class="action-flex-row">
+							<div class="author-name" data-bind="text: name"></div>
+							<div class="action-date" data-bind="text: date"></div>
+						</div>
+						<div class="action-memo-text collapsed-text grey0" data-bind="visible: memoText">
+							<div aria-hidden="true" data-bind="click: $parent.toggleCollapsible">
+								<div data-bind="html: memoText"></div>
+							</div>
+							<div role="article" class="screen-reader-friendly">
+								<div data-bind="html: memoText"></div>
+							</div>
+							<button aria-hidden="true" class="collapsible-button expand" data-bind="click: $parent.toggleCollapsible, text: $parent.nav.resource('conversations.show_more')"></button>
+							<button aria-hidden="true" class="collapsible-button collapse" data-bind="click: $parent.toggleCollapsible, text: $parent.nav.resource('conversations.hide')"></button>
+						</div>
+
+						<div class="action-memo-text action-attachment" data-bind="visible: downloadUrl">
+							<a data-bind="text: fileName, attr: { href: downloadUrl, 'aria-label': $parent.nav.resource('progresstrail.download_attachment') + ' ' + fileName }"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ko-->
+		</div>
+		<div class="reply-block" data-bind="visible: replyCanBeAdded">
+			<button class="ssdnav-mobile-submit attachment" data-bind="disable: sendingReply() || sendingAttachment(), click: triggerFileSelection"><img src="/icons/attachment/16" data-bind="attr: { alt: nav.resource('ssd.progress_trail.attachfile')}"/></button>
+			<label class="screen-reader-friendly" data-bind="text: nav.resource('ssd.progress_trail.placeholder')"></label>
+			<div class="reply-field">
+				<div class="ssdnav-error" data-bind="visible: error, text: nav.resource('errors.generic.title')"></div>
+				<div class="auto-resize-drag-overlay" data-bind="visible: showDragOverlay">
+					<span data-bind="text: nav.resource('mango.upload.droparea.text')"></span>
+				</div>
+				<textarea class="auto-resize" data-bind="textInput: addedReply, attr: { placeholder: nav.resource('ssd.progress_trail.placeholder')}, disable: sendingReply, event: {drop: onFileDropEvent, dragover: onFileDragEvent}" rows="1"></textarea>
+				<ul data-bind="visible: attachedFiles().length > 0">
+					<!-- ko foreach: attachedFiles -->
+					<li><span class="file-name-text" data-bind="text: name"></span><button class="" data-bind="click: $parent.removeAttachment, attr: { 'aria-label': $parent.nav.resource('action.email.attachments.delete_button_tooltip') + ' ' + name }">X</button></li>
+					<!-- /ko -->
+				</ul>
+			</div>
+			<div class="reply-button-bar">
+				<button class="ssd-button-wide attachment" data-bind="text: nav.resource('ssd.progress_trail.attachfile'), disable: sendingReply() || sendingAttachment(), click: triggerFileSelection"></button>
+				<button class="ssd-button-wide" data-bind="text: nav.resource('ssd.progress_trail.send'), click: submitReply, disable: (addedReply().length === 0 && attachedFiles().length === 0) || sendingReply() || sendingAttachment()"></button>
+			</div>
+			<button class="ssdnav-mobile-submit" data-bind="click: submitReply, disable: (addedReply().length === 0 && attachedFiles().length === 0) || sendingReply() || sendingAttachment()">
+				<img src="/icons/ssd.send_reply_mobile/32" data-bind="attr: { alt: nav.resource('ssd.progress_trail.send')}"/>
+			</button>
+		</div>
+		<div class="progresstrail-filelist">
+			<input type="file" id="progresstrail-upload" multiple data-bind="event: { change: onFileSelectedEvent }">
+		</div>
+	</div>
 </div>
-<div id="app-2">
-  <span v-bind:title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound title!
-  </span>
-</div>
-<div id="app-3">
-	<p v-if="seen">Now you see me</p>
-</div>
-<div id="app-4">
-	<ol>
-		<li v-for="todo in todos">
-			{{ todo.text }}
-		</li>
-	</ol>
-</div>
-<div id="app-5">
-	<p>{{ message }}</p>
-	<button v-on:click="reverseMessage">Reverse Message</button>
-</div>
-<div id="app-6">
-	<p>{{ message }}</p>
-	<input v-model="message">
-</div>
-<div id="app-7">
-	<ol>
-		<todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
-	</ol>
-</div>
-<div id="example">
-	<p>Original message: "{{ message }}"</p>
-	<p>Computed reversed message: "{{ reversedMessage }}"</p>
-	<p>Computed reversed message: "{{ reverseMessage() }}"</p>
-</div>
+
+<!--<div id="app">-->
+	<!--{{ message }}-->
+<!--</div>-->
+<!--<div id="app-2">-->
+  <!--<span v-bind:title="message">-->
+    <!--Hover your mouse over me for a few seconds to see my dynamically bound title!-->
+  <!--</span>-->
+<!--</div>-->
+<!--<div id="app-3">-->
+	<!--<p v-if="seen">Now you see me</p>-->
+<!--</div>-->
+<!--<div id="app-4">-->
+	<!--<ol>-->
+		<!--<li v-for="todo in todos">-->
+			<!--{{ todo.text }}-->
+		<!--</li>-->
+	<!--</ol>-->
+<!--</div>-->
+<!--<div id="app-5">-->
+	<!--<p>{{ message }}</p>-->
+	<!--<button v-on:click="reverseMessage">Reverse Message</button>-->
+<!--</div>-->
+<!--<div id="app-6">-->
+	<!--<p>{{ message }}</p>-->
+	<!--<input v-model="message">-->
+<!--</div>-->
+<!--<div id="app-7">-->
+	<!--<ol>-->
+		<!--<todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>-->
+	<!--</ol>-->
+<!--</div>-->
+<!--<div id="example">-->
+	<!--<p>Original message: "{{ message }}"</p>-->
+	<!--<p>Computed reversed message: "{{ reversedMessage }}"</p>-->
+	<!--<p>Computed reversed message: "{{ reverseMessage() }}"</p>-->
+<!--</div>-->
 </body>
 </html>
